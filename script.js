@@ -1,0 +1,287 @@
+const subcategoryMap = {
+    'All objects': ['All'],
+    'New Products': ['All', 'T-Shirts', 'Hoodies', 'Accessories'],
+    'T-Shirts': ['All', 'Classic Crew', 'Oversized', 'Baby Tee & Crop', 'Polo & V-Neck', 'Supima & Stretch', 'Acid Wash & Tie Dye'],
+    'Hoodies & Jackets': ['All', 'Pullover Hoodies', 'Zip Hoodies', 'Sweatshirts', 'Bomber Jackets', 'Varsity Jackets'],
+    'AOP Apparel': ['All', 'AOP T-Shirts', 'AOP Tops & Dresses', 'AOP Bottoms', 'AOP Jackets & Sweats'],
+    'Bottomwear': ['All', 'Sweatpants & Joggers', 'Shorts', 'Skirts', 'Leggings'],
+    'Kids Clothing': ['All', 'Boys T-Shirts', 'Girls T-Shirts', 'Hoodies & Sweats', 'Rompers', 'Sports Gear'],
+    'Headwear': ['All', 'Caps & Hats', 'Balaclavas & Bandanas', 'Headbands'],
+    'Drinkware': ['All', 'Coffee Mugs', 'Enamel Mugs', 'Water Bottles', 'Tumblers'],
+    'Accessories': ['All', 'Phone Cases & Grips', 'Jewelry & Pendants', 'Keychains & Badges', 'Scrunchies & Sleeves', 'Stationery & Patches'],
+    'Home & Living': ['All', 'Posters & Frames', 'Coasters & Magnets', 'Cushions & Pillows', 'Table & Kitchen'],
+    'Pet-Wear': ['All', 'Dog T-Shirts', 'Pet Tags'],
+    'Bags': ['All', 'Tote Bags', 'Drawstring Bags', 'Pouches']
+};
+
+const products = [
+  { id: '1', sizes: ['S', 'M', 'L', 'XL'], tone: 'bone', art: 'tee-art', description: 'Premium T-Shirts in New Products.', name: 'T-Shirts Item', category: 'New Products', subcategory: 'T-Shirts', price: 1509, img: 'tshirt_white.png' },
+  { id: '2', sizes: ['S', 'M', 'L', 'XL'], tone: 'moss', art: 'tee-art', description: 'Premium Hoodies in New Products.', name: 'Hoodies Item', category: 'New Products', subcategory: 'Hoodies', price: 1519, img: 'tshirt_olive.png' },
+  { id: '3', sizes: ['S', 'M', 'L', 'XL'], tone: 'rust', art: 'tee-art', description: 'Premium Accessories in New Products.', name: 'Accessories Item', category: 'New Products', subcategory: 'Accessories', price: 1529, img: 'tshirt_beige.png' },
+  { id: '4', sizes: ['S', 'M', 'L', 'XL'], tone: 'ink', art: 'tee-art', description: 'Premium Classic Crew in T-Shirts.', name: 'Classic Crew Item', category: 'T-Shirts', subcategory: 'Classic Crew', price: 1539, img: 'tshirt_black.png' },
+  { id: '5', sizes: ['S', 'M', 'L', 'XL'], tone: 'bone', art: 'tee-art', description: 'Premium Oversized in T-Shirts.', name: 'Oversized Item', category: 'T-Shirts', subcategory: 'Oversized', price: 1549, img: 'tshirt_white.png' },
+  { id: '6', sizes: ['S', 'M', 'L', 'XL'], tone: 'moss', art: 'tee-art', description: 'Premium Baby Tee & Crop in T-Shirts.', name: 'Baby Tee & Crop Item', category: 'T-Shirts', subcategory: 'Baby Tee & Crop', price: 1559, img: 'tshirt_olive.png' },
+  { id: '7', sizes: ['S', 'M', 'L', 'XL'], tone: 'rust', art: 'tee-art', description: 'Premium Polo & V-Neck in T-Shirts.', name: 'Polo & V-Neck Item', category: 'T-Shirts', subcategory: 'Polo & V-Neck', price: 1569, img: 'tshirt_beige.png' },
+  { id: '8', sizes: ['S', 'M', 'L', 'XL'], tone: 'ink', art: 'tee-art', description: 'Premium Supima & Stretch in T-Shirts.', name: 'Supima & Stretch Item', category: 'T-Shirts', subcategory: 'Supima & Stretch', price: 1579, img: 'tshirt_black.png' },
+  { id: '9', sizes: ['S', 'M', 'L', 'XL'], tone: 'bone', art: 'tee-art', description: 'Premium Acid Wash & Tie Dye in T-Shirts.', name: 'Acid Wash & Tie Dye Item', category: 'T-Shirts', subcategory: 'Acid Wash & Tie Dye', price: 1589, img: 'tshirt_white.png' },
+  { id: '10', sizes: ['S', 'M', 'L', 'XL'], tone: 'moss', art: 'tee-art', description: 'Premium Pullover Hoodies in Hoodies & Jackets.', name: 'Pullover Hoodies Item', category: 'Hoodies & Jackets', subcategory: 'Pullover Hoodies', price: 1599, img: 'tshirt_olive.png' },
+  { id: '11', sizes: ['S', 'M', 'L', 'XL'], tone: 'rust', art: 'tee-art', description: 'Premium Zip Hoodies in Hoodies & Jackets.', name: 'Zip Hoodies Item', category: 'Hoodies & Jackets', subcategory: 'Zip Hoodies', price: 1609, img: 'tshirt_beige.png' },
+  { id: '12', sizes: ['S', 'M', 'L', 'XL'], tone: 'ink', art: 'tee-art', description: 'Premium Sweatshirts in Hoodies & Jackets.', name: 'Sweatshirts Item', category: 'Hoodies & Jackets', subcategory: 'Sweatshirts', price: 1619, img: 'tshirt_black.png' },
+  { id: '13', sizes: ['S', 'M', 'L', 'XL'], tone: 'bone', art: 'tee-art', description: 'Premium Bomber Jackets in Hoodies & Jackets.', name: 'Bomber Jackets Item', category: 'Hoodies & Jackets', subcategory: 'Bomber Jackets', price: 1629, img: 'tshirt_white.png' },
+  { id: '14', sizes: ['S', 'M', 'L', 'XL'], tone: 'moss', art: 'tee-art', description: 'Premium Varsity Jackets in Hoodies & Jackets.', name: 'Varsity Jackets Item', category: 'Hoodies & Jackets', subcategory: 'Varsity Jackets', price: 1639, img: 'tshirt_olive.png' },
+  { id: '15', sizes: ['S', 'M', 'L', 'XL'], tone: 'rust', art: 'tee-art', description: 'Premium AOP T-Shirts in AOP Apparel.', name: 'AOP T-Shirts Item', category: 'AOP Apparel', subcategory: 'AOP T-Shirts', price: 1649, img: 'tshirt_beige.png' },
+  { id: '16', sizes: ['S', 'M', 'L', 'XL'], tone: 'ink', art: 'tee-art', description: 'Premium AOP Tops & Dresses in AOP Apparel.', name: 'AOP Tops & Dresses Item', category: 'AOP Apparel', subcategory: 'AOP Tops & Dresses', price: 1659, img: 'tshirt_black.png' },
+  { id: '17', sizes: ['S', 'M', 'L', 'XL'], tone: 'bone', art: 'tee-art', description: 'Premium AOP Bottoms in AOP Apparel.', name: 'AOP Bottoms Item', category: 'AOP Apparel', subcategory: 'AOP Bottoms', price: 1669, img: 'tshirt_white.png' },
+  { id: '18', sizes: ['S', 'M', 'L', 'XL'], tone: 'moss', art: 'tee-art', description: 'Premium AOP Jackets & Sweats in AOP Apparel.', name: 'AOP Jackets & Sweats Item', category: 'AOP Apparel', subcategory: 'AOP Jackets & Sweats', price: 1679, img: 'tshirt_olive.png' },
+  { id: '19', sizes: ['S', 'M', 'L', 'XL'], tone: 'rust', art: 'tee-art', description: 'Premium Sweatpants & Joggers in Bottomwear.', name: 'Sweatpants & Joggers Item', category: 'Bottomwear', subcategory: 'Sweatpants & Joggers', price: 1689, img: 'tshirt_beige.png' },
+  { id: '20', sizes: ['S', 'M', 'L', 'XL'], tone: 'ink', art: 'tee-art', description: 'Premium Shorts in Bottomwear.', name: 'Shorts Item', category: 'Bottomwear', subcategory: 'Shorts', price: 1699, img: 'tshirt_black.png' },
+  { id: '21', sizes: ['S', 'M', 'L', 'XL'], tone: 'bone', art: 'tee-art', description: 'Premium Skirts in Bottomwear.', name: 'Skirts Item', category: 'Bottomwear', subcategory: 'Skirts', price: 1709, img: 'tshirt_white.png' },
+  { id: '22', sizes: ['S', 'M', 'L', 'XL'], tone: 'moss', art: 'tee-art', description: 'Premium Leggings in Bottomwear.', name: 'Leggings Item', category: 'Bottomwear', subcategory: 'Leggings', price: 1719, img: 'tshirt_olive.png' },
+  { id: '23', sizes: ['S', 'M', 'L', 'XL'], tone: 'rust', art: 'tee-art', description: 'Premium Boys T-Shirts in Kids Clothing.', name: 'Boys T-Shirts Item', category: 'Kids Clothing', subcategory: 'Boys T-Shirts', price: 1729, img: 'tshirt_beige.png' },
+  { id: '24', sizes: ['S', 'M', 'L', 'XL'], tone: 'ink', art: 'tee-art', description: 'Premium Girls T-Shirts in Kids Clothing.', name: 'Girls T-Shirts Item', category: 'Kids Clothing', subcategory: 'Girls T-Shirts', price: 1739, img: 'tshirt_black.png' },
+  { id: '25', sizes: ['S', 'M', 'L', 'XL'], tone: 'bone', art: 'tee-art', description: 'Premium Hoodies & Sweats in Kids Clothing.', name: 'Hoodies & Sweats Item', category: 'Kids Clothing', subcategory: 'Hoodies & Sweats', price: 1749, img: 'tshirt_white.png' },
+  { id: '26', sizes: ['S', 'M', 'L', 'XL'], tone: 'moss', art: 'tee-art', description: 'Premium Rompers in Kids Clothing.', name: 'Rompers Item', category: 'Kids Clothing', subcategory: 'Rompers', price: 1759, img: 'tshirt_olive.png' },
+  { id: '27', sizes: ['S', 'M', 'L', 'XL'], tone: 'rust', art: 'tee-art', description: 'Premium Sports Gear in Kids Clothing.', name: 'Sports Gear Item', category: 'Kids Clothing', subcategory: 'Sports Gear', price: 1769, img: 'tshirt_beige.png' },
+  { id: '28', sizes: ['S', 'M', 'L', 'XL'], tone: 'ink', art: 'tee-art', description: 'Premium Caps & Hats in Headwear.', name: 'Caps & Hats Item', category: 'Headwear', subcategory: 'Caps & Hats', price: 1779, img: 'tshirt_black.png' },
+  { id: '29', sizes: ['S', 'M', 'L', 'XL'], tone: 'bone', art: 'tee-art', description: 'Premium Balaclavas & Bandanas in Headwear.', name: 'Balaclavas & Bandanas Item', category: 'Headwear', subcategory: 'Balaclavas & Bandanas', price: 1789, img: 'tshirt_white.png' },
+  { id: '30', sizes: ['S', 'M', 'L', 'XL'], tone: 'moss', art: 'tee-art', description: 'Premium Headbands in Headwear.', name: 'Headbands Item', category: 'Headwear', subcategory: 'Headbands', price: 1799, img: 'tshirt_olive.png' },
+  { id: '31', sizes: ['S', 'M', 'L', 'XL'], tone: 'rust', art: 'tee-art', description: 'Premium Coffee Mugs in Drinkware.', name: 'Coffee Mugs Item', category: 'Drinkware', subcategory: 'Coffee Mugs', price: 1809, img: 'tshirt_beige.png' },
+  { id: '32', sizes: ['S', 'M', 'L', 'XL'], tone: 'ink', art: 'tee-art', description: 'Premium Enamel Mugs in Drinkware.', name: 'Enamel Mugs Item', category: 'Drinkware', subcategory: 'Enamel Mugs', price: 1819, img: 'tshirt_black.png' },
+  { id: '33', sizes: ['S', 'M', 'L', 'XL'], tone: 'bone', art: 'tee-art', description: 'Premium Water Bottles in Drinkware.', name: 'Water Bottles Item', category: 'Drinkware', subcategory: 'Water Bottles', price: 1829, img: 'tshirt_white.png' },
+  { id: '34', sizes: ['S', 'M', 'L', 'XL'], tone: 'moss', art: 'tee-art', description: 'Premium Tumblers in Drinkware.', name: 'Tumblers Item', category: 'Drinkware', subcategory: 'Tumblers', price: 1839, img: 'tshirt_olive.png' },
+  { id: '35', sizes: ['S', 'M', 'L', 'XL'], tone: 'rust', art: 'tee-art', description: 'Premium Phone Cases & Grips in Accessories.', name: 'Phone Cases & Grips Item', category: 'Accessories', subcategory: 'Phone Cases & Grips', price: 1849, img: 'tshirt_beige.png' },
+  { id: '36', sizes: ['S', 'M', 'L', 'XL'], tone: 'ink', art: 'tee-art', description: 'Premium Jewelry & Pendants in Accessories.', name: 'Jewelry & Pendants Item', category: 'Accessories', subcategory: 'Jewelry & Pendants', price: 1859, img: 'tshirt_black.png' },
+  { id: '37', sizes: ['S', 'M', 'L', 'XL'], tone: 'bone', art: 'tee-art', description: 'Premium Keychains & Badges in Accessories.', name: 'Keychains & Badges Item', category: 'Accessories', subcategory: 'Keychains & Badges', price: 1869, img: 'tshirt_white.png' },
+  { id: '38', sizes: ['S', 'M', 'L', 'XL'], tone: 'moss', art: 'tee-art', description: 'Premium Scrunchies & Sleeves in Accessories.', name: 'Scrunchies & Sleeves Item', category: 'Accessories', subcategory: 'Scrunchies & Sleeves', price: 1879, img: 'tshirt_olive.png' },
+  { id: '39', sizes: ['S', 'M', 'L', 'XL'], tone: 'rust', art: 'tee-art', description: 'Premium Stationery & Patches in Accessories.', name: 'Stationery & Patches Item', category: 'Accessories', subcategory: 'Stationery & Patches', price: 1889, img: 'tshirt_beige.png' },
+  { id: '40', sizes: ['S', 'M', 'L', 'XL'], tone: 'ink', art: 'tee-art', description: 'Premium Posters & Frames in Home & Living.', name: 'Posters & Frames Item', category: 'Home & Living', subcategory: 'Posters & Frames', price: 1899, img: 'tshirt_black.png' },
+  { id: '41', sizes: ['S', 'M', 'L', 'XL'], tone: 'bone', art: 'tee-art', description: 'Premium Coasters & Magnets in Home & Living.', name: 'Coasters & Magnets Item', category: 'Home & Living', subcategory: 'Coasters & Magnets', price: 1909, img: 'tshirt_white.png' },
+  { id: '42', sizes: ['S', 'M', 'L', 'XL'], tone: 'moss', art: 'tee-art', description: 'Premium Cushions & Pillows in Home & Living.', name: 'Cushions & Pillows Item', category: 'Home & Living', subcategory: 'Cushions & Pillows', price: 1919, img: 'tshirt_olive.png' },
+  { id: '43', sizes: ['S', 'M', 'L', 'XL'], tone: 'rust', art: 'tee-art', description: 'Premium Table & Kitchen in Home & Living.', name: 'Table & Kitchen Item', category: 'Home & Living', subcategory: 'Table & Kitchen', price: 1929, img: 'tshirt_beige.png' },
+  { id: '44', sizes: ['S', 'M', 'L', 'XL'], tone: 'ink', art: 'tee-art', description: 'Premium Dog T-Shirts in Pet-Wear.', name: 'Dog T-Shirts Item', category: 'Pet-Wear', subcategory: 'Dog T-Shirts', price: 1939, img: 'tshirt_black.png' },
+  { id: '45', sizes: ['S', 'M', 'L', 'XL'], tone: 'bone', art: 'tee-art', description: 'Premium Pet Tags in Pet-Wear.', name: 'Pet Tags Item', category: 'Pet-Wear', subcategory: 'Pet Tags', price: 1949, img: 'tshirt_white.png' },
+  { id: '46', sizes: ['S', 'M', 'L', 'XL'], tone: 'moss', art: 'tee-art', description: 'Premium Tote Bags in Bags.', name: 'Tote Bags Item', category: 'Bags', subcategory: 'Tote Bags', price: 1959, img: 'tshirt_olive.png' },
+  { id: '47', sizes: ['S', 'M', 'L', 'XL'], tone: 'rust', art: 'tee-art', description: 'Premium Drawstring Bags in Bags.', name: 'Drawstring Bags Item', category: 'Bags', subcategory: 'Drawstring Bags', price: 1969, img: 'tshirt_beige.png' },
+  { id: '48', sizes: ['S', 'M', 'L', 'XL'], tone: 'ink', art: 'tee-art', description: 'Premium Pouches in Bags.', name: 'Pouches Item', category: 'Bags', subcategory: 'Pouches', price: 1979, img: 'tshirt_black.png' }
+];
+
+const categories = ['All objects', 'New Products', 'T-Shirts', 'Hoodies & Jackets', 'AOP Apparel', 'Bottomwear', 'Kids Clothing', 'Headwear', 'Drinkware', 'Accessories', 'Home & Living', 'Pet-Wear', 'Bags'];
+const filename = window.location.pathname.split('/').pop();
+let initialCategory = 'All objects';
+const mapping = {
+    'apparel.html': 'Apparel',
+    'living.html': 'Home & Living',
+    'men.html': 'Men',
+    'women.html': 'Women',
+    'men-upperwear.html': 'Men Upper Wear',
+    'men-bottomwear.html': 'Men Bottomwear',
+    'women-upperwear.html': 'Women Upper Wear',
+    'women-bottomwear.html': 'Women Bottomwear',
+    'new-products.html': 'New Products',
+    't-shirts.html': 'T-Shirts',
+    'hoodies-jackets.html': 'Hoodies & Jackets',
+    'aop-apparel.html': 'AOP Apparel',
+    'bottomwear.html': 'Bottomwear',
+    'kids-clothing.html': 'Kids Clothing',
+    'headwear.html': 'Headwear',
+    'drinkware.html': 'Drinkware',
+    'accessories.html': 'Accessories',
+    'home-living.html': 'Home & Living',
+    'pet-wear.html': 'Pet-Wear',
+    'bags.html': 'Bags'
+};
+if (mapping[filename]) { initialCategory = mapping[filename]; }
+const urlParams = new URLSearchParams(window.location.search);
+const initialSubcategory = urlParams.get('filter') || 'All';
+const state = { category: initialCategory, subcategory: initialSubcategory, query: '',
+  sortBy: 'default', cart: JSON.parse(localStorage.getItem('asterra-cart') || '[]') };
+const $ = (selector) => document.querySelector(selector);
+const money = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 });
+const productGrid = $('[data-products]');
+const cartDrawer = $('[data-drawer]');
+const overlay = $('[data-overlay]');
+const dialog = $('[data-product-dialog]');
+let activeProduct;
+let toastTimer;
+
+function showToast(message) { const toast = $('[data-toast]'); toast.textContent = message; toast.classList.add('is-visible'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2800); }
+function visibleProducts() { 
+  let filtered = products.filter((product) => {
+    const categoryMatch = state.category === 'All objects' || product.category === state.category;
+    const subcategoryMatch = state.subcategory === 'All' || product.subcategory === state.subcategory;
+    const queryMatch = product.name.toLowerCase().includes(state.query.toLowerCase());
+    return categoryMatch && subcategoryMatch && queryMatch;
+  });
+  if (state.sortBy === 'price-low') {
+    filtered.sort((a, b) => a.price - b.price);
+  } else if (state.sortBy === 'price-high') {
+    filtered.sort((a, b) => b.price - a.price);
+  } else if (state.sortBy === 'newest') {
+    filtered.sort((a, b) => parseInt(b.id) - parseInt(a.id));
+  }
+  return filtered;
+}
+function productCard(product) { 
+  const origPrice = product.price + 300;
+  return `<article class="product">
+    <div class="product-image-container" data-view="${product.id}" style="cursor: pointer; position: relative; overflow: hidden; padding-top: 125%; background: #f7f7f7;">
+      <div class="heart-icon" style="position: absolute; top: 10px; right: 10px; z-index: 2; color: #111; font-size: 1.2rem;">&#9825;</div>
+      <img src="${product.img || 'tshirt_black.png'}" alt="${product.name}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+    </div>
+    <div class="product-meta" style="text-align: center;">
+      <p class="category-label">${product.category}</p>
+      <h3>${product.name}</h3>
+      <div class="price-row" style="margin-bottom: 1rem; display: flex; justify-content: center; align-items: center;">
+        <span class="current-price">${money.format(product.price)}</span>
+        <span class="original-price" style="text-decoration: line-through; color: #999; margin-left: 0.5rem;"><del>${money.format(origPrice)}</del></span>
+      </div>
+      <button class="add-button full-width-add" type="button" data-view="${product.id}" aria-label="Add ${product.name} to bag">
+        ADD TO BAG
+      </button>
+    </div>
+  </article>`; 
+}
+function renderFilters() {
+  const filtersEl = document.querySelector('[data-filters]');
+  if (filtersEl) {
+    const subs = subcategoryMap[state.category] || ['All'];
+    filtersEl.innerHTML = subs.map((sub, index) => {
+      const isActive = state.subcategory === sub ? 'is-active' : '';
+      
+      let imgUrl = 'tshirt_black.png';
+      if (index === 1) imgUrl = 'tshirt_white.png';
+      if (index === 2) imgUrl = 'tshirt_olive.png';
+      if (index === 3) imgUrl = 'tshirt_beige.png';
+      
+      const innerContent = sub === 'All' 
+        ? `<span class="inner-text">ALL</span>` 
+        : `<div class="inner-image" style="background-image: url('${imgUrl}'); background-size: cover; background-position: center;"></div>`;
+        
+      return `<button type="button" data-subfilter="${sub}" class="circular-filter ${isActive}">
+        <div class="circle-icon ${sub === 'All' ? 'bg-solid-green' : 'bg-gray'}">
+          ${innerContent}
+        </div>
+        <span class="outer-text">${sub}</span>
+      </button>`;
+    }).join('');
+  }
+  
+  const titleEl = document.querySelector('[data-dynamic-title]');
+  if (titleEl) {
+    titleEl.textContent = (state.category === 'All objects' ? 'ALL PRODUCTS' : state.category).toUpperCase();
+  }
+  const modelEl = document.querySelector('[data-dynamic-model]');
+  if (modelEl) {
+    const currentView = state.subcategory === 'All' ? (state.category === 'All objects' ? 'Our Collection' : state.category) : state.subcategory;
+    modelEl.textContent = 'Explore ' + currentView;
+  }
+}
+function renderProducts() { if (!productGrid) return; const result = visibleProducts(); productGrid.innerHTML = result.map(productCard).join(''); $('[data-results]').textContent = `${result.length} object${result.length === 1 ? '' : 's'} in view`; $('[data-empty]').hidden = result.length > 0; }
+function saveCart() { localStorage.setItem('asterra-cart', JSON.stringify(state.cart)); }
+function updateBagCount() { const total = state.cart.reduce((sum, item) => sum + item.quantity, 0); $('[data-bag-count]').textContent = String(total).padStart(2, '0'); $('[data-bag]').setAttribute('aria-label', `Shopping bag, ${total} item${total === 1 ? '' : 's'}`); }
+function renderCart() { const items = state.cart.map((item) => ({ ...item, product: products.find((product) => product.id === item.id) })).filter((item) => item.product); const subtotal = items.reduce((sum, item) => sum + item.product.price * item.quantity, 0); $('[data-cart-items]').innerHTML = items.map(({ product, quantity, size }) => `<div class="cart-item"><div class="cart-mini product-${product.tone} ${product.art}"><span></span></div><div><p>${product.category}</p><strong>${product.name}</strong><small>${size}</small><div class="quantity"><button type="button" data-quantity="${product.id}" data-delta="-1" aria-label="Remove one ${product.name}">&#8722;</button><span>${quantity}</span><button type="button" data-quantity="${product.id}" data-delta="1" aria-label="Add one ${product.name}">+</button></div></div><b>${money.format(product.price * quantity)}</b></div>`).join(''); $('[data-cart-subtotal]').textContent = money.format(subtotal); $('[data-cart-empty]').hidden = items.length > 0; $('[data-cart-footer]').hidden = items.length === 0; updateBagCount(); saveCart(); }
+function addToCart(id, size = 'One size') { const item = state.cart.find((cartItem) => cartItem.id === id && cartItem.size === size); if (item) item.quantity += 1; else state.cart.push({ id, size, quantity: 1 }); renderCart(); showToast(`${products.find((product) => product.id === id).name} added to bag`); }
+function openDrawer() { cartDrawer.classList.add('is-open'); overlay.classList.add('is-open'); cartDrawer.setAttribute('aria-hidden', 'false'); }
+function closeDrawer() { cartDrawer.classList.remove('is-open'); overlay.classList.remove('is-open'); cartDrawer.setAttribute('aria-hidden', 'true'); }
+function openFilterDrawer() { const fd = document.querySelector('[data-filter-drawer]'); if(fd) { fd.classList.add('is-open'); overlay.classList.add('is-open'); fd.setAttribute('aria-hidden', 'false'); } }
+function closeFilterDrawer() { const fd = document.querySelector('[data-filter-drawer]'); if(fd) { fd.classList.remove('is-open'); overlay.classList.remove('is-open'); fd.setAttribute('aria-hidden', 'true'); } }
+function openProduct(id) { activeProduct = products.find((product) => product.id === id); $('[data-dialog-art]').className = `dialog-art product-${activeProduct.tone} ${activeProduct.art}`; $('[data-dialog-art]').innerHTML = '<span></span>'; $('[data-dialog-category]').textContent = activeProduct.category; $('[data-dialog-title]').textContent = activeProduct.name; $('[data-dialog-description]').textContent = activeProduct.description; $('[data-dialog-price]').textContent = money.format(activeProduct.price); $('[data-dialog-size]').innerHTML = activeProduct.sizes.map((size) => `<option>${size}</option>`).join(''); const addBtn = document.getElementById('dialog-add-to-bag'); if (addBtn) addBtn.dataset.add = id; dialog.showModal(); }
+
+// Handles main category clicks from menu/header
+function setCategory(category) { 
+  const target = mapping[category] || 'products.html';
+  if (window.location.pathname.endsWith(target)) {
+    state.category = category; 
+    state.subcategory = 'All'; // Reset subcategory when changing main category
+    state.query = ''; 
+    const searchEl = document.querySelector('[data-search]'); if (searchEl) searchEl.value = ''; 
+    renderFilters(); renderProducts(); 
+    const nav = document.querySelector('.nav');
+    if (nav) nav.classList.remove('is-open'); 
+    const menuBtn = document.querySelector('[data-menu]');
+    if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+    if (document.querySelector('#shop')) { document.querySelector('#shop').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  } else {
+    window.location.href = target;
+  }
+}
+
+// Handles subcategory clicks from circular filters
+function setSubcategory(sub) {
+  state.subcategory = sub;
+  renderFilters();
+  renderProducts();
+}
+
+document.addEventListener('click', (event) => {
+  const filter = event.target.closest('[data-filter]'); if (filter) setCategory(filter.dataset.filter);
+  const subfilter = event.target.closest('[data-subfilter]'); if (subfilter) setSubcategory(subfilter.dataset.subfilter);
+  const add = event.target.closest('[data-add]'); if (add) { let size = 'One size'; if (add.id === 'dialog-add-to-bag') { const sizeSelect = document.getElementById('product-size'); if (sizeSelect) size = sizeSelect.value; dialog.close(); } addToCart(add.dataset.add, size); }
+  const view = event.target.closest('[data-view]'); if (view) openProduct(view.dataset.view);
+  const quantity = event.target.closest('[data-quantity]'); if (quantity) { const item = state.cart.find((cartItem) => cartItem.id === quantity.dataset.quantity); item.quantity += Number(quantity.dataset.delta); if (item.quantity < 1) state.cart = state.cart.filter((cartItem) => cartItem !== item); renderCart(); }
+  const filterToggle = event.target.closest('[data-filter-toggle]'); if(filterToggle) openFilterDrawer();
+  const closeFilter = event.target.closest('[data-close-filter]'); if(closeFilter) closeFilterDrawer();
+  const applyFilter = event.target.closest('[data-apply-filters]'); if(applyFilter) { showToast('Filters applied successfully'); closeFilterDrawer();  }
+  if (event.target.closest('[data-close-drawer]') || event.target === overlay) { closeDrawer(); closeFilterDrawer();  }
+});
+$('[data-bag]').addEventListener('click', openDrawer);
+$('[data-close-dialog]').addEventListener('click', () => dialog.close());
+$('[data-checkout]').addEventListener('click', () => showToast('Checkout will connect to your WordPress store.'));
+$('[data-search]')?.addEventListener('input', (event) => { state.query = event.target.value.trim(); renderProducts(); });
+$('[data-reset]')?.addEventListener('click', () => setCategory('All objects'));
+$('[data-menu]').addEventListener('click', (event) => { const menu = $('.nav'); const open = menu.classList.toggle('is-open'); event.currentTarget.setAttribute('aria-expanded', open); document.body.classList.toggle('menu-open', open); });
+$('[data-signup]')?.addEventListener('submit', (event) => { event.preventDefault(); const email = event.currentTarget.email; const message = event.currentTarget.querySelector('.form-message'); if (!email.validity.valid) { message.textContent = 'Enter a valid email address to stay close.'; email.focus(); return; } message.textContent = 'You are on the list. We will write when there is something worth seeing.'; event.currentTarget.reset(); });
+renderFilters(); renderProducts(); renderCart();
+
+// Sticky Shrinking Header
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('.site-header');
+  if (header) {
+    if (window.scrollY > 25) {
+      header.classList.add('is-scrolled');
+    } else {
+      header.classList.remove('is-scrolled');
+    }
+  }
+  
+
+});
+
+// Sort Popup Logic
+function toggleSortPopup(event, btn) {
+  event.stopPropagation();
+  const popup = btn.nextElementSibling;
+  
+  // Close all other popups
+  document.querySelectorAll('.sort-popup').forEach(p => {
+    if (p !== popup) p.style.display = 'none';
+  });
+  
+  if (popup.style.display === 'flex') {
+    popup.style.display = 'none';
+  } else {
+    popup.style.display = 'flex';
+  }
+}
+
+function applySortPopup(applyBtn) {
+  const popup = applyBtn.closest('.sort-popup');
+  const selected = popup.querySelector('input[name="sort"]:checked');
+  if (selected) {
+    state.sortBy = selected.value;
+    
+    // Sync the other popups' radio buttons so they match
+    document.querySelectorAll(`input[name="sort"][value="${selected.value}"]`).forEach(radio => {
+      radio.checked = true;
+    });
+    
+    renderProducts();
+    popup.style.display = 'none';
+  }
+}
+
+// Close popup when clicking outside
+document.addEventListener('click', () => {
+  document.querySelectorAll('.sort-popup').forEach(p => p.style.display = 'none');
+});
