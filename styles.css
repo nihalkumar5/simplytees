@@ -3460,3 +3460,9 @@ body { padding-top: 0 !important; }
 .home-page .site-header .mega-col h4 a {
   color: #111 !important;
 }
+
+/* Fix mobile menu links on home page transparent header */
+.home-page .site-header .rare-mobile-menu a,
+.home-page .site-header .rare-mobile-menu button {
+  color: #121311 !important;
+}
