@@ -773,7 +773,7 @@ body.shop-page {
 
 .shop-page .product-search:focus-within {
   background: #ffffff !important;
-  border-color: #111 !important;
+  border-/* color removed */
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
@@ -844,14 +844,31 @@ body.shop-page {
   align-items: center !important;
 }
 
+/* Initial Transparent State for Home Page */
+.home-page .site-header {
+  color: #fff !important;
+}
 .home-page .site-header .wordmark-mark span {
-  background: #111 !important;
+  background: #fff !important;
+}
+.home-page .site-header a, 
+.home-page .site-header button:not(.bag-btn) {
+  color: #fff !important;
 }
 
-.home-page .site-header a, 
-.home-page .site-header button {
+/* Scrolled State (White Background) */
+.home-page .site-header.is-scrolled {
+  color: #111 !important;
+  background: rgba(250, 248, 245, 0.96) !important;
+}
+.home-page .site-header.is-scrolled .wordmark-mark span {
+  background: #111 !important;
+}
+.home-page .site-header.is-scrolled a, 
+.home-page .site-header.is-scrolled button:not(.bag-btn) {
   color: #111 !important;
 }
+
 
 @media (max-width: 700px) {
   .home-page .site-header {
