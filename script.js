@@ -95,7 +95,8 @@ const urlParams = new URLSearchParams(window.location.search);
 const initialSubcategory = urlParams.get('filter') || 'All';
 const state = {
   category: initialCategory, subcategory: initialSubcategory, query: '',
-  sortBy: 'default', cart: JSON.parse(localStorage.getItem('asterra-cart') || '[]')
+  sortBy: 'default', cart: JSON.parse(localStorage.getItem('asterra-cart') || '[]'),
+  wishlist: JSON.parse(localStorage.getItem('asterra-wishlist') || '[]')
 };
 const $ = (selector) => document.querySelector(selector);
 const money = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 });
