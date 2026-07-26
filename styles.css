@@ -4562,3 +4562,119 @@ body { padding-top: 0 !important; }
   color: rgba(255, 255, 255, 0.8) !important;
   z-index: 10 !important;
 }
+
+
+/* ==========================================================================
+   STUDIO LOOKBOOK HERO SECTION DESIGN
+   ========================================================================== */
+.studio-lookbook-hero {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 90vh !important;
+  background: linear-gradient(135deg, #4A5C6F 0%, #6E8094 50%, #98A7B8 100%) !important;
+  color: #FFFFFF !important;
+  overflow: hidden !important;
+  padding: 6rem 5vw 4rem 5vw !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.studio-lookbook-hero .studio-hero-container {
+  max-width: 1400px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+.studio-lookbook-hero .studio-hero-image-wrap {
+  width: 50% !important;
+  max-width: 580px !important;
+  height: 78vh !important;
+  max-height: 700px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-end !important;
+}
+
+.studio-lookbook-hero .studio-hero-img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: bottom center !important;
+  filter: contrast(106%) brightness(102%) drop-shadow(0 15px 30px rgba(0,0,0,0.25)) !important;
+}
+
+.studio-lookbook-hero .studio-hero-content {
+  width: 45% !important;
+  max-width: 520px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+.studio-lookbook-hero .studio-title {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 3.6rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  color: #FFFFFF !important;
+  line-height: 1.1 !important;
+  text-transform: uppercase !important;
+}
+
+.studio-lookbook-hero .studio-subtitle {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  line-height: 1.4 !important;
+}
+
+.studio-lookbook-hero .studio-description {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 400 !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+  line-height: 1.6 !important;
+}
+
+.studio-lookbook-hero .studio-hero-cta {
+  display: flex !important;
+  gap: 1.2rem !important;
+  margin-top: 1rem !important;
+}
+
+.studio-lookbook-hero .button-primary-dark {
+  background: #FFFFFF !important;
+  color: #111111 !important;
+  border-radius: 999px !important;
+  padding: 0.8rem 2.2rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: transform 0.2s ease !important;
+}
+
+.studio-lookbook-hero .button-primary-dark:hover {
+  transform: translateY(-2px) !important;
+}
+
+.studio-lookbook-hero .button-outline-dark {
+  background: transparent !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.6) !important;
+  border-radius: 999px !important;
+  padding: 0.8rem 2.2rem !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  transition: background 0.2s ease !important;
+}
+
+.studio-lookbook-hero .button-outline-dark:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
