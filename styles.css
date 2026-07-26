@@ -4420,3 +4420,145 @@ body { padding-top: 0 !important; }
   user-select: none !important;
   white-space: nowrap !important;
 }
+
+
+/* ==========================================================================
+   SEROTONINN INVERTED BLEND-TEXT PRELOADER DESIGN
+   ========================================================================== */
+#preloader, #preloader.blend-preloader {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: #000000 !important;
+  color: #FFFFFF !important;
+  z-index: 99999999 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  padding: 2.5rem 4vw !important;
+  overflow: hidden !important;
+  transform: translateY(0) !important;
+  transition: transform 0.85s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.6s ease, visibility 0.6s ease !important;
+}
+
+#preloader.fade-out, #preloader.blend-preloader.fade-out {
+  transform: translateY(-100%) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.blend-preloader .loader-top-bar {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  color: #FFFFFF !important;
+  z-index: 10 !important;
+}
+
+.blend-preloader .loader-top-logo {
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.25em !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  text-transform: uppercase !important;
+}
+
+.blend-preloader .loader-blend-stage {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 2 !important;
+}
+
+.blend-preloader .loader-blend-img {
+  height: 85vh !important;
+  max-height: 750px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  filter: contrast(120%) brightness(95%) !important;
+}
+
+.blend-preloader .loader-giant-blend-title {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 24vw !important;
+  letter-spacing: -0.02em !important;
+  color: #FFFFFF !important;
+  line-height: 0.8 !important;
+  text-align: center !important;
+  z-index: 5 !important;
+  mix-blend-mode: difference !important;
+  user-select: none !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+}
+
+.blend-preloader .loader-sub-callout {
+  position: absolute !important;
+  bottom: 22% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 4.5rem !important;
+  letter-spacing: 0.05em !important;
+  line-height: 0.9 !important;
+  z-index: 6 !important;
+}
+
+.blend-preloader .loader-sub-callout .l-red {
+  color: #E63946 !important;
+}
+
+.blend-preloader .loader-sub-callout .l-white {
+  color: #FFFFFF !important;
+}
+
+.blend-preloader .loader-left-status {
+  position: absolute !important;
+  left: 4vw !important;
+  top: 48% !important;
+  transform: translateY(-50%) !important;
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 3.5rem !important;
+  letter-spacing: 0.06em !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  z-index: 10 !important;
+}
+
+.blend-preloader .loader-right-count {
+  position: absolute !important;
+  right: 4vw !important;
+  top: 48% !important;
+  transform: translateY(-50%) !important;
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 4.5rem !important;
+  letter-spacing: 0.05em !important;
+  color: #FFFFFF !important;
+  z-index: 10 !important;
+}
+
+.blend-preloader .loader-bottom-tag {
+  width: 100% !important;
+  text-align: center !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.1em !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  z-index: 10 !important;
+}
