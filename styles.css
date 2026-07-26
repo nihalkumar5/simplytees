@@ -3409,3 +3409,19 @@ body { padding-top: 4.8rem !important; }
     gap: 0.75rem !important;
   }
 }
+
+/* Explicit mobile side-by-side header icons fix */
+@media (max-width: 900px) {
+  .header-icons {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 0.5rem !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+  }
+  
+  .header-icons .icon-btn {
+    margin-bottom: 0 !important;
+  }
+}
