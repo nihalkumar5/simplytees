@@ -3425,3 +3425,9 @@ body { padding-top: 4.8rem !important; }
     margin-bottom: 0 !important;
   }
 }
+
+@media (max-width: 900px) {
+  .header-icons .wishlist-btn {
+    display: none !important;
+  }
+}
