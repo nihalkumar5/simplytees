@@ -4678,3 +4678,85 @@ body { padding-top: 0 !important; }
 .studio-lookbook-hero .button-outline-dark:hover {
   background: rgba(255, 255, 255, 0.15) !important;
 }
+
+
+/* ==========================================================================
+   WATER FILL BRAND NAME PRELOADER DESIGN
+   ========================================================================== */
+#preloader, #preloader.water-fill-preloader {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: #FAF8F4 !important;
+  z-index: 99999999 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  transition: opacity 0.5s ease, visibility 0.5s ease !important;
+}
+
+#preloader.fade-out, #preloader.water-fill-preloader.fade-out {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.water-fill-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1.2rem !important;
+}
+
+.water-text-wrap {
+  position: relative !important;
+  display: inline-block !important;
+}
+
+.water-text-outline {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 7.5rem !important;
+  letter-spacing: 0.08em !important;
+  color: transparent !important;
+  -webkit-text-stroke: 2.5px #111111 !important;
+  display: block !important;
+  line-height: 0.9 !important;
+  user-select: none !important;
+}
+
+.water-text-fill {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 0%;
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 7.5rem !important;
+  letter-spacing: 0.08em !important;
+  color: #111111 !important;
+  overflow: hidden !important;
+  display: block !important;
+  line-height: 0.9 !important;
+  white-space: nowrap !important;
+  user-select: none !important;
+  transition: height 0.08s linear !important;
+}
+
+.water-text-fill::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 3px !important;
+  background: #E63946 !important;
+}
+
+.water-count {
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.12em !important;
+  color: #666666 !important;
+  font-weight: 500 !important;
+}

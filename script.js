@@ -1,27 +1,30 @@
 
-// Serotoninn Exact Preloader Counter
-(function initSerotoninnPreloader() {
+// Water Fill Brand Preloader Animation
+(function initWaterFillPreloader() {
   const preloader = document.getElementById('preloader');
   const countEl = document.getElementById('loader-count');
+  const fillEl = document.getElementById('water-fill-el');
 
   if (!preloader) return;
 
   let count = 0;
   const interval = setInterval(() => {
-    count += Math.floor(Math.random() * 8) + 3;
+    count += Math.floor(Math.random() * 7) + 3;
     if (count >= 100) {
       count = 100;
       clearInterval(interval);
       if (countEl) countEl.textContent = '100%';
+      if (fillEl) fillEl.style.height = '100%';
       
       setTimeout(() => {
         preloader.classList.add('fade-out');
         setTimeout(() => {
           preloader.style.display = 'none';
-        }, 850);
+        }, 600);
       }, 300);
     } else {
-      if (countEl) countEl.textContent = (count < 10 ? '0' : '') + count + '%';
+      if (countEl) countEl.textContent = count + '%';
+      if (fillEl) fillEl.style.height = count + '%';
     }
   }, 35);
 })();
