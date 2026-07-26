@@ -467,6 +467,7 @@ body.menu-open { overflow: hidden; height: 100vh; }
 /* Shop Page Specific Fixes */
 body.shop-page {
   background: #ffffff !important;
+  padding-top: 4.8rem !important;
 }
 
 .shop-page .site-header {
