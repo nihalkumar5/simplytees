@@ -4365,3 +4365,79 @@ body { padding-top: 0 !important; }
   color: #111111 !important;
   z-index: 10 !important;
 }
+
+
+/* ==========================================================================
+   SEROTONINN GIANT BLEND WORDMARK MASK SECTION
+   ========================================================================== */
+.serotoninn-brand-mask-section {
+  position: relative !important;
+  width: 100% !important;
+  height: 95vh !important;
+  background: #000000 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  overflow: hidden !important;
+}
+
+.serotoninn-brand-mask-section .brand-mask-container {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.serotoninn-brand-mask-section .brand-mask-bg {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 1 !important;
+}
+
+.serotoninn-brand-mask-section .mask-bg-img {
+  height: 95% !important;
+  width: auto !important;
+  object-fit: contain !important;
+  filter: contrast(120%) brightness(95%) !important;
+}
+
+.serotoninn-brand-mask-section .mask-overlay-text {
+  position: absolute !important;
+  bottom: 22% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 5rem !important;
+  letter-spacing: 0.05em !important;
+  line-height: 0.9 !important;
+  z-index: 2 !important;
+}
+
+.serotoninn-brand-mask-section .mask-overlay-text .m-txt-red {
+  color: #E63946 !important;
+}
+
+.serotoninn-brand-mask-section .mask-overlay-text .m-txt-white {
+  color: #FFFFFF !important;
+}
+
+.serotoninn-brand-mask-section .giant-brand-title {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 24vw !important;
+  letter-spacing: -0.02em !important;
+  color: #FFFFFF !important;
+  line-height: 0.8 !important;
+  text-align: center !important;
+  z-index: 3 !important;
+  mix-blend-mode: difference !important;
+  user-select: none !important;
+  white-space: nowrap !important;
+}
