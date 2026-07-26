@@ -6,8 +6,8 @@
     <title>ASTERra - Objects for the in-between</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=131">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=132">
   </head>
   <body class="home-page">
     <!-- Modern Preloader -->
@@ -151,6 +151,7 @@
             </li>
 
             <li><a href="new-products.html" class="nav-highlight">NEW ARRIVALS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
           </ul>
         </nav>
 
@@ -259,19 +260,35 @@
     </header>
 
         <main id="main">
-      <!-- 1. HERO SECTION -->
-      <section id="top" class="hero" aria-labelledby="hero-title">
-        <img class="hero-image" src="assets/asterra-hero.png" alt="Model wearing dark oversized jacket, ivory trousers, and moss green leather bag">
-        <div class="hero-grain"></div>
-        <div class="hero-copy">
-          <div class="hero-badge-tag"><span class="badge-dot"></span> SS26 EDIT / LIMITED RUN</div>
-          <h1 id="hero-title" class="reveal">ESSENTIAL<br><em>UNIFORMS.</em></h1>
-          <div class="hero-bottom reveal">
-            <p>Small-run clothes and daily objects crafted for a longer, timeless wardrobe.</p>
-            <div class="hero-cta-group">
-              <a class="button-primary-dark" href="new-products.html">Explore Collection <span aria-hidden="true">→</span></a>
-              <a class="button-outline-dark" href="#world">Our Manifesto</a>
-            </div>
+      <!-- 1. EDITORIAL SEROTONINN SPLIT HERO SECTION -->
+      <section id="top" class="hero hero-serotoninn-split" aria-labelledby="hero-title">
+        <!-- Left Panel: White background + Color Model Half + Brand Text + Red/White Capsule Title -->
+        <div class="split-panel panel-left">
+          <div class="hero-brand-top">ASTERRA</div>
+          <div class="panel-image-wrapper">
+            <img class="hero-split-img img-color" src="assets/asterra-hero.png" alt="ASTERra Editorial Model - Color">
+          </div>
+          <div class="hero-capsule-bottom">
+            <h2 class="capsule-title"><span class="txt-red">LIMITED</span> <span class="txt-white">CAPSULE</span></h2>
+            <a href="apparel.html" class="tag-btn-sub">[ SEE COLLECTION ]</a>
+          </div>
+        </div>
+
+        <!-- Torn Paper SVG Edge Separator -->
+        <div class="torn-edge-divider" aria-hidden="true">
+          <svg viewBox="0 0 100 1000" preserveAspectRatio="none">
+            <path d="M0,0 L65,0 L58,35 L72,70 L52,105 L76,145 L58,185 L74,225 L52,265 L70,305 L50,345 L68,385 L56,425 L74,465 L52,505 L70,545 L56,585 L74,625 L50,665 L68,705 L54,745 L72,785 L50,825 L69,865 L53,905 L71,945 L60,985 L65,1000 L0,1000 Z" fill="#FAF8F4"></path>
+            <path d="M65,0 L58,35 L72,70 L52,105 L76,145 L58,185 L74,225 L52,265 L70,305 L50,345 L68,385 L56,425 L74,465 L52,505 L70,545 L56,585 L74,625 L50,665 L68,705 L54,745 L72,785 L50,825 L69,865 L53,905 L71,945 L60,985 L65,1000" fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="2.5"></path>
+          </svg>
+        </div>
+
+        <!-- Right Panel: Textured Grey background + B&W Model Half + Tagline -->
+        <div class="split-panel panel-right">
+          <div class="panel-image-wrapper">
+            <img class="hero-split-img img-bw" src="assets/asterra-hero.png" alt="ASTERra Editorial Model - Black & White">
+          </div>
+          <div class="hero-right-copy">
+            <h1 id="hero-title" class="editorial-headline">WHERE RESTRAINT MEETS REBELLION</h1>
           </div>
         </div>
       </section>
@@ -858,7 +875,7 @@
     </div>
   </button>
 </nav>
-    <script src="script.js?v=131"></script>
+    <script src="script.js?v=132"></script>
   
 
 

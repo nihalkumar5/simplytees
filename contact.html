@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact ASTERra - High-fashion elevated essentials.">
+  <title>Contact Us - ASTERra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=132">
+</head>
+<body class="shop-page contact-page-body">
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="dispatch-bar">Complimentary delivery over INR 2,800 - Dispatches in 48 hours</div>
+
+  <!-- Editorial Serotoninn Header -->
+  <header class="site-header editorial-header" data-header>
+    <div class="header-inner">
+      <!-- Left Navigation -->
+      <div class="editorial-nav-left">
+        <button class="menu-button mobile-only" type="button" aria-expanded="false" aria-controls="nav" data-menu>
+          <span></span><span></span><span></span><span class="sr-only">Open menu</span>
+        </button>
+        <a href="index.html" class="nav-item-link desktop-only">MENU +</a>
+        <a href="apparel.html" class="nav-item-link desktop-only">SHOP ALL</a>
+        <a href="t-shirts.html" class="nav-item-link desktop-only">CATEGORIES +</a>
+        <span class="editorial-tag desktop-only">[ SS26 ]</span>
+      </div>
+
+      <!-- Center Logo -->
+      <a class="editorial-logo" href="index.html" aria-label="ASTERra home">
+        ASTERRA
+      </a>
+
+      <!-- Right Navigation / Actions -->
+      <div class="editorial-nav-right">
+        <span class="nav-item-link desktop-only" onclick="document.querySelector('[data-search]') && document.querySelector('[data-search]').focus()" style="cursor:pointer;">SEARCH</span>
+        <a href="wishlist.html" class="nav-item-link desktop-only">FAVORITES.0</a>
+        <button class="icon-btn bag-btn editorial-bag" type="button" data-bag aria-label="Shopping bag">
+          <span>BAG.</span><span class="bag-badge" data-bag-count="">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="contact-main">
+    <div class="serotoninn-contact-container">
+      <!-- Left Column: Form & Info -->
+      <div class="contact-left-col">
+        <h1 class="contact-title">CONTACT US .</h1>
+
+        <form class="serotoninn-form" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent.');">
+          <div class="form-row-two">
+            <div class="form-group">
+              <label for="fullname">FULL NAME</label>
+              <input type="text" id="fullname" required placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="email">EMAIL</label>
+              <input type="email" id="email" required placeholder="">
+            </div>
+          </div>
+
+          <div class="form-row-two">
+            <div class="form-group">
+              <label for="question">SELECT QUESTION</label>
+              <select id="question">
+                <option value="general">GENERAL INQUIRY</option>
+                <option value="order">ORDER STATUS & TRACKING</option>
+                <option value="returns">RETURNS & EXCHANGES</option>
+                <option value="press">PRESS & MEDIA</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="phone">PHONE <span class="opt-label">(OPTIONAL)</span></label>
+              <input type="tel" id="phone" placeholder="">
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="message">MESSAGE</label>
+            <textarea id="message" rows="3" required></textarea>
+          </div>
+
+          <div class="submit-btn-wrapper">
+            <button type="submit" class="painted-brush-btn">
+              <span class="btn-text">[ SUBMIT ]</span>
+            </button>
+          </div>
+        </form>
+
+        <div class="contact-footer-info">
+          <p class="brand-manifesto-text">
+            WE ARE AN <span class="highlight-red">ELEVATED ESSENTIALS</span> BRAND BASED IN INDIA. WE <span class="highlight-red">OFFER</span> A VARIETY OF CHIC PIECES WITH A BIT OF GRUNGY STYLES TOUCH. PERFECT FOR ANYONE WHO WANTS SOMETHING DIFFERENT.
+          </p>
+
+          <div class="direct-contact-details">
+            <p>EMAIL <a href="mailto:support@asterra.com">( support@asterra.com )</a></p>
+            <p>INST <a href="https://instagram.com" target="_blank" rel="noopener">( @asterra_official )</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Editorial Photo -->
+      <div class="contact-right-col">
+        <div class="contact-image-wrapper">
+          <img src="assets/asterra-hero.png" alt="Editorial Fashion Model" class="contact-hero-img">
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js?v=132"></script>
+</body>
+</html>

@@ -3495,3 +3495,421 @@ body { padding-top: 0 !important; }
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+
+/* ==========================================================================
+   SEROTONINN EDITORIAL DESIGN SYSTEM (SPLIT HERO, TORN EDGE & CONTACT PAGE)
+   ========================================================================== */
+
+/* Editorial Header Styling */
+.editorial-header {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000 !important;
+  background: transparent !important;
+  border-bottom: none !important;
+  padding: 1.5rem 3vw !important;
+}
+
+.editorial-header .header-inner {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.editorial-nav-left, .editorial-nav-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2rem !important;
+}
+
+.editorial-nav-left .nav-item-link, .editorial-nav-right .nav-item-link {
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  color: #111111 !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  transition: opacity 0.2s ease;
+}
+
+.editorial-nav-left .nav-item-link:hover, .editorial-nav-right .nav-item-link:hover {
+  opacity: 0.6;
+}
+
+.editorial-tag {
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.8rem !important;
+  color: #666666 !important;
+  letter-spacing: 0.05em !important;
+}
+
+.editorial-logo {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 2.6rem !important;
+  letter-spacing: 0.06em !important;
+  color: #111111 !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+  font-weight: 400 !important;
+}
+
+.editorial-bag {
+  background: #FAF8F4 !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  border-radius: 999px !important;
+  padding: 0.4rem 1.1rem !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  color: #111111 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.3rem !important;
+}
+
+/* --------------------------------------------------------------------------
+   Serotoninn Split Hero Section
+   -------------------------------------------------------------------------- */
+.hero-serotoninn-split {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: row !important;
+  overflow: hidden !important;
+  background: #FFFFFF !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.hero-serotoninn-split .split-panel {
+  position: relative !important;
+  flex: 1 !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  padding: 8rem 4vw 4rem 4vw !important;
+  z-index: 2 !important;
+}
+
+.hero-serotoninn-split .panel-left {
+  background: #FFFFFF !important;
+}
+
+.hero-serotoninn-split .panel-right {
+  background: #E5E4E0 !important;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 0) !important;
+  background-size: 16px 16px !important;
+}
+
+/* Torn Edge SVG Separator */
+.hero-serotoninn-split .torn-edge-divider {
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 90px !important;
+  height: 100% !important;
+  z-index: 10 !important;
+  pointer-events: none !important;
+}
+
+.hero-serotoninn-split .torn-edge-divider svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Models in Split Panels */
+.hero-serotoninn-split .panel-image-wrapper {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -45%) !important;
+  width: 85% !important;
+  max-width: 520px !important;
+  height: 75vh !important;
+  pointer-events: none !important;
+}
+
+.hero-serotoninn-split .hero-split-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+}
+
+.hero-serotoninn-split .img-color {
+  filter: contrast(105%) brightness(102%) !important;
+}
+
+.hero-serotoninn-split .img-bw {
+  filter: grayscale(100%) contrast(125%) brightness(95%) !important;
+}
+
+/* Left Hero Content */
+.hero-serotoninn-split .hero-brand-top {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 5.5rem !important;
+  letter-spacing: 0.02em !important;
+  color: #111111 !important;
+  line-height: 0.9 !important;
+  z-index: 5 !important;
+}
+
+.hero-serotoninn-split .hero-capsule-bottom {
+  z-index: 5 !important;
+  margin-top: auto !important;
+}
+
+.hero-serotoninn-split .capsule-title {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 5.8rem !important;
+  letter-spacing: 0.03em !important;
+  line-height: 0.95 !important;
+  margin-bottom: 0.8rem !important;
+}
+
+.hero-serotoninn-split .capsule-title .txt-red {
+  color: #E63946 !important;
+}
+
+.hero-serotoninn-split .capsule-title .txt-white {
+  color: #111111 !important;
+  text-shadow: 2px 2px 0px #FFFFFF !important;
+}
+
+.hero-serotoninn-split .tag-btn-sub {
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  color: #111111 !important;
+  text-decoration: none !important;
+  letter-spacing: 0.05em !important;
+  display: inline-block !important;
+  transition: transform 0.2s ease, opacity 0.2s ease !important;
+}
+
+.hero-serotoninn-split .tag-btn-sub:hover {
+  transform: translateX(4px) !important;
+  opacity: 0.7 !important;
+}
+
+/* Right Hero Content */
+.hero-serotoninn-split .hero-right-copy {
+  z-index: 5 !important;
+  margin-top: auto !important;
+  margin-bottom: 6rem !important;
+  max-width: 440px !important;
+  margin-left: auto !important;
+}
+
+.hero-serotoninn-split .editorial-headline {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 4.8rem !important;
+  letter-spacing: 0.02em !important;
+  line-height: 0.92 !important;
+  color: #111111 !important;
+  text-transform: uppercase !important;
+  text-align: right !important;
+}
+
+/* --------------------------------------------------------------------------
+   Serotoninn Contact Us Page Styling
+   -------------------------------------------------------------------------- */
+.contact-page-body {
+  background: #FAF8F4 !important;
+}
+
+.contact-main {
+  padding-top: 6rem !important;
+  min-height: 100vh !important;
+}
+
+.serotoninn-contact-container {
+  display: flex !important;
+  flex-direction: row !important;
+  width: 100% !important;
+  min-height: calc(100vh - 6rem) !important;
+}
+
+.contact-left-col {
+  width: 58% !important;
+  padding: 4rem 5vw 4rem 6vw !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.contact-right-col {
+  width: 42% !important;
+  position: relative !important;
+  background: #E5E4E0 !important;
+  overflow: hidden !important;
+}
+
+.contact-image-wrapper {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+.contact-hero-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  filter: grayscale(100%) contrast(120%) brightness(95%) !important;
+}
+
+.contact-title {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 5.5rem !important;
+  letter-spacing: 0.03em !important;
+  color: #111111 !important;
+  line-height: 0.9 !important;
+  margin-bottom: 2.5rem !important;
+}
+
+/* Serotoninn Minimal Form */
+.serotoninn-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2rem !important;
+  max-width: 650px !important;
+  margin-bottom: 3rem !important;
+}
+
+.serotoninn-form .form-row-two {
+  display: flex !important;
+  gap: 2rem !important;
+}
+
+.serotoninn-form .form-group {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.4rem !important;
+}
+
+.serotoninn-form label {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 1.25rem !important;
+  letter-spacing: 0.06em !important;
+  color: #111111 !important;
+}
+
+.serotoninn-form label .opt-label {
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.75rem !important;
+  color: #777777 !important;
+}
+
+.serotoninn-form input,
+.serotoninn-form select,
+.serotoninn-form textarea {
+  width: 100% !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1.5px solid #111111 !important;
+  border-radius: 0 !important;
+  padding: 0.5rem 0 !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.95rem !important;
+  color: #111111 !important;
+  outline: none !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.serotoninn-form input:focus,
+.serotoninn-form select:focus,
+.serotoninn-form textarea:focus {
+  border-bottom-color: #E63946 !important;
+}
+
+/* Painted Brush Stroke Submit Button */
+.submit-btn-wrapper {
+  margin-top: 1rem !important;
+}
+
+.painted-brush-btn {
+  position: relative !important;
+  background: #5A5A5A !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  padding: 0.9rem 2.8rem !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  clip-path: polygon(4% 0%, 96% 3%, 100% 90%, 92% 100%, 8% 97%, 0% 12%) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+  transition: transform 0.2s ease, background 0.2s ease !important;
+}
+
+.painted-brush-btn:hover {
+  transform: scale(1.04) !important;
+  background: #111111 !important;
+}
+
+/* Contact Footer Details */
+.contact-footer-info {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+  max-width: 650px !important;
+  margin-top: auto !important;
+  padding-top: 2rem !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.brand-manifesto-text {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 1.35rem !important;
+  letter-spacing: 0.04em !important;
+  line-height: 1.25 !important;
+  color: #111111 !important;
+  text-transform: uppercase !important;
+}
+
+.brand-manifesto-text .highlight-red {
+  color: #E63946 !important;
+}
+
+.direct-contact-details {
+  display: flex !important;
+  gap: 2.5rem !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  color: #111111 !important;
+}
+
+.direct-contact-details a {
+  color: #111111 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+.direct-contact-details a:hover {
+  color: #E63946 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Desktop Responsive Constraints
+   -------------------------------------------------------------------------- */
+@media (min-width: 900px) {
+  .editorial-header .mobile-only {
+    display: none !important;
+  }
+}
