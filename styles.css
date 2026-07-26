@@ -3403,3 +3403,9 @@ body { padding-top: 4.8rem !important; }
     font-weight: 400;
   }
 }
+
+@media (max-width: 900px) {
+  .header-icons {
+    gap: 0.75rem !important;
+  }
+}

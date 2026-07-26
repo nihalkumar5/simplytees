@@ -185,7 +185,7 @@ function renderFilters() {
 }
 function renderProducts() { if (!productGrid) return; const result = visibleProducts(); productGrid.innerHTML = result.map(productCard).join(''); $('[data-results]').textContent = `${result.length} object${result.length === 1 ? '' : 's'} in view`; $('[data-empty]').hidden = result.length > 0; }
 function saveCart() { localStorage.setItem('asterra-cart', JSON.stringify(state.cart)); }
-function updateBagCount() { const total = state.cart.reduce((sum, item) => sum + item.quantity, 0); $('[data-bag-count]').textContent = String(total).padStart(2, '0'); $('[data-bag]').setAttribute('aria-label', `Shopping bag, ${total} item${total === 1 ? '' : 's'}`); }
+function updateBagCount() { const total = state.cart.reduce((sum, item) => sum + item.quantity, 0); document.querySelectorAll('[data-bag-count]').forEach(el => el.textContent = String(total).padStart(2, '0')); document.querySelectorAll('[data-bag]').forEach(el => el.setAttribute('aria-label', `Shopping bag, ${total} item${total === 1 ? '' : 's'}`)); }
 function renderCart() {
   const items = state.cart.map((item) => ({ ...item, product: products.find((product) => product.id === item.id) })).filter((item) => item.product);
   const subtotal = items.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
@@ -360,7 +360,7 @@ document.addEventListener('click', (event) => {
   const applyFilter = event.target.closest('[data-apply-filters]'); if (applyFilter) { showToast('Filters applied successfully'); closeFilterDrawer(); }
   if (event.target.closest('[data-close-drawer]') || event.target === overlay) { closeDrawer(); closeFilterDrawer(); }
 });
-$('[data-bag]').addEventListener('click', openDrawer);
+document.querySelectorAll('[data-bag]').forEach(btn => btn.addEventListener('click', openDrawer));
 $('[data-close-dialog]').addEventListener('click', () => dialog.close());
 $('[data-checkout]').addEventListener('click', () => showToast('Checkout will connect to your WordPress store.'));
 $('[data-search]')?.addEventListener('input', (event) => { state.query = event.target.value.trim(); renderProducts(); });
