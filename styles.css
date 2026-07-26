@@ -1693,9 +1693,11 @@ footer.mega-footer {
     top: 55px;
     left: 0;
     width: 100%;
-    background: #fff;
-    border-top: 1px solid #eaeaea;
-    border-bottom: 1px solid #eaeaea;
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-5px);
@@ -3446,4 +3448,15 @@ body { padding-top: 0 !important; }
   .header-icons .wishlist-btn {
     display: none !important;
   }
+}
+
+/* Fix mega menu text color on home page transparent header */
+.home-page .site-header .mega-col-text a {
+  color: #444 !important;
+}
+.home-page .site-header .mega-col-text a:hover {
+  color: #000 !important;
+}
+.home-page .site-header .mega-col h4 a {
+  color: #111 !important;
 }
