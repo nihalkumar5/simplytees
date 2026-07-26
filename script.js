@@ -1,3 +1,18 @@
+
+// Preloader
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    // Add a slight delay to ensure smooth transition
+    setTimeout(() => {
+      preloader.classList.add('fade-out');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 600); // Wait for transition to finish
+    }, 300);
+  }
+});
+
 const subcategoryMap = {
   'All objects': ['All'],
   'New Products': ['All', 'T-Shirts', 'Hoodies', 'Accessories'],

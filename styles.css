@@ -3466,3 +3466,32 @@ body { padding-top: 0 !important; }
 .home-page .site-header .rare-mobile-menu button {
   color: #121311 !important;
 }
+
+/* Modern Preloader */
+#preloader {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #FAF8F4;
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(17, 17, 17, 0.08);
+  border-radius: 50%;
+  border-top-color: #111;
+  animation: spin 1s cubic-bezier(0.6, 0.1, 0.4, 0.9) infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
