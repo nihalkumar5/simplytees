@@ -1,17 +1,30 @@
 
-// Preloader
-window.addEventListener('load', () => {
+// Serotoninn Exact Preloader Counter
+(function initSerotoninnPreloader() {
   const preloader = document.getElementById('preloader');
-  if (preloader) {
-    // Add a slight delay to ensure smooth transition
-    setTimeout(() => {
-      preloader.classList.add('fade-out');
+  const countEl = document.getElementById('loader-count');
+
+  if (!preloader) return;
+
+  let count = 0;
+  const interval = setInterval(() => {
+    count += Math.floor(Math.random() * 8) + 3;
+    if (count >= 100) {
+      count = 100;
+      clearInterval(interval);
+      if (countEl) countEl.textContent = '100%';
+      
       setTimeout(() => {
-        preloader.style.display = 'none';
-      }, 600); // Wait for transition to finish
-    }, 300);
-  }
-});
+        preloader.classList.add('fade-out');
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 850);
+      }, 300);
+    } else {
+      if (countEl) countEl.textContent = (count < 10 ? '0' : '') + count + '%';
+    }
+  }, 35);
+})();
 
 const subcategoryMap = {
   'All objects': ['All'],

@@ -4160,3 +4160,208 @@ body { padding-top: 0 !important; }
 .serotoninn-editorial-footer .footer-legal-bar a:hover {
   color: #FFFFFF !important;
 }
+
+
+/* High-End Editorial Preloader Styling */
+#preloader.editorial-loader {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: #111111 !important;
+  color: #FFFFFF !important;
+  z-index: 9999999 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.6s ease, visibility 0.6s ease !important;
+}
+
+#preloader.editorial-loader.fade-out {
+  transform: translateY(-100%) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.editorial-loader .loader-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+  width: 90% !important;
+  max-width: 480px !important;
+  text-align: center !important;
+}
+
+.editorial-loader .loader-brand-title {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 5.5rem !important;
+  letter-spacing: 0.08em !important;
+  color: #FFFFFF !important;
+  line-height: 0.9 !important;
+  animation: loaderPulse 1.5s ease-in-out infinite alternate;
+}
+
+.editorial-loader .loader-bar-wrap {
+  width: 100% !important;
+  height: 3px !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 2px !important;
+}
+
+.editorial-loader .loader-bar-fill {
+  width: 0%;
+  height: 100% !important;
+  background: #E63946 !important;
+  transition: width 0.08s linear !important;
+}
+
+.editorial-loader .loader-meta {
+  display: flex !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.05em !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+@keyframes loaderPulse {
+  0% { opacity: 0.7; transform: scale(0.98); }
+  100% { opacity: 1; transform: scale(1.02); }
+}
+
+
+/* ==========================================================================
+   SEROTONINN EXACT EDITORIAL PRELOADER DESIGN
+   ========================================================================== */
+#preloader.serotoninn-preloader {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: #FFFFFF !important;
+  color: #111111 !important;
+  z-index: 9999999 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  padding: 2rem 4vw !important;
+  overflow: hidden !important;
+  transition: transform 0.85s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.6s ease, visibility 0.6s ease !important;
+}
+
+#preloader.serotoninn-preloader.fade-out {
+  transform: translateY(-100%) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.serotoninn-preloader .loader-top-bar {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  color: #111111 !important;
+  z-index: 10 !important;
+}
+
+.serotoninn-preloader .loader-top-logo {
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.25em !important;
+  color: rgba(0, 0, 0, 0.4) !important;
+  text-transform: uppercase !important;
+}
+
+.serotoninn-preloader .loader-center-model {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -48%) !important;
+  height: 80vh !important;
+  max-height: 720px !important;
+  z-index: 2 !important;
+}
+
+.serotoninn-preloader .loader-img {
+  height: 100% !important;
+  width: auto !important;
+  object-fit: contain !important;
+  filter: contrast(105%) brightness(100%) !important;
+}
+
+.serotoninn-preloader .loader-left-group {
+  position: absolute !important;
+  left: 4vw !important;
+  top: 26% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.2rem !important;
+  z-index: 5 !important;
+}
+
+.serotoninn-preloader .loader-status-text {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 4.5rem !important;
+  letter-spacing: 0.06em !important;
+  color: #B5B5B5 !important;
+  line-height: 1 !important;
+}
+
+.serotoninn-preloader .loader-stretched-brand {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 2.8rem !important;
+  letter-spacing: 0.3em !important;
+  transform: scaleX(1.8) !important;
+  transform-origin: left center !important;
+  color: #111111 !important;
+  line-height: 1 !important;
+}
+
+.serotoninn-preloader .loader-right-group {
+  position: absolute !important;
+  right: 4vw !important;
+  top: 42% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 1.5rem !important;
+  z-index: 5 !important;
+}
+
+.serotoninn-preloader .loader-percentage {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 5rem !important;
+  letter-spacing: 0.05em !important;
+  color: #B5B5B5 !important;
+  line-height: 1 !important;
+}
+
+.serotoninn-preloader .loader-stretched-tagline {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 2.2rem !important;
+  letter-spacing: 0.22em !important;
+  transform: scaleX(1.5) !important;
+  transform-origin: right center !important;
+  color: #111111 !important;
+  text-align: right !important;
+}
+
+.serotoninn-preloader .loader-bottom-tag {
+  width: 100% !important;
+  text-align: center !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.1em !important;
+  color: #111111 !important;
+  z-index: 10 !important;
+}
