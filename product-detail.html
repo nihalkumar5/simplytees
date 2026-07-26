@@ -7,11 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=99">
+    <link rel="stylesheet" href="styles.css?v=119">
     <style>
       .product-detail-container {
         max-width: 1100px;
-        margin: 7rem auto 4rem;
+        margin: 1rem auto 4rem;
         padding: 0 2rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -168,10 +168,146 @@
       @media (max-width: 768px) {
         .product-detail-container {
           grid-template-columns: 1fr;
-          gap: 2rem;
-          margin-top: 5rem;
+          gap: 1.5rem;
+          margin-top: 0.5rem !important;
         }
       }
+
+      /* ── Bottom Sheet Size Selector (Mobile) ── */
+      .size-sheet-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.45);
+        z-index: 9998;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+      .size-sheet-overlay.is-visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .size-sheet {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        background: #fff;
+        border-radius: 16px 16px 0 0;
+        transform: translateY(100%);
+        transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+        padding: 0 0 env(safe-area-inset-bottom, 0);
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+      .size-sheet.is-open {
+        transform: translateY(0);
+      }
+
+      .size-sheet-handle {
+        width: 36px;
+        height: 4px;
+        background: #d1d1d1;
+        border-radius: 2px;
+        margin: 10px auto 0;
+      }
+
+      .size-sheet-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.25rem 0.75rem;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .size-sheet-header h3 {
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin: 0;
+        color: #111;
+      }
+      .size-sheet-close {
+        width: 30px;
+        height: 30px;
+        border: none;
+        background: #f5f5f5;
+        border-radius: 50%;
+        font-size: 1.1rem;
+        color: #333;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+      }
+      .size-sheet-close:hover { background: #e8e8e8; }
+
+      .size-sheet-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+        padding: 1.25rem;
+      }
+      .size-sheet-btn {
+        height: 52px;
+        border: 1.5px solid #ddd;
+        background: #fff;
+        color: #111;
+        font-family: inherit;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .size-sheet-btn:hover {
+        border-color: #999;
+      }
+      .size-sheet-btn.selected {
+        border-color: #121311;
+        background: #121311;
+        color: #fff;
+      }
+
+      .size-sheet-chart {
+        text-align: center;
+        padding: 0 1.25rem 0.75rem;
+      }
+      .size-sheet-chart a {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #555;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        letter-spacing: 0.06em;
+      }
+
+      .size-sheet-confirm {
+        padding: 0.75rem 1.25rem 1.25rem;
+      }
+      .size-sheet-confirm button {
+        width: 100%;
+        height: 54px;
+        background: #121311;
+        color: #fff;
+        border: none;
+        font-family: inherit;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: opacity 0.2s;
+      }
+      .size-sheet-confirm button:hover { opacity: 0.85; }
     </style>
 </head>
 <body class="home-page">
@@ -179,22 +315,133 @@
     
     <header class="site-header" data-header="">
       <div class="header-inner">
+        <button class="menu-button mobile-only" type="button" aria-expanded="false" aria-controls="nav" data-menu="">
+          <span></span><span></span><span></span><span class="sr-only">Open menu</span>
+        </button>
+
         <a class="wordmark wordmark-mark" href="index.html" aria-label="Asterra home">
           <span aria-hidden="true"></span><b class="sr-only">Asterra</b>
         </a>
+
         <nav class="desktop-nav">
           <ul class="desktop-nav-list">
-            <li><a href="t-shirts.html">T-SHIRTS</a></li>
-            <li><a href="hoodies-jackets.html">HOODIES</a></li>
-            <li><a href="bottomwear.html">BOTTOMWEAR</a></li>
+            <li><a href="apparel.html">APPAREL</a></li>
+            <li><a href="kids-clothing.html">KIDS</a></li>
             <li><a href="accessories.html">ACCESSORIES</a></li>
+            <li><a href="home-living.html">LIVING</a></li>
+            <li><a href="pet-wear.html">PET-WEAR</a></li>
+            <li><a href="new-products.html" class="nav-highlight">NEW ARRIVALS</a></li>
           </ul>
         </nav>
-        <button class="bag-button" type="button" data-bag="">BAG (<span data-bag-count="">00</span>)</button>
+
+        <div class="header-icons">
+          <a href="wishlist.html" class="icon-btn wishlist-btn" aria-label="Wishlist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </a>
+          <button class="icon-btn bag-btn" type="button" data-bag="" aria-label="Shopping bag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <span class="bag-badge" data-bag-count="">02</span>
+          </button>
+        </div>
       </div>
     </header>
 
+
+      <!-- Mobile Navigation (Original) -->
+      <nav id="nav" class="nav mobile-only" aria-label="Primary navigation">
+        <div class="rare-mobile-menu">
+          <button type="button" class="rare-menu-close-btn" onclick="toggleNav(false)" aria-label="Close Menu">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L13 13M1 13L13 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+
+          <!-- Top Banner Image -->
+          <div class="rare-menu-banner">
+            <img id="rare-menu-banner-img" src="assets/asterra-hero.png" alt="Collection Banner">
+          </div>
+
+          <!-- Horizontal Category Tabs (Matching Desktop 1:1) -->
+          <div class="rare-menu-tabs">
+            <div class="rare-menu-tab is-active" data-rare-tab="apparel" onclick="switchRareTab('apparel')">APPAREL</div>
+            <div class="rare-menu-tab" data-rare-tab="kids" onclick="switchRareTab('kids')">KIDS</div>
+            <div class="rare-menu-tab" data-rare-tab="accessories" onclick="switchRareTab('accessories')">ACCESSORIES</div>
+            <div class="rare-menu-tab" data-rare-tab="living" onclick="switchRareTab('living')">LIVING</div>
+            <div class="rare-menu-tab" data-rare-tab="petwear" onclick="switchRareTab('petwear')">PET-WEAR</div>
+            <div class="rare-menu-tab" data-rare-tab="new" onclick="switchRareTab('new')">NEW ARRIVALS</div>
+          </div>
+
+          <!-- Subcategories List (No hardcoded href on group titles) -->
+          <div class="rare-menu-list" id="rare-menu-list-container">
+            <div class="rare-accordion-group is-open">
+              <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
+                <span style="font-weight: 700;">T-SHIRTS</span>
+                <span class="chevron">›</span>
+              </div>
+              <div class="rare-sub-list">
+                <a href="t-shirts.html" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All T-SHIRTS</a>
+                <a href="t-shirts.html?filter=Classic%20Crew" class="rare-sub-item">• Classic Crew</a>
+                <a href="t-shirts.html?filter=Oversized" class="rare-sub-item">• Oversized</a>
+                <a href="t-shirts.html?filter=Baby%20Tee%20%26%20Crop" class="rare-sub-item">• Baby Tee & Crop</a>
+                <a href="t-shirts.html?filter=Polo%20%26%20V-Neck" class="rare-sub-item">• Polo & V-Neck</a>
+                <a href="t-shirts.html?filter=Supima%20%26%20Stretch" class="rare-sub-item">• Supima & Stretch</a>
+                <a href="t-shirts.html?filter=Acid%20Wash%20%26%20Tie%20Dye" class="rare-sub-item">• Acid Wash & Tie Dye</a>
+              </div>
+            </div>
+
+            <div class="rare-accordion-group">
+              <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
+                <span style="font-weight: 700;">HOODIES & JACKETS</span>
+                <span class="chevron">›</span>
+              </div>
+              <div class="rare-sub-list">
+                <a href="hoodies-jackets.html" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All HOODIES & JACKETS</a>
+                <a href="hoodies-jackets.html?filter=Pullover%20Hoodies" class="rare-sub-item">• Pullover Hoodies</a>
+                <a href="hoodies-jackets.html?filter=Zip%20Hoodies" class="rare-sub-item">• Zip Hoodies</a>
+                <a href="hoodies-jackets.html?filter=Sweatshirts" class="rare-sub-item">• Sweatshirts</a>
+                <a href="hoodies-jackets.html?filter=Bomber%20Jackets" class="rare-sub-item">• Bomber Jackets</a>
+                <a href="hoodies-jackets.html?filter=Varsity%20Jackets" class="rare-sub-item">• Varsity Jackets</a>
+              </div>
+            </div>
+
+            <div class="rare-accordion-group">
+              <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
+                <span style="font-weight: 700;">BOTTOMWEAR</span>
+                <span class="chevron">›</span>
+              </div>
+              <div class="rare-sub-list">
+                <a href="bottomwear.html" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All BOTTOMWEAR</a>
+                <a href="bottomwear.html?filter=Sweatpants%20%26%20Joggers" class="rare-sub-item">• Sweatpants & Joggers</a>
+                <a href="bottomwear.html?filter=Shorts" class="rare-sub-item">• Shorts</a>
+                <a href="bottomwear.html?filter=Skirts" class="rare-sub-item">• Skirts</a>
+                <a href="bottomwear.html?filter=Leggings" class="rare-sub-item">• Leggings</a>
+              </div>
+            </div>
+
+            <div class="rare-accordion-group">
+              <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
+                <span style="font-weight: 700;">AOP APPAREL</span>
+                <span class="chevron">›</span>
+              </div>
+              <div class="rare-sub-list">
+                <a href="aop-apparel.html" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All AOP APPAREL</a>
+                <a href="aop-apparel.html?filter=AOP%20T-Shirts" class="rare-sub-item">• AOP T-Shirts</a>
+                <a href="aop-apparel.html?filter=AOP%20Tops%20%26%20Dresses" class="rare-sub-item">• AOP Tops & Dresses</a>
+                <a href="aop-apparel.html?filter=AOP%20Bottoms" class="rare-sub-item">• AOP Bottoms</a>
+                <a href="aop-apparel.html?filter=AOP%20Jackets%20%26%20Sweats" class="rare-sub-item">• AOP Jackets & Sweats</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
     <main>
+      <div style="max-width: 1200px; margin: 1rem auto 1.2rem auto; padding: 0 1rem;">
+        <button type="button" onclick="window.history.back()" style="background: none; border: none; font-family: inherit; font-size: 0.85rem; font-weight: 700; color: #121311; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; letter-spacing: 0.05em; padding: 0.4rem 0;">
+          ← BACK
+        </button>
+      </div>
       <div class="product-detail-container">
         <div class="detail-gallery">
           <img id="pd-main-img" class="detail-main-img" src="tshirt_black.png" alt="Product Image">
@@ -236,12 +483,45 @@
       </div>
     </main>
 
-    <!-- Shopping Bag Drawer -->
-    <aside class="bag-drawer" aria-label="Shopping bag" aria-hidden="true" data-drawer="">
-      <div class="drawer-head"><p class="eyebrow">Your bag</p><button type="button" data-close-drawer="" aria-label="Close shopping bag">×</button></div>
-      <div class="drawer-items" data-cart-items=""></div>
-      <div class="drawer-empty" data-cart-empty="" hidden=""><p>Your bag is empty.</p><a href="t-shirts.html" data-close-drawer="">Browse Collection</a></div>
-      <div class="drawer-footer" data-cart-footer=""><div><span>Subtotal</span><strong data-cart-subtotal="">₹0</strong></div><p>Taxes and delivery calculated at checkout.</p><button type="button" data-checkout="">Continue to checkout &rarr;</button></div>
+        <aside class="bag-drawer" aria-label="Shopping bag" aria-hidden="true" data-drawer="">
+      <div class="premium-bag-header">
+        <button type="button" data-close-drawer="" aria-label="Close shopping bag">&lt;</button>
+        <span class="premium-bag-title" id="bagTitle">BAG ( 0 )</span>
+        <div class="premium-bag-icons">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" style="cursor:pointer;" onclick="toggleWishlist(this)"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" style="cursor:pointer;" onclick="shareCart()"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </div>
+      </div>
+      
+      <div id="shippingProgressContainer"></div>
+      
+      <div class="offer-banner">
+        EOSS Flat 50% off | 22nd - 26 July | No Returns, Hassle Free Exchange
+      </div>
+
+      <div class="drawer-items" data-cart-items="" style="background:#0a0a0a;"></div>
+      
+      <div class="drawer-empty" data-cart-empty="" hidden="">
+        <p style="padding:2rem;text-align:center;">Your bag is empty.</p>
+      </div>
+
+      <div class="bag-options" style="flex-direction: column;">
+        <div class="bag-option" onclick="toggleCouponInput()" style="cursor: pointer; width: 100%;">
+          <span id="couponDisplay">Apply Coupons</span>
+          <span id="couponIcon">&gt;</span>
+        </div>
+        <div id="couponInputContainer" style="display:none; padding: 1rem 1.25rem; border-top: 1px solid rgba(24,25,23,0.1); background: #fafafa; width: 100%;">
+          <div style="display:flex; gap: 0.5rem;">
+            <input type="text" class="coupon-input-field" placeholder="Enter Coupon Code" style="flex:1; padding: 0.6rem; border: 1px solid rgba(24,25,23,0.3); outline:none; text-transform:uppercase; font-family: var(--mono); font-size: 0.7rem; background: transparent;">
+            <button type="button" onclick="applyCouponInput()" style="background: var(--ink); color: var(--paper); border: none; padding: 0 1rem; cursor: pointer; font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase;">Apply</button>
+          </div>
+          <p style="margin: 0.5rem 0 0; font-family: var(--mono); font-size: 0.6rem; color: #666; text-transform: uppercase;">Try 'FREE50' or 'SAVE100'</p>
+        </div>
+      </div>
+
+      <div class="premium-drawer-footer" data-cart-footer="">
+        <button type="button" data-checkout="" id="checkoutBtn">CHECKOUT / ₹0</button>
+      </div>
     </aside>
 
     <!-- Quick View Dialog Popup -->
@@ -280,6 +560,8 @@
           }
           
           let selectedSize = 'S';
+
+          // Desktop inline size buttons
           document.querySelectorAll('.size-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
               document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
@@ -300,5 +582,25 @@
         }
       });
     </script>
+
+<nav class="mobile-bottom-nav">
+  <a href="index.html" class="mb-nav-item" aria-label="Home">
+    <svg viewBox="0 0 24 24" stroke="currentColor" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+  </a>
+  <button type="button" class="mb-nav-item" onclick="document.querySelector('[data-search]') && document.querySelector('[data-search]').focus()" aria-label="Search">
+    <svg viewBox="0 0 24 24" stroke="currentColor" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+  </button>
+  <button type="button" class="mb-nav-item mb-nav-text" onclick="toggleNav(true)">MENU</button>
+  <button type="button" class="mb-nav-item" aria-label="Profile">
+    <svg viewBox="0 0 24 24" stroke="currentColor" fill="none"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+  </button>
+  <button type="button" class="mb-nav-item" data-bag="" aria-label="Bag">
+    <div style="position:relative;">
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+      <span class="mb-bag-badge" data-bag-count="">0</span>
+    </div>
+  </button>
+</nav>
+
 </body>
 </html>

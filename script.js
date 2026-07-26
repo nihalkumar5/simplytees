@@ -1,17 +1,17 @@
 const subcategoryMap = {
-    'All objects': ['All'],
-    'New Products': ['All', 'T-Shirts', 'Hoodies', 'Accessories'],
-    'T-Shirts': ['All', 'Classic Crew', 'Oversized', 'Baby Tee & Crop', 'Polo & V-Neck', 'Supima & Stretch', 'Acid Wash & Tie Dye'],
-    'Hoodies & Jackets': ['All', 'Pullover Hoodies', 'Zip Hoodies', 'Sweatshirts', 'Bomber Jackets', 'Varsity Jackets'],
-    'AOP Apparel': ['All', 'AOP T-Shirts', 'AOP Tops & Dresses', 'AOP Bottoms', 'AOP Jackets & Sweats'],
-    'Bottomwear': ['All', 'Sweatpants & Joggers', 'Shorts', 'Skirts', 'Leggings'],
-    'Kids Clothing': ['All', 'Boys T-Shirts', 'Girls T-Shirts', 'Hoodies & Sweats', 'Rompers', 'Sports Gear'],
-    'Headwear': ['All', 'Caps & Hats', 'Balaclavas & Bandanas', 'Headbands'],
-    'Drinkware': ['All', 'Coffee Mugs', 'Enamel Mugs', 'Water Bottles', 'Tumblers'],
-    'Accessories': ['All', 'Phone Cases & Grips', 'Jewelry & Pendants', 'Keychains & Badges', 'Scrunchies & Sleeves', 'Stationery & Patches'],
-    'Home & Living': ['All', 'Posters & Frames', 'Coasters & Magnets', 'Cushions & Pillows', 'Table & Kitchen'],
-    'Pet-Wear': ['All', 'Dog T-Shirts', 'Pet Tags'],
-    'Bags': ['All', 'Tote Bags', 'Drawstring Bags', 'Pouches']
+  'All objects': ['All'],
+  'New Products': ['All', 'T-Shirts', 'Hoodies', 'Accessories'],
+  'T-Shirts': ['All', 'Classic Crew', 'Oversized', 'Baby Tee & Crop', 'Polo & V-Neck', 'Supima & Stretch', 'Acid Wash & Tie Dye'],
+  'Hoodies & Jackets': ['All', 'Pullover Hoodies', 'Zip Hoodies', 'Sweatshirts', 'Bomber Jackets', 'Varsity Jackets'],
+  'AOP Apparel': ['All', 'AOP T-Shirts', 'AOP Tops & Dresses', 'AOP Bottoms', 'AOP Jackets & Sweats'],
+  'Bottomwear': ['All', 'Sweatpants & Joggers', 'Shorts', 'Skirts', 'Leggings'],
+  'Kids Clothing': ['All', 'Boys T-Shirts', 'Girls T-Shirts', 'Hoodies & Sweats', 'Rompers', 'Sports Gear'],
+  'Headwear': ['All', 'Caps & Hats', 'Balaclavas & Bandanas', 'Headbands'],
+  'Drinkware': ['All', 'Coffee Mugs', 'Enamel Mugs', 'Water Bottles', 'Tumblers'],
+  'Accessories': ['All', 'Phone Cases & Grips', 'Jewelry & Pendants', 'Keychains & Badges', 'Scrunchies & Sleeves', 'Stationery & Patches'],
+  'Home & Living': ['All', 'Posters & Frames', 'Coasters & Magnets', 'Cushions & Pillows', 'Table & Kitchen'],
+  'Pet-Wear': ['All', 'Dog T-Shirts', 'Pet Tags'],
+  'Bags': ['All', 'Tote Bags', 'Drawstring Bags', 'Pouches']
 };
 
 const products = [
@@ -69,32 +69,34 @@ const categories = ['All objects', 'New Products', 'T-Shirts', 'Hoodies & Jacket
 const filename = window.location.pathname.split('/').pop();
 let initialCategory = 'All objects';
 const mapping = {
-    'apparel.html': 'Apparel',
-    'living.html': 'Home & Living',
-    'men.html': 'Men',
-    'women.html': 'Women',
-    'men-upperwear.html': 'Men Upper Wear',
-    'men-bottomwear.html': 'Men Bottomwear',
-    'women-upperwear.html': 'Women Upper Wear',
-    'women-bottomwear.html': 'Women Bottomwear',
-    'new-products.html': 'New Products',
-    't-shirts.html': 'T-Shirts',
-    'hoodies-jackets.html': 'Hoodies & Jackets',
-    'aop-apparel.html': 'AOP Apparel',
-    'bottomwear.html': 'Bottomwear',
-    'kids-clothing.html': 'Kids Clothing',
-    'headwear.html': 'Headwear',
-    'drinkware.html': 'Drinkware',
-    'accessories.html': 'Accessories',
-    'home-living.html': 'Home & Living',
-    'pet-wear.html': 'Pet-Wear',
-    'bags.html': 'Bags'
+  'apparel.html': 'Apparel',
+  'living.html': 'Home & Living',
+  'men.html': 'Men',
+  'women.html': 'Women',
+  'men-upperwear.html': 'Men Upper Wear',
+  'men-bottomwear.html': 'Men Bottomwear',
+  'women-upperwear.html': 'Women Upper Wear',
+  'women-bottomwear.html': 'Women Bottomwear',
+  'new-products.html': 'New Products',
+  't-shirts.html': 'T-Shirts',
+  'hoodies-jackets.html': 'Hoodies & Jackets',
+  'aop-apparel.html': 'AOP Apparel',
+  'bottomwear.html': 'Bottomwear',
+  'kids-clothing.html': 'Kids Clothing',
+  'headwear.html': 'Headwear',
+  'drinkware.html': 'Drinkware',
+  'accessories.html': 'Accessories',
+  'home-living.html': 'Home & Living',
+  'pet-wear.html': 'Pet-Wear',
+  'bags.html': 'Bags'
 };
 if (mapping[filename]) { initialCategory = mapping[filename]; }
 const urlParams = new URLSearchParams(window.location.search);
 const initialSubcategory = urlParams.get('filter') || 'All';
-const state = { category: initialCategory, subcategory: initialSubcategory, query: '',
-  sortBy: 'default', cart: JSON.parse(localStorage.getItem('asterra-cart') || '[]') };
+const state = {
+  category: initialCategory, subcategory: initialSubcategory, query: '',
+  sortBy: 'default', cart: JSON.parse(localStorage.getItem('asterra-cart') || '[]')
+};
 const $ = (selector) => document.querySelector(selector);
 const money = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 });
 const productGrid = $('[data-products]');
@@ -105,7 +107,8 @@ let activeProduct;
 let toastTimer;
 
 function showToast(message) { const toast = $('[data-toast]'); toast.textContent = message; toast.classList.add('is-visible'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2800); }
-function visibleProducts() { 
+function visibleProducts() {
+  const isWishlistPage = window.location.pathname.includes('wishlist.html');
   let filtered = products.filter((product) => {
     const categoryMatch = state.category === 'All objects' || product.category === state.category;
     const subcategoryMatch = state.subcategory === 'All' || product.subcategory === state.subcategory;
@@ -119,13 +122,14 @@ function visibleProducts() {
   } else if (state.sortBy === 'newest') {
     filtered.sort((a, b) => parseInt(b.id) - parseInt(a.id));
   }
+  if (isWishlistPage) { return filtered.filter(p => state.wishlist.includes(p.id)); }
   return filtered;
 }
-function productCard(product) { 
+function productCard(product) {
   const origPrice = product.price + 300;
   return `<article class="product" style="display: flex; flex-direction: column; height: 100%;">
     <div class="product-image-container" onclick="window.location.href='product-detail.html?id=${product.id}'" style="cursor: pointer; position: relative; overflow: hidden; padding-top: 125%; background: #f7f7f7;">
-      <div class="heart-icon" style="position: absolute; top: 10px; right: 10px; z-index: 2; color: #111; font-size: 1.2rem;">&#9825;</div>
+      <div class="heart-icon" data-wishlist-btn="${product.id}" onclick="toggleProductWishlist('${product.id}', event)" style="position: absolute; top: 10px; right: 10px; z-index: 2; color: #111; font-size: 1.4rem; cursor: pointer;">${state.wishlist.includes(product.id) ? '&#9829;' : '&#9825;'}</div>
       <img src="${product.img || 'tshirt_black.png'}" alt="${product.name}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
     </div>
     <div class="product-meta" style="text-align: center; display: flex; flex-direction: column; flex: 1; justify-content: space-between; padding-top: 1rem;">
@@ -150,16 +154,16 @@ function renderFilters() {
     const subs = subcategoryMap[state.category] || ['All'];
     filtersEl.innerHTML = subs.map((sub, index) => {
       const isActive = state.subcategory === sub ? 'is-active' : '';
-      
+
       let imgUrl = 'tshirt_black.png';
       if (index === 1) imgUrl = 'tshirt_white.png';
       if (index === 2) imgUrl = 'tshirt_olive.png';
       if (index === 3) imgUrl = 'tshirt_beige.png';
-      
-      const innerContent = sub === 'All' 
-        ? `<span class="inner-text">ALL</span>` 
+
+      const innerContent = sub === 'All'
+        ? `<span class="inner-text">ALL</span>`
         : `<div class="inner-image" style="background-image: url('${imgUrl}'); background-size: cover; background-position: center;"></div>`;
-        
+
       return `<button type="button" data-subfilter="${sub}" class="circular-filter ${isActive}">
         <div class="circle-icon ${sub === 'All' ? 'bg-solid-green' : 'bg-gray'}">
           ${innerContent}
@@ -168,7 +172,7 @@ function renderFilters() {
       </button>`;
     }).join('');
   }
-  
+
   const titleEl = document.querySelector('[data-dynamic-title]');
   if (titleEl) {
     titleEl.textContent = (state.category === 'All objects' ? 'ALL PRODUCTS' : state.category).toUpperCase();
@@ -182,26 +186,153 @@ function renderFilters() {
 function renderProducts() { if (!productGrid) return; const result = visibleProducts(); productGrid.innerHTML = result.map(productCard).join(''); $('[data-results]').textContent = `${result.length} object${result.length === 1 ? '' : 's'} in view`; $('[data-empty]').hidden = result.length > 0; }
 function saveCart() { localStorage.setItem('asterra-cart', JSON.stringify(state.cart)); }
 function updateBagCount() { const total = state.cart.reduce((sum, item) => sum + item.quantity, 0); $('[data-bag-count]').textContent = String(total).padStart(2, '0'); $('[data-bag]').setAttribute('aria-label', `Shopping bag, ${total} item${total === 1 ? '' : 's'}`); }
-function renderCart() { const items = state.cart.map((item) => ({ ...item, product: products.find((product) => product.id === item.id) })).filter((item) => item.product); const subtotal = items.reduce((sum, item) => sum + item.product.price * item.quantity, 0); $('[data-cart-items]').innerHTML = items.map(({ product, quantity, size }) => `<div class="cart-item"><div class="cart-mini" style="background:#f7f7f7; overflow:hidden;"><img src="${product.img || 'tshirt_black.png'}" alt="${product.name}" style="width:100%; height:100%; object-fit:cover;" /></div><div><p>${product.category}</p><strong>${product.name}</strong><small>${size}</small><div class="quantity"><button type="button" data-quantity="${product.id}" data-delta="-1" aria-label="Remove one ${product.name}">&#8722;</button><span>${quantity}</span><button type="button" data-quantity="${product.id}" data-delta="1" aria-label="Add one ${product.name}">+</button></div></div><b>${money.format(product.price * quantity)}</b></div>`).join(''); $('[data-cart-subtotal]').textContent = money.format(subtotal); $('[data-cart-empty]').hidden = items.length > 0; $('[data-cart-footer]').hidden = items.length === 0; updateBagCount(); saveCart(); }
+function renderCart() {
+  const items = state.cart.map((item) => ({ ...item, product: products.find((product) => product.id === item.id) })).filter((item) => item.product);
+  const subtotal = items.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
+
+  const bagTitle = document.getElementById('bagTitle');
+  if (bagTitle) bagTitle.textContent = `BAG ( ${items.length} )`;
+
+  const threshold = 1999;
+  const progressContainer = document.getElementById('shippingProgressContainer');
+  if (progressContainer) {
+    if (subtotal >= threshold) {
+      progressContainer.innerHTML = `
+        <div class="shipping-progress">
+          <div class="shipping-progress-text">CONGRATULATIONS! YOU GET FREE SHIPPING</div>
+          <div class="shipping-progress-bar"><div class="shipping-progress-fill" style="width: 100%;"></div></div>
+        </div>`;
+    } else {
+      const remaining = threshold - subtotal;
+      const pct = Math.min((subtotal / threshold) * 100, 100);
+      progressContainer.innerHTML = `
+        <div class="shipping-progress">
+          <div class="shipping-progress-text">SHOP FOR <strong>${money.format(remaining)}</strong> TO GET FREE SHIPPING</div>
+          <div class="shipping-progress-bar">
+            <div class="shipping-progress-fill" style="width: ${pct}%;"></div>
+            <div class="shipping-progress-steps">
+              <div class="shipping-progress-step active" style="left: 0%;"></div>
+              <div class="shipping-progress-step ${subtotal >= 1999 ? 'active' : ''}" style="left: 100%;"></div>
+            </div>
+          </div>
+          <div class="shipping-progress-labels">
+            <span style="position: absolute; left: 0%; transform: translateX(0%);">₹0</span>
+            <span style="position: absolute; left: 100%; transform: translateX(-100%);">₹1999</span>
+          </div>
+        </div>`;
+    }
+  }
+
+  const recommendationsHTML = `
+    <div class="bag-recommendations">
+      <div class="bag-recommendations-title">YOU MAY ALSO LIKE</div>
+      <div class="bag-recommendations-scroll">
+        ${products.slice(0, 4).map(p => `
+          <div class="bag-recommendation-card">
+            <div class="bag-recommendation-img">
+              <img src="${p.img || 'tshirt_black.png'}" alt="${p.name}" />
+            </div>
+            <div class="bag-recommendation-info">
+              <div class="bag-recommendation-title">${p.name}</div>
+              <div class="bag-recommendation-price">${money.format(p.price)}</div>
+              ${p.sizes && p.sizes.length > 0 ? `
+              <select class="bag-recommendation-size" id="rec-size-${p.id}">
+                ${p.sizes.map(s => `<option value="${s}">${s}</option>`).join('')}
+              </select>
+              ` : ''}
+            </div>
+            <button class="bag-recommendation-btn" onclick="addToCart('${p.id}', document.getElementById('rec-size-${p.id}') ? document.getElementById('rec-size-${p.id}').value : 'One size'); return false;">ADD TO BAG</button>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+
+  `;
+
+  $('[data-cart-items]').innerHTML = items.map(({ product, quantity, size }) => `
+    <div class="premium-cart-item">
+      <div class="premium-cart-img">
+        <img src="${product.img || 'tshirt_black.png'}" alt="${product.name}" />
+      </div>
+      <div class="premium-cart-details">
+        <div class="premium-cart-title-row">
+          <div class="premium-cart-title">${product.name}</div>
+          <div class="premium-cart-price">${money.format(product.price * quantity)}</div>
+        </div>
+        <div class="premium-cart-size">SIZE : 
+          <select class="premium-cart-size-select" onchange="updateCartItemSize('${product.id}', '${size}', this.value)">
+            ${['XS-36', 'S-38', 'M-40', 'L-42', 'XL-44', 'XXL-46', 'One size'].filter(s => s === 'One size' ? size === 'One size' : size !== 'One size').map(s => 
+              `<option value="${s}" ${s === size ? 'selected' : ''}>${s}</option>`
+            ).join('')}
+          </select>
+        </div>
+        <div class="premium-cart-controls">
+          <div class="premium-cart-quantity">
+            <button type="button" data-quantity="${product.id}" data-delta="-1">&#8722;</button>
+            <span>${quantity}</span>
+            <button type="button" data-quantity="${product.id}" data-delta="1">+</button>
+          </div>
+        </div>
+        <button type="button" class="premium-cart-remove" data-remove="${product.id}" onclick="removeFromCart('${product.id}', '${size}')">✕</button>
+      </div>
+    </div>`).join('') + recommendationsHTML;
+
+  const checkoutBtn = document.getElementById('checkoutBtn');
+  const finalTotal = Math.max(0, subtotal - (window._appliedCouponDiscount || 0));
+  if (checkoutBtn) checkoutBtn.textContent = `CHECKOUT / ${money.format(finalTotal)}`;
+  
+  const couponDisplays = document.querySelectorAll('#couponDisplay');
+  couponDisplays.forEach(el => {
+    if (window._appliedCouponCode) {
+      el.textContent = `Coupon Applied: ${window._appliedCouponCode}`;
+    } else {
+      el.textContent = 'Apply Coupons';
+    }
+  });
+  $('[data-cart-empty]').hidden = items.length > 0;
+  $('[data-cart-footer]').hidden = items.length === 0;
+  updateBagCount();
+  saveCart();
+}
+
+window.removeFromCart = function (id, size) {
+  state.cart = state.cart.filter(item => !(item.id === id && item.size === size));
+  renderCart();
+};
+window.updateCartItemSize = function(id, oldSize, newSize) {
+  if (oldSize === newSize) return;
+  const oldItemIndex = state.cart.findIndex(i => i.id === id && i.size === oldSize);
+  if (oldItemIndex !== -1) {
+    const oldQuantity = state.cart[oldItemIndex].quantity;
+    state.cart.splice(oldItemIndex, 1);
+    const existingItem = state.cart.find(i => i.id === id && i.size === newSize);
+    if (existingItem) {
+      existingItem.quantity += oldQuantity;
+    } else {
+      state.cart.push({ id, size: newSize, quantity: oldQuantity });
+    }
+    renderCart();
+  }
+};
 function addToCart(id, size = 'One size') { const item = state.cart.find((cartItem) => cartItem.id === id && cartItem.size === size); if (item) item.quantity += 1; else state.cart.push({ id, size, quantity: 1 }); renderCart(); showToast(`${products.find((product) => product.id === id).name} added to bag`); }
 function openDrawer() { cartDrawer.classList.add('is-open'); overlay.classList.add('is-open'); cartDrawer.setAttribute('aria-hidden', 'false'); }
 function closeDrawer() { cartDrawer.classList.remove('is-open'); overlay.classList.remove('is-open'); cartDrawer.setAttribute('aria-hidden', 'true'); }
-function openFilterDrawer() { const fd = document.querySelector('[data-filter-drawer]'); if(fd) { fd.classList.add('is-open'); overlay.classList.add('is-open'); fd.setAttribute('aria-hidden', 'false'); } }
-function closeFilterDrawer() { const fd = document.querySelector('[data-filter-drawer]'); if(fd) { fd.classList.remove('is-open'); overlay.classList.remove('is-open'); fd.setAttribute('aria-hidden', 'true'); } }
-function toggleFilterDrawer() { const fd = document.querySelector('[data-filter-drawer]'); if(fd && fd.classList.contains('is-open')) closeFilterDrawer(); else openFilterDrawer(); }
+function openFilterDrawer() { const fd = document.querySelector('[data-filter-drawer]'); if (fd) { fd.classList.add('is-open'); overlay.classList.add('is-open'); fd.setAttribute('aria-hidden', 'false'); } }
+function closeFilterDrawer() { const fd = document.querySelector('[data-filter-drawer]'); if (fd) { fd.classList.remove('is-open'); overlay.classList.remove('is-open'); fd.setAttribute('aria-hidden', 'true'); } }
+function toggleFilterDrawer() { const fd = document.querySelector('[data-filter-drawer]'); if (fd && fd.classList.contains('is-open')) closeFilterDrawer(); else openFilterDrawer(); }
 function openProduct(id) { activeProduct = products.find((product) => product.id === id); const dialogArt = $('[data-dialog-art]'); if (dialogArt) { dialogArt.className = 'dialog-art'; dialogArt.style.background = '#f7f7f7'; dialogArt.style.overflow = 'hidden'; dialogArt.innerHTML = `<img src="${activeProduct.img || 'tshirt_black.png'}" alt="${activeProduct.name}" style="width:100%; height:100%; object-fit:cover;" />`; } $('[data-dialog-category]').textContent = activeProduct.category; $('[data-dialog-title]').textContent = activeProduct.name; $('[data-dialog-description]').textContent = activeProduct.description; $('[data-dialog-price]').textContent = money.format(activeProduct.price); $('[data-dialog-size]').innerHTML = activeProduct.sizes.map((size) => `<option>${size}</option>`).join(''); const addBtn = document.getElementById('dialog-add-to-bag'); if (addBtn) addBtn.dataset.add = id; dialog.showModal(); }
 
 // Handles main category clicks from menu/header
-function setCategory(category) { 
+function setCategory(category) {
   const target = mapping[category] || 'products.html';
   if (window.location.pathname.endsWith(target)) {
-    state.category = category; 
+    state.category = category;
     state.subcategory = 'All'; // Reset subcategory when changing main category
-    state.query = ''; 
-    const searchEl = document.querySelector('[data-search]'); if (searchEl) searchEl.value = ''; 
-    renderFilters(); renderProducts(); 
+    state.query = '';
+    const searchEl = document.querySelector('[data-search]'); if (searchEl) searchEl.value = '';
+    renderFilters(); renderProducts();
     const nav = document.querySelector('.nav');
-    if (nav) nav.classList.remove('is-open'); 
+    if (nav) nav.classList.remove('is-open');
     const menuBtn = document.querySelector('[data-menu]');
     if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('menu-open');
@@ -221,19 +352,78 @@ function setSubcategory(sub) {
 document.addEventListener('click', (event) => {
   const filter = event.target.closest('[data-filter]'); if (filter) setCategory(filter.dataset.filter);
   const subfilter = event.target.closest('[data-subfilter]'); if (subfilter) setSubcategory(subfilter.dataset.subfilter);
-  const add = event.target.closest('[data-add]'); if (add) { let size = 'One size'; if (add.id === 'dialog-add-to-bag') { const sizeSelect = document.getElementById('product-size'); if (sizeSelect) size = sizeSelect.value; dialog.close(); } addToCart(add.dataset.add, size); }
-  const view = event.target.closest('[data-view]'); if (view) openProduct(view.dataset.view);
+  const add = event.target.closest('[data-add]'); if (add) { if (window.innerWidth <= 768 && add.id !== 'sizeSheetConfirm') { window._sheetProductId = add.dataset.add; openGlobalSizeSheet(); } else { let size = 'One size'; if (add.id === 'dialog-add-to-bag') { const sizeSelect = document.getElementById('product-size'); if (sizeSelect) size = sizeSelect.value; dialog.close(); } addToCart(add.dataset.add, size); } }
+  const view = event.target.closest('[data-view]'); if (view) { if (window.innerWidth <= 768) { window._sheetProductId = view.dataset.view; openGlobalSizeSheet(); } else { openProduct(view.dataset.view); } }
   const quantity = event.target.closest('[data-quantity]'); if (quantity) { const item = state.cart.find((cartItem) => cartItem.id === quantity.dataset.quantity); item.quantity += Number(quantity.dataset.delta); if (item.quantity < 1) state.cart = state.cart.filter((cartItem) => cartItem !== item); renderCart(); }
-  const filterToggle = event.target.closest('[data-filter-toggle]'); if(filterToggle) openFilterDrawer();
-  const closeFilter = event.target.closest('[data-close-filter]'); if(closeFilter) closeFilterDrawer();
-  const applyFilter = event.target.closest('[data-apply-filters]'); if(applyFilter) { showToast('Filters applied successfully'); closeFilterDrawer();  }
-  if (event.target.closest('[data-close-drawer]') || event.target === overlay) { closeDrawer(); closeFilterDrawer();  }
+  const filterToggle = event.target.closest('[data-filter-toggle]'); if (filterToggle) openFilterDrawer();
+  const closeFilter = event.target.closest('[data-close-filter]'); if (closeFilter) closeFilterDrawer();
+  const applyFilter = event.target.closest('[data-apply-filters]'); if (applyFilter) { showToast('Filters applied successfully'); closeFilterDrawer(); }
+  if (event.target.closest('[data-close-drawer]') || event.target === overlay) { closeDrawer(); closeFilterDrawer(); }
 });
 $('[data-bag]').addEventListener('click', openDrawer);
 $('[data-close-dialog]').addEventListener('click', () => dialog.close());
 $('[data-checkout]').addEventListener('click', () => showToast('Checkout will connect to your WordPress store.'));
 $('[data-search]')?.addEventListener('input', (event) => { state.query = event.target.value.trim(); renderProducts(); });
 $('[data-reset]')?.addEventListener('click', () => setCategory('All objects'));
+
+/* ── Global Size Bottom Sheet (Listing Pages) ── */
+function openGlobalSizeSheet() {
+  const sheet = document.getElementById('sizeSheet');
+  const overlay = document.getElementById('sizeSheetOverlay');
+  if (!sheet || !overlay) return;
+  // Reset selection
+  document.querySelectorAll('#sizeSheetGrid .size-sheet-btn').forEach(b => b.classList.remove('selected'));
+  window._sheetSelectedSize = '';
+  sheet.classList.add('is-open');
+  overlay.classList.add('is-visible');
+  document.body.style.overflow = 'hidden';
+}
+function closeGlobalSizeSheet() {
+  const sheet = document.getElementById('sizeSheet');
+  const overlay = document.getElementById('sizeSheetOverlay');
+  if (sheet) sheet.classList.remove('is-open');
+  if (overlay) overlay.classList.remove('is-visible');
+  document.body.style.overflow = '';
+}
+
+// Size list clicks (Auto-add and close)
+document.addEventListener('click', (e) => {
+  const sizeBtn = e.target.closest('#sizeSheetGrid .size-sheet-btn');
+  if (sizeBtn) {
+    document.querySelectorAll('#sizeSheetGrid .size-sheet-btn').forEach(b => b.classList.remove('selected'));
+    sizeBtn.classList.add('selected');
+    window._sheetSelectedSize = sizeBtn.dataset.size;
+
+    // Auto add and close
+    closeGlobalSizeSheet();
+    if (window._sheetProductId) {
+      if (window._oldSize) {
+        const oldItemIndex = state.cart.findIndex(i => i.id === window._sheetProductId && i.size === window._oldSize);
+        if (oldItemIndex !== -1) {
+          const oldQuantity = state.cart[oldItemIndex].quantity;
+          state.cart.splice(oldItemIndex, 1);
+          const existingItem = state.cart.find(i => i.id === window._sheetProductId && i.size === window._sheetSelectedSize);
+          if (existingItem) {
+            existingItem.quantity += oldQuantity;
+          } else {
+            state.cart.push({ id: window._sheetProductId, size: window._sheetSelectedSize, quantity: oldQuantity });
+          }
+        }
+        window._oldSize = null;
+        renderCart();
+        showToast(`Size updated to ${window._sheetSelectedSize}`);
+      } else {
+        addToCart(window._sheetProductId, window._sheetSelectedSize);
+      }
+      openDrawer();
+    }
+  }
+});
+
+// Close sheet
+document.getElementById('sizeSheetClose')?.addEventListener('click', closeGlobalSizeSheet);
+document.getElementById('sizeSheetOverlay')?.addEventListener('click', closeGlobalSizeSheet);
+
 function toggleNav(openState) {
   const menu = document.querySelector('.nav');
   const menuBtn = document.querySelector('[data-menu]');
@@ -276,12 +466,12 @@ if (header) {
 function toggleSortPopup(event, btn) {
   event.stopPropagation();
   const popup = btn.nextElementSibling;
-  
+
   // Close all other popups
   document.querySelectorAll('.sort-popup').forEach(p => {
     if (p !== popup) p.style.display = 'none';
   });
-  
+
   if (popup.style.display === 'flex') {
     popup.style.display = 'none';
   } else {
@@ -294,12 +484,12 @@ function applySortPopup(applyBtn) {
   const selected = popup.querySelector('input[name="sort"]:checked');
   if (selected) {
     state.sortBy = selected.value;
-    
+
     // Sync the other popups' radio buttons so they match
     document.querySelectorAll(`input[name="sort"][value="${selected.value}"]`).forEach(radio => {
       radio.checked = true;
     });
-    
+
     renderProducts();
     popup.style.display = 'none';
   }
@@ -327,11 +517,11 @@ function toggleSortDrawer() {
 function applySortDrawer(sortValue, element) {
   state.sortBy = sortValue;
   renderProducts();
-  
+
   // Update active states
   document.querySelectorAll('.sort-drawer-item').forEach(el => el.classList.remove('active'));
   if (element) element.classList.add('active');
-  
+
   toggleSortDrawer();
 }
 
@@ -339,7 +529,7 @@ function switchFilterCategory(category, element) {
   // Update sidebar active state
   document.querySelectorAll('.filter-sidebar-item').forEach(el => el.classList.remove('active'));
   if (element) element.classList.add('active');
-  
+
   // Show corresponding pane
   document.querySelectorAll('.filter-pane-group').forEach(el => el.classList.remove('active'));
   const pane = document.getElementById('filter-group-' + category);
@@ -543,3 +733,116 @@ function switchRareTab(tabKey) {
     `).join('');
   }
 }
+
+window._appliedCouponDiscount = 0;
+window._appliedCouponCode = null;
+
+window.toggleCouponInput = function() {
+  if (window._appliedCouponCode) {
+    if (confirm(`Coupon ${window._appliedCouponCode} is already applied. Do you want to remove it?`)) {
+      window._appliedCouponCode = null;
+      window._appliedCouponDiscount = 0;
+      renderCart();
+      showToast("Coupon removed");
+    }
+    return;
+  }
+  document.querySelectorAll('#couponInputContainer').forEach(el => {
+    if (el.style.display === 'none' || el.style.display === '') {
+      el.style.display = 'block';
+    } else {
+      el.style.display = 'none';
+    }
+  });
+};
+
+window.applyCouponInput = function() {
+  const inputs = document.querySelectorAll('.coupon-input-field');
+  let code = '';
+  inputs.forEach(input => {
+    if (input.value) code = input.value.toUpperCase().trim();
+  });
+  
+  if (!code) return;
+
+  if (code === 'FREE50') {
+    window._appliedCouponCode = code;
+    window._appliedCouponDiscount = 50;
+    showToast("Coupon Applied! ₹50 OFF");
+    document.querySelectorAll('#couponInputContainer').forEach(el => el.style.display = 'none');
+    inputs.forEach(input => input.value = '');
+  } else if (code === 'SAVE100') {
+    window._appliedCouponCode = code;
+    window._appliedCouponDiscount = 100;
+    showToast("Coupon Applied! ₹100 OFF");
+    document.querySelectorAll('#couponInputContainer').forEach(el => el.style.display = 'none');
+    inputs.forEach(input => input.value = '');
+  } else {
+    showToast("Invalid Coupon Code");
+  }
+  renderCart();
+};
+
+window.toggleWishlist = function(el) {
+  const isFilled = el.getAttribute('fill') === 'currentColor';
+  if (isFilled) {
+    el.setAttribute('fill', 'none');
+    showToast("Removed from wishlist");
+  } else {
+    el.setAttribute('fill', 'currentColor');
+    showToast("Added to wishlist");
+  }
+};
+
+window.shareCart = function() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'My Cart',
+      url: window.location.href
+    }).catch((err) => {
+      console.log('Share error', err);
+      navigator.clipboard.writeText(window.location.href);
+      showToast("Link copied to clipboard!");
+    });
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    showToast("Link copied to clipboard!");
+  }
+};
+
+
+function saveWishlist() {
+  localStorage.setItem('tshirt_wishlist', JSON.stringify(state.wishlist));
+}
+
+window.toggleProductWishlist = function(id, event) {
+  if(event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+  const index = state.wishlist.indexOf(id);
+  if (index === -1) {
+    state.wishlist.push(id);
+    showToast("Added to wishlist");
+  } else {
+    state.wishlist.splice(index, 1);
+    showToast("Removed from wishlist");
+  }
+  saveWishlist();
+  
+  // Re-render grid if on wishlist page, else just update the icons visually
+  if (window.location.pathname.includes('wishlist.html')) {
+    renderProducts();
+  } else {
+    const btns = document.querySelectorAll(`[data-wishlist-btn="${id}"]`);
+    btns.forEach(btn => {
+      if (index === -1) {
+        // Was added, so make it solid
+        btn.innerHTML = '&#9829;'; // Solid heart
+      } else {
+        // Was removed, make it outline
+        btn.innerHTML = '&#9825;'; // Outline heart
+      }
+    });
+  }
+};

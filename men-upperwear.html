@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=105">
+    <link rel="stylesheet" href="styles.css?v=119">
   </head>
   <body class="home-page">
     <a class="skip-link" href="#main">Skip to collection</a>
@@ -157,6 +157,9 @@
           <button class="icon-btn user-btn" aria-label="User profile">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
           </button>
+          <a href="wishlist.html" class="icon-btn wishlist-btn" aria-label="Wishlist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </a>
           <button class="icon-btn bag-btn" type="button" data-bag="" aria-label="Shopping bag, 2 items">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
             <span class="bag-badge" data-bag-count="">02</span>
@@ -438,11 +441,70 @@
     <button type="button" class="filter-btn-apply" data-close-filter onclick="closeFilterDrawer()">APPLY FILTERS &rarr;</button>
   </div>
 </aside>
-    <aside class="bag-drawer" aria-label="Shopping bag" aria-hidden="true" data-drawer="">
-      <div class="drawer-head"><p class="eyebrow">Your bag</p><button type="button" data-close-drawer="" aria-label="Close shopping bag">×</button></div>
-      <div class="drawer-items" data-cart-items=""><div class="cart-item"><div class="cart-mini product-moss tee-art"><span></span></div><div><p>New Products</p><strong>Hoodies Item</strong><small>One size</small><div class="quantity"><button type="button" data-quantity="2" data-delta="-1" aria-label="Remove one Hoodies Item">−</button><span>1</span><button type="button" data-quantity="2" data-delta="1" aria-label="Add one Hoodies Item">+</button></div></div><b>₹1,519</b></div><div class="cart-item"><div class="cart-mini product-bone tee-art"><span></span></div><div><p>New Products</p><strong>T-Shirts Item</strong><small>One size</small><div class="quantity"><button type="button" data-quantity="1" data-delta="-1" aria-label="Remove one T-Shirts Item">−</button><span>1</span><button type="button" data-quantity="1" data-delta="1" aria-label="Add one T-Shirts Item">+</button></div></div><b>₹1,509</b></div></div>
-      <div class="drawer-empty" data-cart-empty="" hidden=""><p>Your bag is waiting for an object.</p><a href="#shop" data-close-drawer="">Browse the arrangement</a></div>
-      <div class="drawer-footer" data-cart-footer=""><div><span>Subtotal</span><strong data-cart-subtotal="">₹3,028</strong></div><p>Taxes and delivery are calculated at checkout.</p><button type="button" data-checkout="">Continue to checkout <span aria-hidden="true">→</span></button></div>
+    
+    <!-- Mobile Size Bottom Sheet -->
+    <div class="size-sheet-overlay" id="sizeSheetOverlay"></div>
+    <div class="size-sheet" id="sizeSheet">
+      <div class="size-sheet-handle"></div>
+      <div class="size-sheet-header">
+        <h3>SELECT SIZE</h3>
+        <button type="button" class="size-sheet-close" id="sizeSheetClose">✕</button>
+      </div>
+      <div class="size-sheet-grid" id="sizeSheetGrid">
+        <button type="button" class="size-sheet-btn" data-size="XS-36">XS-36</button>
+        <button type="button" class="size-sheet-btn" data-size="S-38">S-38</button>
+        <button type="button" class="size-sheet-btn" data-size="M-40">M-40</button>
+        <button type="button" class="size-sheet-btn" data-size="L-42">L-42</button>
+        <button type="button" class="size-sheet-btn" data-size="XL-44">XL-44</button>
+        <button type="button" class="size-sheet-btn" data-size="XXL-46">XXL-46</button>
+      </div>
+      <div class="size-sheet-chart">
+        <a href="#">SIZE CHART</a>
+      </div>
+      <div class="size-sheet-confirm">
+        <button type="button" id="sizeSheetConfirm">ADD TO BAG</button>
+      </div>
+    </div>
+
+        <aside class="bag-drawer" aria-label="Shopping bag" aria-hidden="true" data-drawer="">
+      <div class="premium-bag-header">
+        <button type="button" data-close-drawer="" aria-label="Close shopping bag">&lt;</button>
+        <span class="premium-bag-title" id="bagTitle">BAG ( 0 )</span>
+        <div class="premium-bag-icons">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" style="cursor:pointer;" onclick="toggleWishlist(this)"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" style="cursor:pointer;" onclick="shareCart()"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </div>
+      </div>
+      
+      <div id="shippingProgressContainer"></div>
+      
+      <div class="offer-banner">
+        EOSS Flat 50% off | 22nd - 26 July | No Returns, Hassle Free Exchange
+      </div>
+
+      <div class="drawer-items" data-cart-items="" style="background:#0a0a0a;"></div>
+      
+      <div class="drawer-empty" data-cart-empty="" hidden="">
+        <p style="padding:2rem;text-align:center;">Your bag is empty.</p>
+      </div>
+
+      <div class="bag-options" style="flex-direction: column;">
+        <div class="bag-option" onclick="toggleCouponInput()" style="cursor: pointer; width: 100%;">
+          <span id="couponDisplay">Apply Coupons</span>
+          <span id="couponIcon">&gt;</span>
+        </div>
+        <div id="couponInputContainer" style="display:none; padding: 1rem 1.25rem; border-top: 1px solid rgba(24,25,23,0.1); background: #fafafa; width: 100%;">
+          <div style="display:flex; gap: 0.5rem;">
+            <input type="text" class="coupon-input-field" placeholder="Enter Coupon Code" style="flex:1; padding: 0.6rem; border: 1px solid rgba(24,25,23,0.3); outline:none; text-transform:uppercase; font-family: var(--mono); font-size: 0.7rem; background: transparent;">
+            <button type="button" onclick="applyCouponInput()" style="background: var(--ink); color: var(--paper); border: none; padding: 0 1rem; cursor: pointer; font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase;">Apply</button>
+          </div>
+          <p style="margin: 0.5rem 0 0; font-family: var(--mono); font-size: 0.6rem; color: #666; text-transform: uppercase;">Try 'FREE50' or 'SAVE100'</p>
+        </div>
+      </div>
+
+      <div class="premium-drawer-footer" data-cart-footer="">
+        <button type="button" data-checkout="" id="checkoutBtn">CHECKOUT / ₹0</button>
+      </div>
     </aside>
     <div class="overlay" data-overlay=""></div>
     <dialog class="product-dialog" data-product-dialog="" aria-labelledby="dialog-title">
@@ -459,7 +521,7 @@
       </div>
     </dialog>
     <div class="toast" role="status" aria-live="polite" data-toast=""></div>
-    <script src="script.js?v=44"></script>
+    <script src="script.js?v=119"></script>
   
 
 
@@ -476,5 +538,25 @@
     <a class="sort-drawer-item" onclick="applySortDrawer('price-low', this)">PRICE LOW TO HIGH</a>
   </div>
 </aside>
+
+
+<nav class="mobile-bottom-nav">
+  <a href="index.html" class="mb-nav-item" aria-label="Home">
+    <svg viewBox="0 0 24 24" stroke="currentColor" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+  </a>
+  <button type="button" class="mb-nav-item" onclick="document.querySelector('[data-search]') && document.querySelector('[data-search]').focus()" aria-label="Search">
+    <svg viewBox="0 0 24 24" stroke="currentColor" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+  </button>
+  <button type="button" class="mb-nav-item mb-nav-text" onclick="toggleNav(true)">MENU</button>
+  <button type="button" class="mb-nav-item" aria-label="Profile">
+    <svg viewBox="0 0 24 24" stroke="currentColor" fill="none"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+  </button>
+  <button type="button" class="mb-nav-item" data-bag="" aria-label="Bag">
+    <div style="position:relative;">
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+      <span class="mb-bag-badge" data-bag-count="">0</span>
+    </div>
+  </button>
+</nav>
 
 </body></html>
