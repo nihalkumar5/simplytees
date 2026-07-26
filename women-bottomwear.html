@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=98">
+    <link rel="stylesheet" href="styles.css?v=105">
   </head>
   <body class="home-page">
     <a class="skip-link" href="#main">Skip to collection</a>
@@ -166,14 +166,89 @@
 
       <!-- Mobile Navigation (Original) -->
       <nav id="nav" class="nav mobile-only" aria-label="Primary navigation">
-        <div class="nav-links"><a href="#shop">Shop</a><a href="#world">World</a><a href="#notes">Notes</a></div>
-                                        <div class="menu-categories" aria-label="Shop categories">
-          <button type="button" data-filter="Apparel" onclick="window.location.href='apparel.html'"><span>01</span><strong>Apparel</strong><i class="shirt-art product-bone" aria-hidden="true"><b></b></i></button>
-          <button type="button" data-filter="Kids" onclick="window.location.href='kids-clothing.html'"><span>02</span><strong>Kids Clothing</strong><i class="tee-art product-paper" aria-hidden="true"><b></b></i></button>
-          <button type="button" data-filter="Accessories" onclick="window.location.href='accessories.html'"><span>03</span><strong>Accessories &amp; Bags</strong><i class="key-art product-ink" aria-hidden="true"><b></b></i></button>
-          <button type="button" data-filter="Living" onclick="window.location.href='home-living.html'"><span>04</span><strong>Living</strong><i class="bag-art product-olive" aria-hidden="true"><b></b></i></button>
-          <button type="button" data-filter="Pet-Wear" onclick="window.location.href='pet-wear.html'"><span>05</span><strong>Pet-Wear</strong><i class="shirt-art product-bone" aria-hidden="true"><b></b></i></button>
-          <button type="button" data-filter="New" onclick="window.location.href='new-products.html'"><span>06</span><strong style="color: #2e7d32;">New Arrivals</strong><i class="shirt-art product-moss" aria-hidden="true"><b></b></i></button>
+        <div class="rare-mobile-menu">
+          <button type="button" class="rare-menu-close-btn" onclick="toggleNav(false)" aria-label="Close Menu">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L13 13M1 13L13 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+
+          <!-- Top Banner Image -->
+          <div class="rare-menu-banner">
+            <img id="rare-menu-banner-img" src="assets/asterra-hero.png" alt="Collection Banner">
+          </div>
+
+          <!-- Horizontal Category Tabs (Matching Desktop 1:1) -->
+          <div class="rare-menu-tabs">
+            <div class="rare-menu-tab is-active" data-rare-tab="apparel" onclick="switchRareTab('apparel')">APPAREL</div>
+            <div class="rare-menu-tab" data-rare-tab="kids" onclick="switchRareTab('kids')">KIDS</div>
+            <div class="rare-menu-tab" data-rare-tab="accessories" onclick="switchRareTab('accessories')">ACCESSORIES</div>
+            <div class="rare-menu-tab" data-rare-tab="living" onclick="switchRareTab('living')">LIVING</div>
+            <div class="rare-menu-tab" data-rare-tab="petwear" onclick="switchRareTab('petwear')">PET-WEAR</div>
+            <div class="rare-menu-tab" data-rare-tab="new" onclick="switchRareTab('new')">NEW ARRIVALS</div>
+          </div>
+
+          <!-- Subcategories List (No hardcoded href on group titles) -->
+          <div class="rare-menu-list" id="rare-menu-list-container">
+            <div class="rare-accordion-group is-open">
+              <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
+                <span style="font-weight: 700;">T-SHIRTS</span>
+                <span class="chevron">›</span>
+              </div>
+              <div class="rare-sub-list">
+                <a href="t-shirts.html" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All T-SHIRTS</a>
+                <a href="t-shirts.html?filter=Classic%20Crew" class="rare-sub-item">• Classic Crew</a>
+                <a href="t-shirts.html?filter=Oversized" class="rare-sub-item">• Oversized</a>
+                <a href="t-shirts.html?filter=Baby%20Tee%20%26%20Crop" class="rare-sub-item">• Baby Tee & Crop</a>
+                <a href="t-shirts.html?filter=Polo%20%26%20V-Neck" class="rare-sub-item">• Polo & V-Neck</a>
+                <a href="t-shirts.html?filter=Supima%20%26%20Stretch" class="rare-sub-item">• Supima & Stretch</a>
+                <a href="t-shirts.html?filter=Acid%20Wash%20%26%20Tie%20Dye" class="rare-sub-item">• Acid Wash & Tie Dye</a>
+              </div>
+            </div>
+
+            <div class="rare-accordion-group">
+              <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
+                <span style="font-weight: 700;">HOODIES & JACKETS</span>
+                <span class="chevron">›</span>
+              </div>
+              <div class="rare-sub-list">
+                <a href="hoodies-jackets.html" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All HOODIES & JACKETS</a>
+                <a href="hoodies-jackets.html?filter=Pullover%20Hoodies" class="rare-sub-item">• Pullover Hoodies</a>
+                <a href="hoodies-jackets.html?filter=Zip%20Hoodies" class="rare-sub-item">• Zip Hoodies</a>
+                <a href="hoodies-jackets.html?filter=Sweatshirts" class="rare-sub-item">• Sweatshirts</a>
+                <a href="hoodies-jackets.html?filter=Bomber%20Jackets" class="rare-sub-item">• Bomber Jackets</a>
+                <a href="hoodies-jackets.html?filter=Varsity%20Jackets" class="rare-sub-item">• Varsity Jackets</a>
+              </div>
+            </div>
+
+            <div class="rare-accordion-group">
+              <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
+                <span style="font-weight: 700;">BOTTOMWEAR</span>
+                <span class="chevron">›</span>
+              </div>
+              <div class="rare-sub-list">
+                <a href="bottomwear.html" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All BOTTOMWEAR</a>
+                <a href="bottomwear.html?filter=Sweatpants%20%26%20Joggers" class="rare-sub-item">• Sweatpants & Joggers</a>
+                <a href="bottomwear.html?filter=Shorts" class="rare-sub-item">• Shorts</a>
+                <a href="bottomwear.html?filter=Skirts" class="rare-sub-item">• Skirts</a>
+                <a href="bottomwear.html?filter=Leggings" class="rare-sub-item">• Leggings</a>
+              </div>
+            </div>
+
+            <div class="rare-accordion-group">
+              <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
+                <span style="font-weight: 700;">AOP APPAREL</span>
+                <span class="chevron">›</span>
+              </div>
+              <div class="rare-sub-list">
+                <a href="aop-apparel.html" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All AOP APPAREL</a>
+                <a href="aop-apparel.html?filter=AOP%20T-Shirts" class="rare-sub-item">• AOP T-Shirts</a>
+                <a href="aop-apparel.html?filter=AOP%20Tops%20%26%20Dresses" class="rare-sub-item">• AOP Tops & Dresses</a>
+                <a href="aop-apparel.html?filter=AOP%20Bottoms" class="rare-sub-item">• AOP Bottoms</a>
+                <a href="aop-apparel.html?filter=AOP%20Jackets%20%26%20Sweats" class="rare-sub-item">• AOP Jackets & Sweats</a>
+              </div>
+            </div>
+          </div>
         </div>
       </nav>
     </header>
@@ -184,92 +259,33 @@
         <div class="category-header" style="padding: 3rem 2rem 1.5rem 2rem; display: flex; flex-direction: column; background: #ffffff; max-width: 1400px; margin: 0 auto;">
           <h1 id="collection-title" data-dynamic-title style="font-size: 2rem; text-align: center; font-weight: 800; letter-spacing: -0.02em; margin: 0; text-transform: uppercase;">Collection</h1>
           
-          <div class="circular-filters" data-filters style="margin: 3rem 0 0 0; padding: 0; justify-content: center; overflow-x: auto; display: flex; gap: 2rem; scrollbar-width: none;">
+          <div class="circular-filters" data-filters style="margin: 3rem 0 0 0;  justify-content: flex-start; padding-left: 1rem; padding-right: 1rem; overflow-x: auto; display: flex; gap: 2rem; scrollbar-width: none;">
             <!-- JS injects here -->
           </div>
 
-          <div class="utility-bar desktop-utility" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: nowrap; gap: 1rem; margin-top: 6rem;">
-            <h4 style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin: 0;"><a href="#" style="color: #111; text-decoration: none; letter-spacing: 0.02em;">EXPLORE <span data-dynamic-text>COLLECTION</span> <span aria-hidden="true" style="color: #0fb288; font-size: 1.2em; vertical-align: middle;">›</span></a></h4>
+          <div class="shop-utility-toolbar" style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 5rem; flex-wrap: wrap; width: 100%;">
+            <a href="#" style="background: #f0f0f0; padding: 0.5rem 0.8rem; border-radius: 6px; font-size: 0.7rem; font-weight: 600; color: #333; display: flex; align-items: center; gap: 0.3rem; text-decoration: none; text-transform: uppercase; letter-spacing: 0.02em; flex-shrink: 0;">EXPLORE <span data-dynamic-text>COLLECTION</span> <span style="color: #111; font-size: 1rem; line-height: 0.5;">›</span></a>
             
-            <div style="display: flex; align-items: center; gap: 1rem;">
-              
-<div style="position: relative;" class="sort-wrapper">
-  <button type="button" class="circle-btn" onclick="toggleSortPopup(event, this)" style="width: 2.2rem; height: 2.2rem; cursor: pointer; border-radius: 50%; border: 1px solid #eaeaea; background: #fff; display: flex; align-items: center; justify-content: center; color: #111;">
-    <span style="font-size: 1rem; line-height: 1;">↓</span>
-  </button>
-  <div class="sort-popup" onclick="event.stopPropagation()" style="position: absolute; top: calc(100% + 10px); left: 0; width: 220px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 1000; display: none; flex-direction: column; padding: 1rem;">
-    <h4 style="font-size: 0.75rem; font-weight: 700; color: #888; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;">Sort By</h4>
-    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem;">
-      <label style="display: flex; align-items: center; gap: 0.8rem; font-size: 0.85rem; cursor: pointer;">
-        <input type="radio" name="sort" value="default" checked style="accent-color: #0fb288;"> Recommended
-      </label>
-      <label style="display: flex; align-items: center; gap: 0.8rem; font-size: 0.85rem; cursor: pointer;">
-        <input type="radio" name="sort" value="price-low" style="accent-color: #0fb288;"> Price: Low to High
-      </label>
-      <label style="display: flex; align-items: center; gap: 0.8rem; font-size: 0.85rem; cursor: pointer;">
-        <input type="radio" name="sort" value="price-high" style="accent-color: #0fb288;"> Price: High to Low
-      </label>
-      <label style="display: flex; align-items: center; gap: 0.8rem; font-size: 0.85rem; cursor: pointer;">
-        <input type="radio" name="sort" value="newest" style="accent-color: #0fb288;"> Newest Arrivals
-      </label>
-    </div>
-    <button type="button" onclick="applySortPopup(this)" class="button-primary-dark" style="width: 100%; background: #111; color: #fff; padding: 0.6rem; border: none; border-radius: 30px; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; cursor: pointer;">Apply</button>
-  </div>
-</div>
+            <div class="product-search-container" style="flex: 1; min-width: 260px; max-width: 480px; margin: 0 auto;">
+              <div style="position: relative; display: flex; align-items: center; border: 1px solid #ddd; border-radius: 30px; padding: 0.5rem 1.2rem; background: #fff;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="search" data-search placeholder="Discover the collection..." style="border: none; outline: none; width: 100%; font-size: 0.95rem; color: #333; background: transparent;">
+              </div>
+            </div>
 
+            <div style="display: flex; align-items: center; gap: 0.8rem; flex-shrink: 0;">
+              <div style="position: relative;" class="sort-wrapper">
+                <button type="button" class="circle-btn" onclick="toggleSortDrawer()" style="width: 2.2rem; height: 2.2rem; cursor: pointer; border-radius: 50%; border: 1px solid #eaeaea; background: #fff; display: flex; align-items: center; justify-content: center; color: #111;">
+                  <span style="font-size: 1rem; line-height: 1;">↓</span>
+                </button>
+              </div>
               <button type="button" class="button-outline-dark" onclick="openFilterDrawer()" style="background: #fff; color: #555; padding: 0.5rem 1.2rem; border-radius: 30px; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; font-weight: 600; border: 1px solid #ddd; letter-spacing: 0.05em;">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
                 FILTERS
               </button>
             </div>
           </div>
-          
-          <div class="utility-bar mobile-utility" style="display: none; justify-content: space-between; align-items: center; flex-wrap: nowrap; width: 100%; margin-top: 1.5rem;">
-            <div style="display: flex; align-items: center; gap: 0.8rem;">
-              
-<div style="position: relative;" class="sort-wrapper">
-  <button type="button" class="circle-btn" onclick="toggleSortPopup(event, this)" style="width: 2.2rem; height: 2.2rem; cursor: pointer; border-radius: 50%; border: 1px solid #eaeaea; background: #fff; display: flex; align-items: center; justify-content: center; color: #0fb288;">
-    <span style="font-size: 1.2rem; line-height: 1;">↓</span>
-  </button>
-  <div class="sort-popup" onclick="event.stopPropagation()" style="position: absolute; top: calc(100% + 10px); left: 0; width: 220px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 1000; display: none; flex-direction: column; padding: 1rem;">
-    <h4 style="font-size: 0.75rem; font-weight: 700; color: #888; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;">Sort By</h4>
-    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem;">
-      <label style="display: flex; align-items: center; gap: 0.8rem; font-size: 0.85rem; cursor: pointer;">
-        <input type="radio" name="sort" value="default" checked style="accent-color: #0fb288;"> Recommended
-      </label>
-      <label style="display: flex; align-items: center; gap: 0.8rem; font-size: 0.85rem; cursor: pointer;">
-        <input type="radio" name="sort" value="price-low" style="accent-color: #0fb288;"> Price: Low to High
-      </label>
-      <label style="display: flex; align-items: center; gap: 0.8rem; font-size: 0.85rem; cursor: pointer;">
-        <input type="radio" name="sort" value="price-high" style="accent-color: #0fb288;"> Price: High to Low
-      </label>
-      <label style="display: flex; align-items: center; gap: 0.8rem; font-size: 0.85rem; cursor: pointer;">
-        <input type="radio" name="sort" value="newest" style="accent-color: #0fb288;"> Newest Arrivals
-      </label>
-    </div>
-    <button type="button" onclick="applySortPopup(this)" class="button-primary-dark" style="width: 100%; background: #111; color: #fff; padding: 0.6rem; border: none; border-radius: 30px; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; cursor: pointer;">Apply</button>
-  </div>
-</div>
 
-              <button type="button" onclick="openFilterDrawer()" style="background: #fff; color: #0fb288; padding: 0.5rem 1rem; border-radius: 30px; display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 600; border: 1px solid #eaeaea;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
-                Filters
-              </button>
-            </div>
-            
-            <div style="background: #f0f0f0; padding: 0.5rem 0.8rem; border-radius: 6px; font-size: 0.7rem; font-weight: 600; color: #333; display: flex; align-items: center; gap: 0.3rem;">
-              MODEL: ASTERRA <span data-dynamic-text style="text-transform: uppercase;">COLLECTION</span>
-              <span style="color: #0fb288; font-size: 1rem; line-height: 0.5;">›</span>
-            </div>
-          </div>
-
-          <div class="product-search-container" style="width: 100%; max-width: 500px; margin: 2rem auto 0 auto;">
-            <div style="position: relative; display: flex; align-items: center; border: 1px solid #ddd; border-radius: 30px; padding: 0.7rem 1.2rem; background: #fff;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              <input type="search" data-search placeholder="Discover the collection..." style="border: none; outline: none; width: 100%; font-size: 1.05rem; color: #333; background: transparent;">
-            </div>
-          </div>
-          
           <div class="results-count-container" style="text-align: right; border-bottom: 1px solid #111; padding-bottom: 0.2rem; margin-top: 1.5rem;">
             <p data-results style="font-size: 0.65rem; color: #111; font-weight: 400; text-transform: uppercase; font-family: 'DM Mono', monospace; letter-spacing: 0.02em; margin: 0;">0 OBJECTS IN VIEW</p>
           </div>
@@ -353,67 +369,75 @@
     
     
 
-    <aside class="filter-drawer" aria-label="Filters" aria-hidden="true" data-filter-drawer="">
-      <div class="drawer-head" style="padding: 1.5rem 1.25rem;">
-        <p class="eyebrow" style="font-size:1.2rem; font-weight:400; text-transform:capitalize; margin:0; letter-spacing:0;">Filter</p>
-        <button type="button" data-close-filter="" aria-label="Close filters">×</button>
+    <aside class="filter-drawer" aria-label="Filters" aria-hidden="true" data-filter-drawer>
+  <div class="filter-drawer-header">
+    <h2>SHOP FILTERS</h2>
+    <button class="filter-btn-close-top" data-close-filter onclick="closeFilterDrawer()">&times;</button>
+  </div>
+  <div class="filter-drawer-body">
+    <div class="filter-sidebar">
+      <div class="filter-sidebar-item active" onclick="switchFilterCategory('category', this)">CATEGORY</div>
+      <div class="filter-sidebar-item" onclick="switchFilterCategory('size', this)">SIZE</div>
+      <div class="filter-sidebar-item" onclick="switchFilterCategory('color', this)">COLOR</div>
+      <div class="filter-sidebar-item" onclick="switchFilterCategory('price', this)">PRICE</div>
+      <div class="filter-sidebar-item" onclick="switchFilterCategory('occasion', this)">OCCASION</div>
+    </div>
+    <div class="filter-content-pane">
+      <div class="filter-pane-group active" id="filter-group-category">
+        <label class="filter-checkbox-label">
+          <input type="checkbox">
+          <div class="checkbox-info">
+            <span class="checkbox-name">Topwear</span>
+            <span class="checkbox-desc">Premium Tees & Polos</span>
+            <span class="checkbox-count">124 Products</span>
+          </div>
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="checkbox">
+          <div class="checkbox-info">
+            <span class="checkbox-name">Bottomwear</span>
+            <span class="checkbox-desc">Joggers & Shorts</span>
+            <span class="checkbox-count">82 Products</span>
+          </div>
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="checkbox">
+          <div class="checkbox-info">
+            <span class="checkbox-name">Accessories</span>
+            <span class="checkbox-desc">Caps & Socks</span>
+            <span class="checkbox-count">35 Products</span>
+          </div>
+        </label>
       </div>
-      <div class="drawer-items">
-        <details class="filter-accordion">
-          <summary>PRICE</summary>
-          <div class="filter-content">
-            <label><input type="checkbox"> Under ₹1000</label>
-            <label><input type="checkbox"> ₹1000 - ₹2000</label>
-            <label><input type="checkbox"> Over ₹2000</label>
-          </div>
-        </details>
-        <details class="filter-accordion">
-          <summary>PRODUCT TYPE</summary>
-          <div class="filter-content">
-            <label><input type="checkbox"> Topwear</label>
-            <label><input type="checkbox"> Bottomwear</label>
-            <label><input type="checkbox"> Accessories</label>
-          </div>
-        </details>
-        <details class="filter-accordion">
-          <summary>SIZE</summary>
-          <div class="filter-content">
-            <label><input type="checkbox"> S</label>
-            <label><input type="checkbox"> M</label>
-            <label><input type="checkbox"> L</label>
-            <label><input type="checkbox"> XL</label>
-          </div>
-        </details>
-        <details class="filter-accordion">
-          <summary>COLOR</summary>
-          <div class="filter-content">
-            <label><input type="checkbox"> Black</label>
-            <label><input type="checkbox"> White</label>
-            <label><input type="checkbox"> Olive</label>
-            <label><input type="checkbox"> Beige</label>
-          </div>
-        </details>
-        <details class="filter-accordion">
-          <summary>OCCASION</summary>
-          <div class="filter-content">
-            <label><input type="checkbox"> Casual</label>
-            <label><input type="checkbox"> Party</label>
-            <label><input type="checkbox"> Travel</label>
-          </div>
-        </details>
-        <details class="filter-accordion">
-          <summary>SLEEVES</summary>
-          <div class="filter-content">
-            <label><input type="checkbox"> Half Sleeves</label>
-            <label><input type="checkbox"> Full Sleeves</label>
-            <label><input type="checkbox"> Sleeveless</label>
-          </div>
-        </details>
+      <div class="filter-pane-group" id="filter-group-size">
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">S</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">M</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">L</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">XL</span></div></label>
       </div>
-      <div class="drawer-footer" style="margin-top: auto; padding: 1rem 1.25rem; border-top: 1px solid rgba(24,25,23,0.15);">
-        <button type="button" data-close-filter="" style="width: 100%; background: #111; color: #fff; border: none; padding: 1rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; cursor: pointer; letter-spacing: 0.05em;">Apply Filters</button>
+      <div class="filter-pane-group" id="filter-group-color">
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">Black</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">White</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">Olive</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">Beige</span></div></label>
       </div>
-    </aside>
+      <div class="filter-pane-group" id="filter-group-price">
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">Under ₹1000</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">₹1000 - ₹2000</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">Over ₹2000</span></div></label>
+      </div>
+      <div class="filter-pane-group" id="filter-group-occasion">
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">Casual</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">Streetwear</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">Minimal</span></div></label>
+      </div>
+    </div>
+  </div>
+  <div class="filter-drawer-footer">
+    <button type="button" class="filter-btn-clear" onclick="clearAllFilters()">CLEAR</button>
+    <button type="button" class="filter-btn-apply" data-close-filter onclick="closeFilterDrawer()">APPLY FILTERS &rarr;</button>
+  </div>
+</aside>
     <aside class="bag-drawer" aria-label="Shopping bag" aria-hidden="true" data-drawer="">
       <div class="drawer-head"><p class="eyebrow">Your bag</p><button type="button" data-close-drawer="" aria-label="Close shopping bag">×</button></div>
       <div class="drawer-items" data-cart-items=""><div class="cart-item"><div class="cart-mini product-moss tee-art"><span></span></div><div><p>New Products</p><strong>Hoodies Item</strong><small>One size</small><div class="quantity"><button type="button" data-quantity="2" data-delta="-1" aria-label="Remove one Hoodies Item">−</button><span>1</span><button type="button" data-quantity="2" data-delta="1" aria-label="Add one Hoodies Item">+</button></div></div><b>₹1,519</b></div><div class="cart-item"><div class="cart-mini product-bone tee-art"><span></span></div><div><p>New Products</p><strong>T-Shirts Item</strong><small>One size</small><div class="quantity"><button type="button" data-quantity="1" data-delta="-1" aria-label="Remove one T-Shirts Item">−</button><span>1</span><button type="button" data-quantity="1" data-delta="1" aria-label="Add one T-Shirts Item">+</button></div></div><b>₹1,509</b></div></div>
@@ -435,7 +459,22 @@
       </div>
     </dialog>
     <div class="toast" role="status" aria-live="polite" data-toast=""></div>
-    <script src="script.js?v=42"></script>
+    <script src="script.js?v=44"></script>
   
+
+
+<div class="sort-backdrop" onclick="toggleSortDrawer()"></div>
+<aside class="sort-drawer" id="sort-drawer">
+  <div class="sort-drawer-head">
+    <p>SORT BY</p>
+    <button type="button" onclick="toggleSortDrawer()">×</button>
+  </div>
+  <div class="sort-drawer-items">
+    <a class="sort-drawer-item active" onclick="applySortDrawer('default', this)">RELEVANCE</a>
+    <a class="sort-drawer-item" onclick="applySortDrawer('newest', this)">NEW ARRIVALS</a>
+    <a class="sort-drawer-item" onclick="applySortDrawer('price-high', this)">PRICE HIGH TO LOW</a>
+    <a class="sort-drawer-item" onclick="applySortDrawer('price-low', this)">PRICE LOW TO HIGH</a>
+  </div>
+</aside>
 
 </body></html>

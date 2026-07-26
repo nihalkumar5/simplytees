@@ -123,23 +123,26 @@ function visibleProducts() {
 }
 function productCard(product) { 
   const origPrice = product.price + 300;
-  return `<article class="product">
-    <div class="product-image-container" data-view="${product.id}" style="cursor: pointer; position: relative; overflow: hidden; padding-top: 125%; background: #f7f7f7;">
+  return `<article class="product" style="display: flex; flex-direction: column; height: 100%;">
+    <div class="product-image-container" onclick="window.location.href='product-detail.html?id=${product.id}'" style="cursor: pointer; position: relative; overflow: hidden; padding-top: 125%; background: #f7f7f7;">
       <div class="heart-icon" style="position: absolute; top: 10px; right: 10px; z-index: 2; color: #111; font-size: 1.2rem;">&#9825;</div>
       <img src="${product.img || 'tshirt_black.png'}" alt="${product.name}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
     </div>
-    <div class="product-meta" style="text-align: center;">
-      <p class="category-label">${product.category}</p>
-      <h3>${product.name}</h3>
-      <div class="price-row" style="margin-bottom: 1rem; display: flex; justify-content: center; align-items: center;">
-        <span class="current-price">${money.format(product.price)}</span>
-        <span class="original-price" style="text-decoration: line-through; color: #999; margin-left: 0.5rem;"><del>${money.format(origPrice)}</del></span>
+    <div class="product-meta" style="text-align: center; display: flex; flex-direction: column; flex: 1; justify-content: space-between; padding-top: 1rem;">
+      <div style="flex: 1;">
+        <p class="category-label">${product.category}</p>
+        <h3 onclick="window.location.href='product-detail.html?id=${product.id}'" style="cursor: pointer;">${product.name}</h3>
       </div>
-      <button class="add-button full-width-add" type="button" data-view="${product.id}" aria-label="Add ${product.name} to bag">
-        ADD TO BAG
-      </button>
-    </div>
-  </article>`; 
+      <div style="margin-top: auto;">
+        <div class="price-row" style="margin-bottom: 1rem; display: flex; justify-content: center; align-items: center;">
+          <span class="current-price">${money.format(product.price)}</span>
+          <span class="original-price" style="text-decoration: line-through; color: #999; margin-left: 0.5rem;"><del>${money.format(origPrice)}</del></span>
+        </div>
+        <button class="add-button full-width-add" type="button" data-view="${product.id}" aria-label="Add ${product.name} to bag">
+          ADD TO BAG
+        </button>
+      </div>
+  </article>`;
 }
 function renderFilters() {
   const filtersEl = document.querySelector('[data-filters]');
@@ -179,13 +182,14 @@ function renderFilters() {
 function renderProducts() { if (!productGrid) return; const result = visibleProducts(); productGrid.innerHTML = result.map(productCard).join(''); $('[data-results]').textContent = `${result.length} object${result.length === 1 ? '' : 's'} in view`; $('[data-empty]').hidden = result.length > 0; }
 function saveCart() { localStorage.setItem('asterra-cart', JSON.stringify(state.cart)); }
 function updateBagCount() { const total = state.cart.reduce((sum, item) => sum + item.quantity, 0); $('[data-bag-count]').textContent = String(total).padStart(2, '0'); $('[data-bag]').setAttribute('aria-label', `Shopping bag, ${total} item${total === 1 ? '' : 's'}`); }
-function renderCart() { const items = state.cart.map((item) => ({ ...item, product: products.find((product) => product.id === item.id) })).filter((item) => item.product); const subtotal = items.reduce((sum, item) => sum + item.product.price * item.quantity, 0); $('[data-cart-items]').innerHTML = items.map(({ product, quantity, size }) => `<div class="cart-item"><div class="cart-mini product-${product.tone} ${product.art}"><span></span></div><div><p>${product.category}</p><strong>${product.name}</strong><small>${size}</small><div class="quantity"><button type="button" data-quantity="${product.id}" data-delta="-1" aria-label="Remove one ${product.name}">&#8722;</button><span>${quantity}</span><button type="button" data-quantity="${product.id}" data-delta="1" aria-label="Add one ${product.name}">+</button></div></div><b>${money.format(product.price * quantity)}</b></div>`).join(''); $('[data-cart-subtotal]').textContent = money.format(subtotal); $('[data-cart-empty]').hidden = items.length > 0; $('[data-cart-footer]').hidden = items.length === 0; updateBagCount(); saveCart(); }
+function renderCart() { const items = state.cart.map((item) => ({ ...item, product: products.find((product) => product.id === item.id) })).filter((item) => item.product); const subtotal = items.reduce((sum, item) => sum + item.product.price * item.quantity, 0); $('[data-cart-items]').innerHTML = items.map(({ product, quantity, size }) => `<div class="cart-item"><div class="cart-mini" style="background:#f7f7f7; overflow:hidden;"><img src="${product.img || 'tshirt_black.png'}" alt="${product.name}" style="width:100%; height:100%; object-fit:cover;" /></div><div><p>${product.category}</p><strong>${product.name}</strong><small>${size}</small><div class="quantity"><button type="button" data-quantity="${product.id}" data-delta="-1" aria-label="Remove one ${product.name}">&#8722;</button><span>${quantity}</span><button type="button" data-quantity="${product.id}" data-delta="1" aria-label="Add one ${product.name}">+</button></div></div><b>${money.format(product.price * quantity)}</b></div>`).join(''); $('[data-cart-subtotal]').textContent = money.format(subtotal); $('[data-cart-empty]').hidden = items.length > 0; $('[data-cart-footer]').hidden = items.length === 0; updateBagCount(); saveCart(); }
 function addToCart(id, size = 'One size') { const item = state.cart.find((cartItem) => cartItem.id === id && cartItem.size === size); if (item) item.quantity += 1; else state.cart.push({ id, size, quantity: 1 }); renderCart(); showToast(`${products.find((product) => product.id === id).name} added to bag`); }
 function openDrawer() { cartDrawer.classList.add('is-open'); overlay.classList.add('is-open'); cartDrawer.setAttribute('aria-hidden', 'false'); }
 function closeDrawer() { cartDrawer.classList.remove('is-open'); overlay.classList.remove('is-open'); cartDrawer.setAttribute('aria-hidden', 'true'); }
 function openFilterDrawer() { const fd = document.querySelector('[data-filter-drawer]'); if(fd) { fd.classList.add('is-open'); overlay.classList.add('is-open'); fd.setAttribute('aria-hidden', 'false'); } }
 function closeFilterDrawer() { const fd = document.querySelector('[data-filter-drawer]'); if(fd) { fd.classList.remove('is-open'); overlay.classList.remove('is-open'); fd.setAttribute('aria-hidden', 'true'); } }
-function openProduct(id) { activeProduct = products.find((product) => product.id === id); $('[data-dialog-art]').className = `dialog-art product-${activeProduct.tone} ${activeProduct.art}`; $('[data-dialog-art]').innerHTML = '<span></span>'; $('[data-dialog-category]').textContent = activeProduct.category; $('[data-dialog-title]').textContent = activeProduct.name; $('[data-dialog-description]').textContent = activeProduct.description; $('[data-dialog-price]').textContent = money.format(activeProduct.price); $('[data-dialog-size]').innerHTML = activeProduct.sizes.map((size) => `<option>${size}</option>`).join(''); const addBtn = document.getElementById('dialog-add-to-bag'); if (addBtn) addBtn.dataset.add = id; dialog.showModal(); }
+function toggleFilterDrawer() { const fd = document.querySelector('[data-filter-drawer]'); if(fd && fd.classList.contains('is-open')) closeFilterDrawer(); else openFilterDrawer(); }
+function openProduct(id) { activeProduct = products.find((product) => product.id === id); const dialogArt = $('[data-dialog-art]'); if (dialogArt) { dialogArt.className = 'dialog-art'; dialogArt.style.background = '#f7f7f7'; dialogArt.style.overflow = 'hidden'; dialogArt.innerHTML = `<img src="${activeProduct.img || 'tshirt_black.png'}" alt="${activeProduct.name}" style="width:100%; height:100%; object-fit:cover;" />`; } $('[data-dialog-category]').textContent = activeProduct.category; $('[data-dialog-title]').textContent = activeProduct.name; $('[data-dialog-description]').textContent = activeProduct.description; $('[data-dialog-price]').textContent = money.format(activeProduct.price); $('[data-dialog-size]').innerHTML = activeProduct.sizes.map((size) => `<option>${size}</option>`).join(''); const addBtn = document.getElementById('dialog-add-to-bag'); if (addBtn) addBtn.dataset.add = id; dialog.showModal(); }
 
 // Handles main category clicks from menu/header
 function setCategory(category) { 
@@ -230,24 +234,44 @@ $('[data-close-dialog]').addEventListener('click', () => dialog.close());
 $('[data-checkout]').addEventListener('click', () => showToast('Checkout will connect to your WordPress store.'));
 $('[data-search]')?.addEventListener('input', (event) => { state.query = event.target.value.trim(); renderProducts(); });
 $('[data-reset]')?.addEventListener('click', () => setCategory('All objects'));
-$('[data-menu]').addEventListener('click', (event) => { const menu = $('.nav'); const open = menu.classList.toggle('is-open'); event.currentTarget.setAttribute('aria-expanded', open); document.body.classList.toggle('menu-open', open); });
+function toggleNav(openState) {
+  const menu = document.querySelector('.nav');
+  const menuBtn = document.querySelector('[data-menu]');
+  if (!menu) return;
+
+  const shouldOpen = (typeof openState === 'boolean') ? openState : !menu.classList.contains('is-open');
+  menu.classList.toggle('is-open', shouldOpen);
+  document.body.classList.toggle('menu-open', shouldOpen);
+
+  if (menuBtn) {
+    menuBtn.setAttribute('aria-expanded', shouldOpen);
+  }
+}
+
+$('[data-menu]')?.addEventListener('click', (event) => {
+  toggleNav();
+});
 $('[data-signup]')?.addEventListener('submit', (event) => { event.preventDefault(); const email = event.currentTarget.email; const message = event.currentTarget.querySelector('.form-message'); if (!email.validity.valid) { message.textContent = 'Enter a valid email address to stay close.'; email.focus(); return; } message.textContent = 'You are on the list. We will write when there is something worth seeing.'; event.currentTarget.reset(); });
 renderFilters(); renderProducts(); renderCart();
 
 // Sticky Shrinking Header
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('.site-header');
-  if (header) {
-    if (window.scrollY > 25) {
-      header.classList.add('is-scrolled');
-    } else {
-      header.classList.remove('is-scrolled');
+const header = document.querySelector('.site-header');
+if (header) {
+  let isScrolling = false;
+  window.addEventListener('scroll', () => {
+    if (!isScrolling) {
+      window.requestAnimationFrame(() => {
+        if (window.scrollY > 25) {
+          header.classList.add('is-scrolled');
+        } else {
+          header.classList.remove('is-scrolled');
+        }
+        isScrolling = false;
+      });
+      isScrolling = true;
     }
-  }
-  
-
-});
-
+  }, { passive: true });
+}
 // Sort Popup Logic
 function toggleSortPopup(event, btn) {
   event.stopPropagation();
@@ -285,3 +309,237 @@ function applySortPopup(applyBtn) {
 document.addEventListener('click', () => {
   document.querySelectorAll('.sort-popup').forEach(p => p.style.display = 'none');
 });
+
+function toggleSortDrawer() {
+  const drawer = document.getElementById('sort-drawer');
+  const backdrop = document.querySelector('.sort-backdrop');
+  if (drawer && backdrop) {
+    if (drawer.classList.contains('is-open')) {
+      drawer.classList.remove('is-open');
+      backdrop.classList.remove('is-visible');
+    } else {
+      drawer.classList.add('is-open');
+      backdrop.classList.add('is-visible');
+    }
+  }
+}
+
+function applySortDrawer(sortValue, element) {
+  state.sortBy = sortValue;
+  renderProducts();
+  
+  // Update active states
+  document.querySelectorAll('.sort-drawer-item').forEach(el => el.classList.remove('active'));
+  if (element) element.classList.add('active');
+  
+  toggleSortDrawer();
+}
+
+function switchFilterCategory(category, element) {
+  // Update sidebar active state
+  document.querySelectorAll('.filter-sidebar-item').forEach(el => el.classList.remove('active'));
+  if (element) element.classList.add('active');
+  
+  // Show corresponding pane
+  document.querySelectorAll('.filter-pane-group').forEach(el => el.classList.remove('active'));
+  const pane = document.getElementById('filter-group-' + category);
+  if (pane) pane.classList.add('active');
+}
+
+function clearAllFilters() {
+  document.querySelectorAll('.filter-content-pane input[type="checkbox"]').forEach(cb => cb.checked = false);
+}
+
+/* Rare Rabbit Style Mobile Menu Accordion Data (Desktop Subcategories 1:1) */
+const rareMenuData = {
+  apparel: {
+    banner: 'assets/menu_banner_apparel.png',
+    groups: [
+      {
+        title: 'T-SHIRTS',
+        url: 't-shirts.html',
+        subs: [
+          { text: 'Classic Crew', url: 't-shirts.html?filter=Classic%20Crew' },
+          { text: 'Oversized', url: 't-shirts.html?filter=Oversized' },
+          { text: 'Baby Tee & Crop', url: 't-shirts.html?filter=Baby%20Tee%20%26%20Crop' },
+          { text: 'Polo & V-Neck', url: 't-shirts.html?filter=Polo%20%26%20V-Neck' },
+          { text: 'Supima & Stretch', url: 't-shirts.html?filter=Supima%20%26%20Stretch' },
+          { text: 'Acid Wash & Tie Dye', url: 't-shirts.html?filter=Acid%20Wash%20%26%20Tie%20Dye' }
+        ]
+      },
+      {
+        title: 'HOODIES & JACKETS',
+        url: 'hoodies-jackets.html',
+        subs: [
+          { text: 'Pullover Hoodies', url: 'hoodies-jackets.html?filter=Pullover%20Hoodies' },
+          { text: 'Zip Hoodies', url: 'hoodies-jackets.html?filter=Zip%20Hoodies' },
+          { text: 'Sweatshirts', url: 'hoodies-jackets.html?filter=Sweatshirts' },
+          { text: 'Bomber Jackets', url: 'hoodies-jackets.html?filter=Bomber%20Jackets' },
+          { text: 'Varsity Jackets', url: 'hoodies-jackets.html?filter=Varsity%20Jackets' }
+        ]
+      },
+      {
+        title: 'BOTTOMWEAR',
+        url: 'bottomwear.html',
+        subs: [
+          { text: 'Sweatpants & Joggers', url: 'bottomwear.html?filter=Sweatpants%20%26%20Joggers' },
+          { text: 'Shorts', url: 'bottomwear.html?filter=Shorts' },
+          { text: 'Skirts', url: 'bottomwear.html?filter=Skirts' },
+          { text: 'Leggings', url: 'bottomwear.html?filter=Leggings' }
+        ]
+      },
+      {
+        title: 'AOP APPAREL',
+        url: 'aop-apparel.html',
+        subs: [
+          { text: 'AOP T-Shirts', url: 'aop-apparel.html?filter=AOP%20T-Shirts' },
+          { text: 'AOP Tops & Dresses', url: 'aop-apparel.html?filter=AOP%20Tops%20%26%20Dresses' },
+          { text: 'AOP Bottoms', url: 'aop-apparel.html?filter=AOP%20Bottoms' },
+          { text: 'AOP Jackets & Sweats', url: 'aop-apparel.html?filter=AOP%20Jackets%20%26%20Sweats' }
+        ]
+      }
+    ]
+  },
+  kids: {
+    banner: 'assets/asterra-hero.png',
+    groups: [
+      {
+        title: 'KIDS CLOTHING',
+        url: 'kids-clothing.html',
+        subs: [
+          { text: 'Boys T-Shirts', url: 'kids-clothing.html?filter=Boys%20T-Shirts' },
+          { text: 'Girls T-Shirts', url: 'kids-clothing.html?filter=Girls%20T-Shirts' },
+          { text: 'Hoodies & Sweats', url: 'kids-clothing.html?filter=Hoodies%20%26%20Sweats' },
+          { text: 'Rompers', url: 'kids-clothing.html?filter=Rompers' },
+          { text: 'Sports Gear', url: 'kids-clothing.html?filter=Sports%20Gear' }
+        ]
+      }
+    ]
+  },
+  accessories: {
+    banner: 'assets/menu_banner_accessories.png',
+    groups: [
+      {
+        title: 'HEADWEAR',
+        url: 'headwear.html',
+        subs: [
+          { text: 'Caps & Hats', url: 'headwear.html?filter=Caps%20%26%20Hats' },
+          { text: 'Balaclavas & Bandanas', url: 'headwear.html?filter=Balaclavas%20%26%20Bandanas' },
+          { text: 'Headbands', url: 'headwear.html?filter=Headbands' }
+        ]
+      },
+      {
+        title: 'BAGS',
+        url: 'bags.html',
+        subs: [
+          { text: 'Tote Bags', url: 'bags.html?filter=Tote%20Bags' },
+          { text: 'Drawstring Bags', url: 'bags.html?filter=Drawstring%20Bags' },
+          { text: 'Pouches', url: 'bags.html?filter=Pouches' }
+        ]
+      },
+      {
+        title: 'DRINKWARE',
+        url: 'drinkware.html',
+        subs: [
+          { text: 'Coffee Mugs', url: 'drinkware.html?filter=Coffee%20Mugs' },
+          { text: 'Enamel Mugs', url: 'drinkware.html?filter=Enamel%20Mugs' },
+          { text: 'Water Bottles', url: 'drinkware.html?filter=Water%20Bottles' },
+          { text: 'Tumblers', url: 'drinkware.html?filter=Tumblers' }
+        ]
+      },
+      {
+        title: 'ACCESSORIES',
+        url: 'accessories.html',
+        subs: [
+          { text: 'Phone Cases & Grips', url: 'accessories.html?filter=Phone%20Cases%20%26%20Grips' },
+          { text: 'Jewelry & Pendants', url: 'accessories.html?filter=Jewelry%20%26%20Pendants' },
+          { text: 'Keychains & Badges', url: 'accessories.html?filter=Keychains%20%26%20Badges' },
+          { text: 'Scrunchies & Sleeves', url: 'accessories.html?filter=Scrunchies%20%26%20Sleeves' },
+          { text: 'Stationery & Patches', url: 'accessories.html?filter=Stationery%20%26%20Patches' }
+        ]
+      }
+    ]
+  },
+  living: {
+    banner: 'tshirt_olive.png',
+    groups: [
+      {
+        title: 'HOME & DECOR',
+        url: 'home-living.html',
+        subs: [
+          { text: 'Posters & Frames', url: 'home-living.html?filter=Posters%20%26%20Frames' },
+          { text: 'Coasters & Magnets', url: 'home-living.html?filter=Coasters%20%26%20Magnets' },
+          { text: 'Cushions & Pillows', url: 'home-living.html?filter=Cushions%20%26%20Pillows' },
+          { text: 'Table & Kitchen', url: 'home-living.html?filter=Table%20%26%20Kitchen' }
+        ]
+      }
+    ]
+  },
+  petwear: {
+    banner: 'tshirt_moss.png',
+    groups: [
+      {
+        title: 'PET-WEAR',
+        url: 'pet-wear.html',
+        subs: [
+          { text: 'Dog T-Shirts', url: 'pet-wear.html?filter=Dog%20T-Shirts' },
+          { text: 'Pet Tags', url: 'pet-wear.html?filter=Pet%20Tags' }
+        ]
+      }
+    ]
+  },
+  new: {
+    banner: 'tshirt_green.png',
+    groups: [
+      {
+        title: 'NEW ARRIVALS',
+        url: 'new-products.html',
+        subs: []
+      }
+    ]
+  }
+};
+
+function toggleRareAccordion(element) {
+  const group = element.closest('.rare-accordion-group');
+  if (group) {
+    group.classList.toggle('is-open');
+  }
+}
+
+function switchRareTab(tabKey) {
+  const data = rareMenuData[tabKey];
+  if (!data) return;
+
+  // Update tabs active state
+  document.querySelectorAll('.rare-menu-tab').forEach(tab => {
+    if (tab.getAttribute('data-rare-tab') === tabKey) {
+      tab.classList.add('is-active');
+    } else {
+      tab.classList.remove('is-active');
+    }
+  });
+
+  // Update banner image
+  const img = document.getElementById('rare-menu-banner-img');
+  if (img && data.banner) img.src = data.banner;
+
+  // Update list items with accordion subcategories
+  const container = document.getElementById('rare-menu-list-container');
+  if (container) {
+    container.innerHTML = data.groups.map(group => `
+      <div class="rare-accordion-group ${group.subs.length > 0 ? 'is-open' : ''}">
+        <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
+          <span style="font-weight: 700;">${group.title}</span>
+          ${group.subs.length > 0 ? '<span class="chevron">›</span>' : ''}
+        </div>
+        ${group.subs.length > 0 ? `
+          <div class="rare-sub-list">
+            <a href="${group.url}" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All ${group.title}</a>
+            ${group.subs.map(sub => `<a href="${sub.url}" class="rare-sub-item">• ${sub.text}</a>`).join('')}
+          </div>
+        ` : `<div class="rare-sub-list" style="display:flex;"><a href="${group.url}" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All ${group.title}</a></div>`}
+      </div>
+    `).join('');
+  }
+}

@@ -166,14 +166,89 @@
 
       <!-- Mobile Navigation (Original) -->
       <nav id="nav" class="nav mobile-only" aria-label="Primary navigation">
-        <div class="nav-links"><a href="#shop">Shop</a><a href="#world">World</a><a href="#notes">Notes</a></div>
-                                        <div class="menu-categories" aria-label="Shop categories">
-          <button type="button" data-filter="Apparel" onclick="window.location.href='apparel.html'"><span>01</span><strong>Apparel</strong><i class="shirt-art product-bone" aria-hidden="true"><b></b></i></button>
-          <button type="button" data-filter="Kids" onclick="window.location.href='kids-clothing.html'"><span>02</span><strong>Kids Clothing</strong><i class="tee-art product-paper" aria-hidden="true"><b></b></i></button>
-          <button type="button" data-filter="Accessories" onclick="window.location.href='accessories.html'"><span>03</span><strong>Accessories &amp; Bags</strong><i class="key-art product-ink" aria-hidden="true"><b></b></i></button>
-          <button type="button" data-filter="Living" onclick="window.location.href='home-living.html'"><span>04</span><strong>Living</strong><i class="bag-art product-olive" aria-hidden="true"><b></b></i></button>
-          <button type="button" data-filter="Pet-Wear" onclick="window.location.href='pet-wear.html'"><span>05</span><strong>Pet-Wear</strong><i class="shirt-art product-bone" aria-hidden="true"><b></b></i></button>
-          <button type="button" data-filter="New" onclick="window.location.href='new-products.html'"><span>06</span><strong style="color: #2e7d32;">New Arrivals</strong><i class="shirt-art product-moss" aria-hidden="true"><b></b></i></button>
+        <div class="rare-mobile-menu">
+          <button type="button" class="rare-menu-close-btn" onclick="toggleNav(false)" aria-label="Close Menu">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L13 13M1 13L13 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+
+          <!-- Top Banner Image -->
+          <div class="rare-menu-banner">
+            <img id="rare-menu-banner-img" src="assets/asterra-hero.png" alt="Collection Banner">
+          </div>
+
+          <!-- Horizontal Category Tabs (Matching Desktop 1:1) -->
+          <div class="rare-menu-tabs">
+            <div class="rare-menu-tab is-active" data-rare-tab="apparel" onclick="switchRareTab('apparel')">APPAREL</div>
+            <div class="rare-menu-tab" data-rare-tab="kids" onclick="switchRareTab('kids')">KIDS</div>
+            <div class="rare-menu-tab" data-rare-tab="accessories" onclick="switchRareTab('accessories')">ACCESSORIES</div>
+            <div class="rare-menu-tab" data-rare-tab="living" onclick="switchRareTab('living')">LIVING</div>
+            <div class="rare-menu-tab" data-rare-tab="petwear" onclick="switchRareTab('petwear')">PET-WEAR</div>
+            <div class="rare-menu-tab" data-rare-tab="new" onclick="switchRareTab('new')">NEW ARRIVALS</div>
+          </div>
+
+          <!-- Subcategories List (No hardcoded href on group titles) -->
+          <div class="rare-menu-list" id="rare-menu-list-container">
+            <div class="rare-accordion-group is-open">
+              <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
+                <span style="font-weight: 700;">T-SHIRTS</span>
+                <span class="chevron">›</span>
+              </div>
+              <div class="rare-sub-list">
+                <a href="t-shirts.html" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All T-SHIRTS</a>
+                <a href="t-shirts.html?filter=Classic%20Crew" class="rare-sub-item">• Classic Crew</a>
+                <a href="t-shirts.html?filter=Oversized" class="rare-sub-item">• Oversized</a>
+                <a href="t-shirts.html?filter=Baby%20Tee%20%26%20Crop" class="rare-sub-item">• Baby Tee & Crop</a>
+                <a href="t-shirts.html?filter=Polo%20%26%20V-Neck" class="rare-sub-item">• Polo & V-Neck</a>
+                <a href="t-shirts.html?filter=Supima%20%26%20Stretch" class="rare-sub-item">• Supima & Stretch</a>
+                <a href="t-shirts.html?filter=Acid%20Wash%20%26%20Tie%20Dye" class="rare-sub-item">• Acid Wash & Tie Dye</a>
+              </div>
+            </div>
+
+            <div class="rare-accordion-group">
+              <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
+                <span style="font-weight: 700;">HOODIES & JACKETS</span>
+                <span class="chevron">›</span>
+              </div>
+              <div class="rare-sub-list">
+                <a href="hoodies-jackets.html" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All HOODIES & JACKETS</a>
+                <a href="hoodies-jackets.html?filter=Pullover%20Hoodies" class="rare-sub-item">• Pullover Hoodies</a>
+                <a href="hoodies-jackets.html?filter=Zip%20Hoodies" class="rare-sub-item">• Zip Hoodies</a>
+                <a href="hoodies-jackets.html?filter=Sweatshirts" class="rare-sub-item">• Sweatshirts</a>
+                <a href="hoodies-jackets.html?filter=Bomber%20Jackets" class="rare-sub-item">• Bomber Jackets</a>
+                <a href="hoodies-jackets.html?filter=Varsity%20Jackets" class="rare-sub-item">• Varsity Jackets</a>
+              </div>
+            </div>
+
+            <div class="rare-accordion-group">
+              <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
+                <span style="font-weight: 700;">BOTTOMWEAR</span>
+                <span class="chevron">›</span>
+              </div>
+              <div class="rare-sub-list">
+                <a href="bottomwear.html" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All BOTTOMWEAR</a>
+                <a href="bottomwear.html?filter=Sweatpants%20%26%20Joggers" class="rare-sub-item">• Sweatpants & Joggers</a>
+                <a href="bottomwear.html?filter=Shorts" class="rare-sub-item">• Shorts</a>
+                <a href="bottomwear.html?filter=Skirts" class="rare-sub-item">• Skirts</a>
+                <a href="bottomwear.html?filter=Leggings" class="rare-sub-item">• Leggings</a>
+              </div>
+            </div>
+
+            <div class="rare-accordion-group">
+              <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
+                <span style="font-weight: 700;">AOP APPAREL</span>
+                <span class="chevron">›</span>
+              </div>
+              <div class="rare-sub-list">
+                <a href="aop-apparel.html" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All AOP APPAREL</a>
+                <a href="aop-apparel.html?filter=AOP%20T-Shirts" class="rare-sub-item">• AOP T-Shirts</a>
+                <a href="aop-apparel.html?filter=AOP%20Tops%20%26%20Dresses" class="rare-sub-item">• AOP Tops & Dresses</a>
+                <a href="aop-apparel.html?filter=AOP%20Bottoms" class="rare-sub-item">• AOP Bottoms</a>
+                <a href="aop-apparel.html?filter=AOP%20Jackets%20%26%20Sweats" class="rare-sub-item">• AOP Jackets & Sweats</a>
+              </div>
+            </div>
+          </div>
         </div>
       </nav>
     </header>
@@ -199,7 +274,7 @@
       <!-- 2. QUICK CATEGORY STORY HIGHLIGHTS -->
       <section class="home-categories-bar">
         <h3>DISCOVER BY CATEGORY</h3>
-        <div class="circular-filters" style="justify-content: center; margin-bottom: 0; padding-bottom: 0.5rem;">
+        <div class="circular-filters" style="justify-content: flex-start; padding-left: 1rem; padding-right: 1rem; margin-bottom: 0; padding-bottom: 0.5rem;">
           <button type="button" class="circular-filter" onclick="window.location.href='apparel.html'">
             <div class="circle-icon bg-gray"><div class="inner-image" style="background-image: url('tshirt_black.png'); background-size: cover; background-position: center;"></div></div>
             <span class="outer-text">Apparel</span>
@@ -608,67 +683,75 @@
 
 
     
-    <aside class="filter-drawer" aria-label="Filters" aria-hidden="true" data-filter-drawer="">
-      <div class="drawer-head" style="padding: 1.5rem 1.25rem;">
-        <p class="eyebrow" style="font-size:1.2rem; font-weight:400; text-transform:capitalize; margin:0; letter-spacing:0;">Filter</p>
-        <button type="button" data-close-filter="" aria-label="Close filters">×</button>
+    <aside class="filter-drawer" aria-label="Filters" aria-hidden="true" data-filter-drawer>
+  <div class="filter-drawer-header">
+    <h2>SHOP FILTERS</h2>
+    <button class="filter-btn-close-top" data-close-filter onclick="closeFilterDrawer()">&times;</button>
+  </div>
+  <div class="filter-drawer-body">
+    <div class="filter-sidebar">
+      <div class="filter-sidebar-item active" onclick="switchFilterCategory('category', this)">CATEGORY</div>
+      <div class="filter-sidebar-item" onclick="switchFilterCategory('size', this)">SIZE</div>
+      <div class="filter-sidebar-item" onclick="switchFilterCategory('color', this)">COLOR</div>
+      <div class="filter-sidebar-item" onclick="switchFilterCategory('price', this)">PRICE</div>
+      <div class="filter-sidebar-item" onclick="switchFilterCategory('occasion', this)">OCCASION</div>
+    </div>
+    <div class="filter-content-pane">
+      <div class="filter-pane-group active" id="filter-group-category">
+        <label class="filter-checkbox-label">
+          <input type="checkbox">
+          <div class="checkbox-info">
+            <span class="checkbox-name">Topwear</span>
+            <span class="checkbox-desc">Premium Tees & Polos</span>
+            <span class="checkbox-count">124 Products</span>
+          </div>
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="checkbox">
+          <div class="checkbox-info">
+            <span class="checkbox-name">Bottomwear</span>
+            <span class="checkbox-desc">Joggers & Shorts</span>
+            <span class="checkbox-count">82 Products</span>
+          </div>
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="checkbox">
+          <div class="checkbox-info">
+            <span class="checkbox-name">Accessories</span>
+            <span class="checkbox-desc">Caps & Socks</span>
+            <span class="checkbox-count">35 Products</span>
+          </div>
+        </label>
       </div>
-      <div class="drawer-items">
-        <details class="filter-accordion">
-          <summary>PRICE</summary>
-          <div class="filter-content">
-            <label><input type="checkbox"> Under ₹1000</label>
-            <label><input type="checkbox"> ₹1000 - ₹2000</label>
-            <label><input type="checkbox"> Over ₹2000</label>
-          </div>
-        </details>
-        <details class="filter-accordion">
-          <summary>PRODUCT TYPE</summary>
-          <div class="filter-content">
-            <label><input type="checkbox"> Topwear</label>
-            <label><input type="checkbox"> Bottomwear</label>
-            <label><input type="checkbox"> Accessories</label>
-          </div>
-        </details>
-        <details class="filter-accordion">
-          <summary>SIZE</summary>
-          <div class="filter-content">
-            <label><input type="checkbox"> S</label>
-            <label><input type="checkbox"> M</label>
-            <label><input type="checkbox"> L</label>
-            <label><input type="checkbox"> XL</label>
-          </div>
-        </details>
-        <details class="filter-accordion">
-          <summary>COLOR</summary>
-          <div class="filter-content">
-            <label><input type="checkbox"> Black</label>
-            <label><input type="checkbox"> White</label>
-            <label><input type="checkbox"> Olive</label>
-            <label><input type="checkbox"> Beige</label>
-          </div>
-        </details>
-        <details class="filter-accordion">
-          <summary>OCCASION</summary>
-          <div class="filter-content">
-            <label><input type="checkbox"> Casual</label>
-            <label><input type="checkbox"> Party</label>
-            <label><input type="checkbox"> Travel</label>
-          </div>
-        </details>
-        <details class="filter-accordion">
-          <summary>SLEEVES</summary>
-          <div class="filter-content">
-            <label><input type="checkbox"> Half Sleeves</label>
-            <label><input type="checkbox"> Full Sleeves</label>
-            <label><input type="checkbox"> Sleeveless</label>
-          </div>
-        </details>
+      <div class="filter-pane-group" id="filter-group-size">
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">S</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">M</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">L</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">XL</span></div></label>
       </div>
-      <div class="drawer-footer" style="margin-top: auto; padding: 1rem 1.25rem; border-top: 1px solid rgba(24,25,23,0.15);">
-        <button type="button" data-close-filter="" style="width: 100%; background: #111; color: #fff; border: none; padding: 1rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; cursor: pointer; letter-spacing: 0.05em;">Apply Filters</button>
+      <div class="filter-pane-group" id="filter-group-color">
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">Black</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">White</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">Olive</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">Beige</span></div></label>
       </div>
-    </aside>
+      <div class="filter-pane-group" id="filter-group-price">
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">Under ₹1000</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">₹1000 - ₹2000</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">Over ₹2000</span></div></label>
+      </div>
+      <div class="filter-pane-group" id="filter-group-occasion">
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">Casual</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">Streetwear</span></div></label>
+        <label class="filter-checkbox-label"><input type="checkbox"> <div class="checkbox-info"><span class="checkbox-name">Minimal</span></div></label>
+      </div>
+    </div>
+  </div>
+  <div class="filter-drawer-footer">
+    <button type="button" class="filter-btn-clear" onclick="clearAllFilters()">CLEAR</button>
+    <button type="button" class="filter-btn-apply" data-close-filter onclick="closeFilterDrawer()">APPLY FILTERS &rarr;</button>
+  </div>
+</aside>
     <aside class="bag-drawer" aria-label="Shopping bag" aria-hidden="true" data-drawer="">
       <div class="drawer-head"><p class="eyebrow">Your bag</p><button type="button" data-close-drawer="" aria-label="Close shopping bag">×</button></div>
       <div class="drawer-items" data-cart-items=""><div class="cart-item"><div class="cart-mini product-moss tee-art"><span></span></div><div><p>New Products</p><strong>Hoodies Item</strong><small>One size</small><div class="quantity"><button type="button" data-quantity="2" data-delta="-1" aria-label="Remove one Hoodies Item">−</button><span>1</span><button type="button" data-quantity="2" data-delta="1" aria-label="Add one Hoodies Item">+</button></div></div><b>₹1,519</b></div><div class="cart-item"><div class="cart-mini product-bone tee-art"><span></span></div><div><p>New Products</p><strong>T-Shirts Item</strong><small>One size</small><div class="quantity"><button type="button" data-quantity="1" data-delta="-1" aria-label="Remove one T-Shirts Item">−</button><span>1</span><button type="button" data-quantity="1" data-delta="1" aria-label="Add one T-Shirts Item">+</button></div></div><b>₹1,509</b></div></div>
@@ -690,7 +773,22 @@
       </div>
     </dialog>
     <div class="toast" role="status" aria-live="polite" data-toast=""></div>
-    <script src="script.js?v=40"></script>
+    <script src="script.js?v=44"></script>
   
+
+
+<div class="sort-backdrop" onclick="toggleSortDrawer()"></div>
+<aside class="sort-drawer" id="sort-drawer">
+  <div class="sort-drawer-head">
+    <p>SORT BY</p>
+    <button type="button" onclick="toggleSortDrawer()">×</button>
+  </div>
+  <div class="sort-drawer-items">
+    <a class="sort-drawer-item active" onclick="applySortDrawer('default', this)">RELEVANCE</a>
+    <a class="sort-drawer-item" onclick="applySortDrawer('newest', this)">NEW ARRIVALS</a>
+    <a class="sort-drawer-item" onclick="applySortDrawer('price-high', this)">PRICE HIGH TO LOW</a>
+    <a class="sort-drawer-item" onclick="applySortDrawer('price-low', this)">PRICE LOW TO HIGH</a>
+  </div>
+</aside>
 
 </body></html>
