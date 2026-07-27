@@ -4960,17 +4960,17 @@ body { padding-top: 0 !important; }
 .rare-menu-tabs-v2 {
   display: flex;
   overflow-x: auto;
-  gap: 1.5rem;
+  gap: 2.2rem;
   padding: 0 1.5rem;
   border-bottom: 1px solid rgba(0,0,0,0.1);
   scrollbar-width: none;
 }
 .rare-menu-tabs-v2::-webkit-scrollbar { display: none; }
 .rare-menu-tab-v2 {
-  padding: 1.25rem 0;
+  padding: 1.35rem 0;
   font-family: var(--sans, sans-serif);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 1rem;
   letter-spacing: 0.05em;
   color: #666;
   white-space: nowrap;
