@@ -573,7 +573,7 @@ function clearAllFilters() {
 }
 
 /* Rare Rabbit Style Mobile Menu Accordion Data (Desktop Subcategories 1:1) */
-const rareMenuData = {
+var rareMenuData = {
   apparel: {
     banner: 'assets/menu_banner_apparel.png',
     groups: [
