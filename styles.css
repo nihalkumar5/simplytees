@@ -230,12 +230,92 @@ body.menu-open { overflow: hidden; height: 100vh; }
   border: none;
 }
 
+/* ==========================================================================
+   BRAND NEW CLEAN SUBCATEGORY HORIZONTAL SCROLL COMPONENT
+   ========================================================================== */
+.subcat-scroll-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  gap: 1.25rem !important;
+  padding: 0.75rem 1rem 1rem 1rem !important;
+  margin: 1.5rem 0 !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+.subcat-scroll-wrapper::-webkit-scrollbar {
+  display: none !important;
+}
+
+.subcat-scroll-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  flex: 0 0 auto !important;
+  min-width: 72px !important;
+  user-select: none !important;
+}
+
+.subcat-scroll-item .item-circle {
+  width: 72px !important;
+  height: 72px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  background: #f4f4f4 !important;
+  border: 2px solid #e5e5e5 !important;
+  transition: all 0.25s ease !important;
+}
+
+.subcat-scroll-item.is-active .item-circle {
+  background: #111111 !important;
+  border-color: #111111 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.subcat-scroll-item .item-circle img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.subcat-scroll-item .item-text {
+  font-family: inherit !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  color: #555555 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+.subcat-scroll-item.is-active .item-text {
+  color: #111111 !important;
+  font-weight: 800 !important;
+}
+
 .circular-filters {
   display: flex !important;
   flex-direction: row !important;
   overflow-x: auto !important;
+  min-width: 0 !important;
   width: 100% !important;
-  max-width: 100vw !important;
+  max-width: 100% !important;
   box-sizing: border-box !important;
   gap: 30px !important;
   padding: 10px 20px 30px 20px !important;
@@ -2595,6 +2675,12 @@ body {
 .shop-page .product-grid {
   border-top: none !important;
   padding-top: 0 !important;
+}
+
+.category-header {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 @media (max-width: 700px) {

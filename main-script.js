@@ -134,17 +134,9 @@ function productCard(product) {
 function renderFilters() {
   const filtersEl = document.querySelector('[data-filters]');
   if (filtersEl) {
-    if (!filtersEl.dataset.wheelBound) {
-      filtersEl.addEventListener('wheel', (evt) => {
-        evt.preventDefault();
-        filtersEl.scrollLeft += evt.deltaY;
-      }, { passive: false });
-      
-      // Drag-to-scroll implementation
-      let isDown = false;
-      let startX;
-      let scrollLeft;
-      
+    // Add drag and wheel scroll support for desktop/emulators
+    if (!filtersEl.dataset.dragBound) {
+      let isDown = false, startX, scrollLeft;
       filtersEl.addEventListener('mousedown', (e) => {
         isDown = true;
         filtersEl.style.cursor = 'grabbing';
@@ -163,13 +155,19 @@ function renderFilters() {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - filtersEl.offsetLeft;
-        const walk = (x - startX) * 1.5; // Scroll speed multiplier
-        filtersEl.scrollLeft = scrollLeft - walk;
+        filtersEl.scrollLeft = scrollLeft - (x - startX) * 1.5;
       });
+      filtersEl.addEventListener('wheel', (evt) => {
+        if (evt.deltaY !== 0) {
+          evt.preventDefault();
+          filtersEl.scrollLeft += evt.deltaY;
+        }
+      }, { passive: false });
       
       filtersEl.style.cursor = 'grab';
-      filtersEl.dataset.wheelBound = 'true';
+      filtersEl.dataset.dragBound = 'true';
     }
+
     const subs = subcategoryMap[state.category] || ['All'];
     filtersEl.innerHTML = subs.map((sub, index) => {
       const isActive = state.subcategory === sub ? 'is-active' : '';
@@ -180,14 +178,14 @@ function renderFilters() {
       if (index === 3) imgUrl = 'tshirt_beige.png';
 
       const innerContent = sub === 'All'
-        ? `<span class="inner-text">ALL</span>`
-        : `<div class="inner-image" style="background-image: url('${imgUrl}'); background-size: cover; background-position: center;"></div>`;
+        ? `<span style="font-weight: 800; font-size: 0.75rem; color: ${isActive ? '#ffffff' : '#111111'};">ALL</span>`
+        : `<img src="${imgUrl}" alt="${sub}" />`;
 
-      return `<button type="button" data-subfilter="${sub}" class="circular-filter ${isActive}">
-        <div class="circle-icon ${sub === 'All' ? 'bg-solid-green' : 'bg-gray'}">
+      return `<button type="button" data-subfilter="${sub}" class="subcat-scroll-item ${isActive}">
+        <div class="item-circle">
           ${innerContent}
         </div>
-        <span class="outer-text">${sub}</span>
+        <span class="item-text">${sub}</span>
       </button>`;
     }).join('');
   }
