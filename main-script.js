@@ -170,6 +170,14 @@ function renderProducts() { if (!productGrid) return; const result = visibleProd
 function saveCart() { localStorage.setItem('asterra-cart', JSON.stringify(state.cart)); }
 function updateBagCount() { const total = state.cart.reduce((sum, item) => sum + item.quantity, 0); document.querySelectorAll('[data-bag-count]').forEach(el => el.textContent = String(total).padStart(2, '0')); document.querySelectorAll('[data-bag]').forEach(el => el.setAttribute('aria-label', `Shopping bag, ${total} item${total === 1 ? '' : 's'}`)); }
 function renderCart() {
+  if (products && products.length > 0) {
+    const validItems = state.cart.filter(item => products.some(p => p.id === item.id));
+    if (validItems.length !== state.cart.length) {
+      state.cart = validItems;
+      saveCart();
+    }
+  }
+
   const items = state.cart.map((item) => ({ ...item, product: products.find((product) => product.id === item.id) })).filter((item) => item.product);
   const subtotal = items.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
 
