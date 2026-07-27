@@ -134,6 +134,13 @@ function productCard(product) {
 function renderFilters() {
   const filtersEl = document.querySelector('[data-filters]');
   if (filtersEl) {
+    if (!filtersEl.dataset.wheelBound) {
+      filtersEl.addEventListener('wheel', (evt) => {
+        evt.preventDefault();
+        filtersEl.scrollLeft += evt.deltaY;
+      }, { passive: false });
+      filtersEl.dataset.wheelBound = 'true';
+    }
     const subs = subcategoryMap[state.category] || ['All'];
     filtersEl.innerHTML = subs.map((sub, index) => {
       const isActive = state.subcategory === sub ? 'is-active' : '';
