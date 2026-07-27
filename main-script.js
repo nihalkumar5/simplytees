@@ -845,8 +845,13 @@ async function fetchWooCommerceProducts() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
     }
-    const products = await response.json();
-    renderProductsWoo(products);
+    const fetchedProducts = await response.json();
+    
+    // Update the global products array so addToCart and visibleProducts work
+    products = fetchedProducts;
+    
+    // Call the existing renderProducts function which handles filtering and layout
+    renderProducts();
   } catch (error) {
     console.error('Error fetching WooCommerce products:', error);
     const container = document.querySelector('.product-grid');
@@ -854,44 +859,6 @@ async function fetchWooCommerceProducts() {
        container.innerHTML = '<p>Error loading products.</p>';
     }
   }
-}
-
-function renderProductsWoo(products) {
-  const container = document.querySelector('.product-grid');
-  if (!container) return; // Not on a page with product grid
-
-  container.innerHTML = ''; // Clear existing dummy products
-
-  products.forEach(product => {
-    // Map WooCommerce categories to static images for now
-    let imageSrc = product.img || 'tshirt_black.png';
-    const cat = product.category ? product.category.toLowerCase() : '';
-    if (imageSrc.includes('tshirt_white.png') || imageSrc.includes('assets/')) {
-       // fallback to category colors if no real image
-       imageSrc = 'tshirt_black.png';
-       if (cat.includes('hoodie') || cat.includes('jacket')) imageSrc = 'tshirt_olive.png';
-       else if (cat.includes('bag') || cat.includes('drinkware') || cat.includes('home')) imageSrc = 'tshirt_beige.png';
-       else if (cat.includes('kid') || cat.includes('pet')) imageSrc = 'tshirt_white.png';
-    }
-
-    const eyebrow = product.category ? product.category.toUpperCase() : 'PRODUCT';
-    const price = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(product.price || 0);
-
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    card.innerHTML = `
-      <picture><img src="${imageSrc}" alt="${product.name}" style="width:100%; height:260px; object-fit:cover;"></picture>
-      <div class="product-info">
-        <span class="eyebrow" style="font-size: 0.7rem; color: #666;">${eyebrow}</span>
-        <h3>${product.name}</h3>
-        <div class="price-container">
-          <span class="current-price">${price}</span>
-        </div>
-        <button class="button-primary-dark" type="button" style="width: 100%; margin-top: 1rem; padding: 0.6rem;" data-view="${product.id}">ADD TO BAG</button>
-      </div>
-    `;
-    container.appendChild(card);
-  });
 }
 
 // Fetch products when DOM is loaded
