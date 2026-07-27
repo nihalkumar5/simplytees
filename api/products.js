@@ -32,7 +32,7 @@ export default async function handler(req, res) {
     const wcProducts = await response.json();
 
     const mappedProducts = wcProducts.map(wp => {
-      const mainImage = wp.images && wp.images.length > 0 ? wp.images[0].src : 'assets/tshirt_white.png';
+      const mainImage = wp.images && wp.images.length > 0 ? wp.images[0].src : 'tshirt_white.png';
       let categoryNames = wp.categories ? wp.categories.map(c => c.name) : [];
       if (categoryNames.length === 0 || categoryNames[0] === 'Uncategorized') {
         const nameLower = wp.name.toLowerCase();

@@ -628,7 +628,7 @@
     <script src="main-script.js"></script>
     <script>
       // Load Product Details based on URL Parameter ?id=
-      document.addEventListener('DOMContentLoaded', () => {
+      function initProductDetail() {
         const params = new URLSearchParams(window.location.search);
         const productId = params.get('id') || '1';
         const product = products.find(p => p.id === productId) || products[0];
@@ -647,23 +647,39 @@
 
           // Desktop inline size buttons
           document.querySelectorAll('.size-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
+            // Remove old listeners by cloning to prevent duplicates if init runs twice
+            const newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+            newBtn.addEventListener('click', (e) => {
               document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
-              btn.classList.add('active');
-              selectedSize = btn.textContent;
+              newBtn.classList.add('active');
+              selectedSize = newBtn.textContent;
             });
           });
-
-          document.getElementById('pd-add-bag').addEventListener('click', () => {
+          
+          const addBtn = document.getElementById('pd-add-bag');
+          const newAddBtn = addBtn.cloneNode(true);
+          addBtn.parentNode.replaceChild(newAddBtn, addBtn);
+          newAddBtn.addEventListener('click', () => {
             addToCart(product.id, selectedSize);
             openDrawer();
           });
 
-          document.getElementById('pd-buy-now').addEventListener('click', () => {
+          const buyBtn = document.getElementById('pd-buy-now');
+          const newBuyBtn = buyBtn.cloneNode(true);
+          buyBtn.parentNode.replaceChild(newBuyBtn, buyBtn);
+          newBuyBtn.addEventListener('click', () => {
             addToCart(product.id, selectedSize);
             openDrawer();
           });
         }
+      }
+      
+      // Wait for WooCommerce products to be loaded before initializing the detail page
+      document.addEventListener('productsLoaded', initProductDetail);
+      // Fallback for initial load
+      document.addEventListener('DOMContentLoaded', () => {
+          setTimeout(initProductDetail, 100);
       });
     </script>
 

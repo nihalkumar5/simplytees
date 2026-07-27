@@ -852,6 +852,8 @@ async function fetchWooCommerceProducts() {
     
     // Call the existing renderProducts function which handles filtering and layout
     renderProducts();
+    
+    document.dispatchEvent(new CustomEvent('productsLoaded'));
   } catch (error) {
     console.error('Error fetching WooCommerce products:', error);
     const container = document.querySelector('.product-grid');
