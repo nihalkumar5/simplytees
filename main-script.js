@@ -837,7 +837,7 @@ async function fetchWooCommerceProducts() {
     if (!response.ok) {
       if (response.status === 404) {
         // Fallback for localhost python server testing
-        response = await fetch('/products.json');
+        response = await fetch('/products.json?t=' + new Date().getTime());
         if (!response.ok) {
           throw new Error(`Fallback HTTP error! status: ${response.status}`);
         }
