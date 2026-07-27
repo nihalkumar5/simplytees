@@ -139,6 +139,35 @@ function renderFilters() {
         evt.preventDefault();
         filtersEl.scrollLeft += evt.deltaY;
       }, { passive: false });
+      
+      // Drag-to-scroll implementation
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+      
+      filtersEl.addEventListener('mousedown', (e) => {
+        isDown = true;
+        filtersEl.style.cursor = 'grabbing';
+        startX = e.pageX - filtersEl.offsetLeft;
+        scrollLeft = filtersEl.scrollLeft;
+      });
+      filtersEl.addEventListener('mouseleave', () => {
+        isDown = false;
+        filtersEl.style.cursor = 'grab';
+      });
+      filtersEl.addEventListener('mouseup', () => {
+        isDown = false;
+        filtersEl.style.cursor = 'grab';
+      });
+      filtersEl.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - filtersEl.offsetLeft;
+        const walk = (x - startX) * 1.5; // Scroll speed multiplier
+        filtersEl.scrollLeft = scrollLeft - walk;
+      });
+      
+      filtersEl.style.cursor = 'grab';
       filtersEl.dataset.wheelBound = 'true';
     }
     const subs = subcategoryMap[state.category] || ['All'];
