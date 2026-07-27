@@ -4923,7 +4923,7 @@ body { padding-top: 0 !important; }
 
 /* RARE RABBIT THEME MOBILE MENU (V2) */
 .rare-mobile-menu-v2 {
-  background: var(--paper, #fff);
+  background: #ffffff;
   height: 100vh;
   width: 100%;
   display: flex;
