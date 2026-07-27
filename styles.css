@@ -4978,7 +4978,7 @@ body { padding-top: 0 !important; }
 .rare-menu-tab-v2 { padding: 0.75rem 0; font-size: 0.95rem; font-weight: 500; color: #111; background: transparent; cursor: pointer; letter-spacing: 0.05em; border-bottom: 2px solid transparent; }
 .rare-menu-tab-v2.active { font-weight: 600; border-bottom: 2px solid #111; }
 .rare-accordion-group-v2 { border-bottom: none; }
-.rare-accordion-header-v2 { padding: 1.75rem 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; font-weight: 500; color: #111; letter-spacing: 0.08em; cursor: pointer; background: transparent; }
+.rare-accordion-header-v2 { padding: 1.75rem 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem; font-weight: 700; color: #111; letter-spacing: 0.05em; font-family: var(--sans, sans-serif); cursor: pointer; background: transparent; }
 .rare-accordion-header-v2 .chevron { transition: transform 0.3s ease; opacity: 0.5; }
 .rare-accordion-group-v2.is-open .rare-accordion-header-v2 .chevron { transform: rotate(90deg); }
 .rare-sub-list-v2 { display: none; flex-direction: column; padding: 0 2rem 1.5rem 2rem; }
