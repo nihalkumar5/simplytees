@@ -879,10 +879,7 @@ async function fetchWooCommerceProducts() {
 
 // Fetch products when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  // Check if we are on a page that needs products (like index.html)
-  if (document.querySelector('.product-grid')) {
-     fetchWooCommerceProducts();
-  }
+  fetchWooCommerceProducts();
 });
 
 
