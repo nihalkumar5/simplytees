@@ -856,14 +856,18 @@ function renderProductsWoo(products) {
 
   products.forEach(product => {
     // Map WooCommerce categories to static images for now
-    let imageSrc = 'tshirt_black.png'; // default
-    const cat = product.categories.length > 0 ? product.categories[0].name.toLowerCase() : '';
-    if (cat.includes('hoodie')) imageSrc = 'tshirt_olive.png';
-    else if (cat.includes('bag')) imageSrc = 'tshirt_beige.png';
-    else if (cat.includes('drinkware')) imageSrc = 'tshirt_white.png';
+    let imageSrc = product.img || 'tshirt_black.png';
+    const cat = product.category ? product.category.toLowerCase() : '';
+    if (imageSrc.includes('tshirt_white.png') || imageSrc.includes('assets/')) {
+       // fallback to category colors if no real image
+       imageSrc = 'tshirt_black.png';
+       if (cat.includes('hoodie') || cat.includes('jacket')) imageSrc = 'tshirt_olive.png';
+       else if (cat.includes('bag') || cat.includes('drinkware') || cat.includes('home')) imageSrc = 'tshirt_beige.png';
+       else if (cat.includes('kid') || cat.includes('pet')) imageSrc = 'tshirt_white.png';
+    }
 
-    const eyebrow = product.short_description ? product.short_description.replace(/<[^>]+>/g, '').toUpperCase() : 'PRODUCT';
-    const price = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(product.regular_price || 0);
+    const eyebrow = product.category ? product.category.toUpperCase() : 'PRODUCT';
+    const price = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(product.price || 0);
 
     const card = document.createElement('div');
     card.className = 'product-card';
