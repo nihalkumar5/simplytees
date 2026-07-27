@@ -242,6 +242,12 @@ body.menu-open { overflow: hidden; height: 100vh; }
   scrollbar-width: none;
   border: none;
 }
+.circular-filters::after {
+  content: '';
+  width: 30px;
+  flex-shrink: 0;
+  display: block;
+}
 @media (max-width: 768px) {
   .circular-filters {
     justify-content: flex-start !important;
