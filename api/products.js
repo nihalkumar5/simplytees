@@ -33,8 +33,22 @@ export default async function handler(req, res) {
 
     const mappedProducts = wcProducts.map(wp => {
       const mainImage = wp.images && wp.images.length > 0 ? wp.images[0].src : 'assets/tshirt_white.png';
-      const categoryNames = wp.categories ? wp.categories.map(c => c.name) : ['Uncategorized'];
-      const mainCategory = categoryNames.length > 0 ? categoryNames[0] : 'All';
+      let categoryNames = wp.categories ? wp.categories.map(c => c.name) : [];
+      if (categoryNames.length === 0 || categoryNames[0] === 'Uncategorized') {
+        const nameLower = wp.name.toLowerCase();
+        if (nameLower.includes('hoodie') || nameLower.includes('jacket') || nameLower.includes('sweatshirt')) {
+          categoryNames = ['Hoodies & Jackets'];
+        } else if (nameLower.includes('t-shirt') || nameLower.includes('tee') || nameLower.includes('crew') || nameLower.includes('raglan') || nameLower.includes('shirt')) {
+          categoryNames = ['T-Shirts'];
+        } else if (nameLower.includes('bottom') || nameLower.includes('pant') || nameLower.includes('short')) {
+          categoryNames = ['Bottomwear'];
+        } else if (nameLower.includes('bag') || nameLower.includes('backpack')) {
+          categoryNames = ['Bags'];
+        } else {
+          categoryNames = ['Uncategorized'];
+        }
+      }
+      const mainCategory = categoryNames[0];
       
       let sizes = [];
       if (wp.attributes) {
