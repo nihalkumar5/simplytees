@@ -938,3 +938,159 @@ document.addEventListener('DOMContentLoaded', () => {
      fetchWooCommerceProducts();
   }
 });
+
+
+
+// NEW ROBUST MOBILE MENU LOGIC
+var newMobileMenuData = {
+  apparel: {
+    banner: 'assets/menu_banner_apparel.png',
+    groups: [
+      {
+        title: 'T-SHIRTS',
+        links: [
+          { text: '→ VIEW ALL T-SHIRTS', href: 't-shirts.html' },
+          { text: 'CLASSIC CREW', href: 't-shirts.html?filter=Classic%20Crew' },
+          { text: 'OVERSIZED', href: 't-shirts.html?filter=Oversized' },
+          { text: 'BABY TEE & CROP', href: 't-shirts.html?filter=Baby%20Tee%20%26%20Crop' },
+          { text: 'POLO & V-NECK', href: 't-shirts.html?filter=Polo%20%26%20V-Neck' },
+          { text: 'SUPIMA & STRETCH', href: 't-shirts.html?filter=Supima%20%26%20Stretch' },
+          { text: 'ACID WASH & TIE DYE', href: 't-shirts.html?filter=Acid%20Wash%20%26%20Tie%20Dye' }
+        ]
+      },
+      {
+        title: 'HOODIES & JACKETS',
+        links: [
+          { text: '→ VIEW ALL HOODIES & JACKETS', href: 'hoodies-jackets.html' },
+          { text: 'PULLOVER HOODIES', href: 'hoodies-jackets.html?filter=Pullover%20Hoodies' },
+          { text: 'ZIP-UP HOODIES', href: 'hoodies-jackets.html?filter=Zip-Up%20Hoodies' },
+          { text: 'BOMBER JACKETS', href: 'hoodies-jackets.html?filter=Bomber%20Jackets' },
+          { text: 'DENIM JACKETS', href: 'hoodies-jackets.html?filter=Denim%20Jackets' },
+          { text: 'PUFFER JACKETS', href: 'hoodies-jackets.html?filter=Puffer%20Jackets' },
+          { text: 'WINDBREAKERS', href: 'hoodies-jackets.html?filter=Windbreakers' }
+        ]
+      },
+      {
+        title: 'BOTTOMWEAR',
+        links: [
+          { text: '→ VIEW ALL BOTTOMWEAR', href: 'bottomwear.html' },
+          { text: 'JOGGERS & SWEATPANTS', href: 'bottomwear.html?filter=Joggers%20%26%20Sweatpants' },
+          { text: 'CARGO PANTS', href: 'bottomwear.html?filter=Cargo%20Pants' },
+          { text: 'SHORTS', href: 'bottomwear.html?filter=Shorts' },
+          { text: 'JEANS', href: 'bottomwear.html?filter=Jeans' },
+          { text: 'CHINOS', href: 'bottomwear.html?filter=Chinos' }
+        ]
+      },
+      {
+        title: 'AOP APPAREL',
+        links: [
+          { text: '→ VIEW ALL AOP APPAREL', href: 'aop-apparel.html' },
+          { text: 'AOP T-SHIRTS', href: 'aop-apparel.html?filter=AOP%20T-Shirts' },
+          { text: 'AOP HOODIES', href: 'aop-apparel.html?filter=AOP%20Hoodies' },
+          { text: 'AOP BOTTOMWEAR', href: 'aop-apparel.html?filter=AOP%20Bottomwear' },
+          { text: 'AOP SETS', href: 'aop-apparel.html?filter=AOP%20Sets' }
+        ]
+      }
+    ]
+  },
+  kids: {
+    banner: 'assets/menu_banner_kids.png',
+    groups: [
+      {
+        title: 'KIDS CLOTHING',
+        links: [
+          { text: '→ VIEW ALL KIDS CLOTHING', href: 'kids-clothing.html' },
+          { text: 'T-SHIRTS', href: 'kids-clothing.html?filter=T-Shirts' },
+          { text: 'HOODIES', href: 'kids-clothing.html?filter=Hoodies' },
+          { text: 'BOTTOMWEAR', href: 'kids-clothing.html?filter=Bottomwear' },
+          { text: 'SETS', href: 'kids-clothing.html?filter=Sets' }
+        ]
+      }
+    ]
+  },
+  accessories: {
+    banner: 'assets/menu_banner_accessories.png',
+    groups: [
+      {
+        title: 'ACCESSORIES',
+        links: [
+          { text: '→ VIEW ALL ACCESSORIES', href: 'accessories.html' },
+          { text: 'CAPS & HATS', href: 'accessories.html?filter=Caps%20%26%20Hats' },
+          { text: 'BAGS & BACKPACKS', href: 'accessories.html?filter=Bags%20%26%20Backpacks' },
+          { text: 'SOCKS', href: 'accessories.html?filter=Socks' },
+          { text: 'MASKS', href: 'accessories.html?filter=Masks' }
+        ]
+      }
+    ]
+  },
+  living: {
+    banner: 'assets/menu_banner_living.png',
+    groups: [
+      {
+        title: 'LIVING',
+        links: [
+          { text: '→ VIEW ALL LIVING', href: 'living.html' },
+          { text: 'MUGS & DRINKWARE', href: 'drinkware.html' },
+          { text: 'NOTEBOOKS', href: 'notebooks.html' },
+          { text: 'POSTERS', href: 'posters.html' }
+        ]
+      }
+    ]
+  },
+  petwear: {
+    banner: 'assets/menu_banner_petwear.png',
+    groups: [
+      {
+        title: 'PET-WEAR',
+        links: [
+          { text: '→ VIEW ALL PET-WEAR', href: 'petwear.html' },
+          { text: 'PET T-SHIRTS', href: 'petwear.html?filter=Pet%20T-Shirts' },
+          { text: 'PET HOODIES', href: 'petwear.html?filter=Pet%20Hoodies' },
+          { text: 'BANDANAS', href: 'petwear.html?filter=Bandanas' }
+        ]
+      }
+    ]
+  }
+};
+
+window.switchNewMobileTab = function(tabKey) {
+  try {
+    const data = newMobileMenuData[tabKey];
+    if (!data) return;
+
+    // Update active tab styles
+    const tabs = document.querySelectorAll('.rare-menu-tab');
+    tabs.forEach(tab => tab.classList.remove('is-active'));
+    
+    const activeTab = document.querySelector(`.rare-menu-tab[data-rare-tab="${tabKey}"]`);
+    if (activeTab) activeTab.classList.add('is-active');
+
+    // Build the new HTML content
+    const contentHtml = data.groups.map(group => {
+      const linksHtml = group.links.map(link => 
+        `<li><a href="${link.href}">${link.text}</a></li>`
+      ).join('');
+      
+      return `
+        <div class="rare-accordion-item">
+          <button type="button" class="rare-accordion-btn" onclick="this.parentElement.classList.toggle('is-open')">
+            ${group.title} <span class="icon">+</span>
+          </button>
+          <div class="rare-accordion-content">
+            <ul class="rare-menu-links">
+              ${linksHtml}
+            </ul>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Update the DOM container
+    const detailsContainer = document.getElementById('rareMenuDetails');
+    if (detailsContainer) {
+      detailsContainer.innerHTML = contentHtml;
+    }
+  } catch (e) {
+    console.error("Error in switchNewMobileTab:", e);
+  }
+};
