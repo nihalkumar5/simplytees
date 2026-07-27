@@ -344,28 +344,27 @@ body.menu-open { overflow: hidden; height: 100vh; }
   background: transparent !important;
   backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  border: none !important;
   border-radius: 999px !important;
   padding: 6px 14px !important;
   height: 38px !important;
   cursor: pointer !important;
   color: #FFFFFF !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
+  box-shadow: none !important;
 }
 
 .bag-btn:hover, .bag-btn:active {
-  background: rgba(255, 255, 255, 0.2) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
   color: #FFFFFF !important;
-  border-color: #FFFFFF !important;
+  border: none !important;
   transform: translateY(-1px) !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
 }
 
 /* Scrolled State & Shop Page State: Cart Pill Turns Black/Dark */
 .site-header.is-scrolled .bag-btn,
 .shop-page .site-header .bag-btn {
-  border-color: rgba(18, 19, 17, 0.25) !important;
+  border: none !important;
   color: #121311 !important;
 }
 
@@ -376,9 +375,9 @@ body.menu-open { overflow: hidden; height: 100vh; }
 
 .site-header.is-scrolled .bag-btn:hover,
 .shop-page .site-header .bag-btn:hover {
-  background: #121311 !important;
-  color: #FFFFFF !important;
-  border-color: #121311 !important;
+  background: rgba(18, 19, 17, 0.08) !important;
+  color: #121311 !important;
+  border: none !important;
 }
 
 .site-header.is-scrolled .bag-btn:hover svg,
