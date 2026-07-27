@@ -4924,6 +4924,15 @@ body { padding-top: 0 !important; }
 }
 
 /* RARE RABBIT THEME MOBILE MENU (V2) */
+nav.nav.mobile-only {
+  padding: 0 !important;
+  top: 0 !important;
+  height: 100vh !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  border: none !important;
+  z-index: 99999 !important;
+}
 .rare-mobile-menu-v2 {
   background: #ffffff;
   height: 100vh;
@@ -4932,6 +4941,11 @@ body { padding-top: 0 !important; }
   flex-direction: column;
   overflow-y: auto;
   position: relative;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.rare-mobile-menu-v2::-webkit-scrollbar {
+  display: none;
 }
 .rare-menu-close-btn-v2 {
   position: absolute;
