@@ -174,7 +174,10 @@ function renderCart() {
   const subtotal = items.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
 
   const bagTitle = document.getElementById('bagTitle');
-  if (bagTitle) bagTitle.textContent = `BAG ( ${items.length} )`;
+  if (bagTitle) {
+    const totalQty = items.reduce((sum, item) => sum + item.quantity, 0);
+    bagTitle.textContent = `BAG ( ${totalQty} )`;
+  }
 
   const threshold = 1999;
   const progressContainer = document.getElementById('shippingProgressContainer');
