@@ -5021,7 +5021,11 @@ body { padding-top: 0 !important; }
 }
 .rare-sub-list-v2 a {
   padding: 0.75rem 0;
-  color: #444;
+  color: #111 !important;
+  font-weight: 600;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
   text-decoration: none;
   font-family: var(--sans, sans-serif);
   font-size: 0.8rem;

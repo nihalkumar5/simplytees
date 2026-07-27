@@ -838,7 +838,7 @@ async function fetchWooCommerceProducts() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const products = await response.json();
-    renderProducts(products);
+    renderProductsWoo(products);
   } catch (error) {
     console.error('Error fetching WooCommerce products:', error);
     const container = document.querySelector('.product-grid');
@@ -848,7 +848,7 @@ async function fetchWooCommerceProducts() {
   }
 }
 
-function renderProducts(products) {
+function renderProductsWoo(products) {
   const container = document.querySelector('.product-grid');
   if (!container) return; // Not on a page with product grid
 
