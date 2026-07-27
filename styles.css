@@ -4986,4 +4986,4 @@ body { padding-top: 0 !important; }
 .rare-accordion-group-v2.is-open .rare-accordion-header-v2 .chevron { transform: rotate(90deg); }
 .rare-sub-list-v2 { display: none; flex-direction: column; padding: 0 2rem 1.5rem 2rem; }
 .rare-accordion-group-v2.is-open .rare-sub-list-v2 { display: flex; }
-.rare-sub-list-v2 a { padding: 1.15rem 0; color: #333 !important; font-weight: 500; display: flex !important; text-decoration: none; font-family: var(--sans, sans-serif); font-size: 0.85rem !important; letter-spacing: 0.05em; visibility: visible !important; opacity: 1 !important; }
+.rare-sub-list-v2 a { padding: 1.15rem 0; color: #333 !important; font-weight: 500; display: flex !important; text-decoration: none; font-family: var(--sans, sans-serif); font-size: 0.75rem !important; letter-spacing: 0.05em; visibility: visible !important; opacity: 1 !important; }
