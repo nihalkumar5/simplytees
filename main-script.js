@@ -833,9 +833,17 @@ window.toggleProductWishlist = function(id, event) {
 // --- Headless WordPress WooCommerce Integration via Vercel Serverless Function ---
 async function fetchWooCommerceProducts() {
   try {
-    const response = await fetch('/api/products');
+    let response = await fetch('/api/products');
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      if (response.status === 404) {
+        // Fallback for localhost python server testing
+        response = await fetch('/products.json');
+        if (!response.ok) {
+          throw new Error(`Fallback HTTP error! status: ${response.status}`);
+        }
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
     }
     const products = await response.json();
     renderProductsWoo(products);
