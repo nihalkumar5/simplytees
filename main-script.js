@@ -619,7 +619,7 @@ var rareMenuData = {
     ]
   },
   kids: {
-    banner: 'assets/asterra-hero.png',
+    banner: 'assets/menu_banner_kids.png',
     groups: [
       {
         title: 'KIDS CLOTHING',
@@ -679,7 +679,7 @@ var rareMenuData = {
     ]
   },
   living: {
-    banner: 'tshirt_olive.png',
+    banner: 'assets/menu_banner_living.png',
     groups: [
       {
         title: 'HOME & DECOR',
@@ -694,7 +694,7 @@ var rareMenuData = {
     ]
   },
   petwear: {
-    banner: 'tshirt_moss.png',
+    banner: 'assets/menu_banner_petwear.png',
     groups: [
       {
         title: 'PET-WEAR',
@@ -707,7 +707,7 @@ var rareMenuData = {
     ]
   },
   new: {
-    banner: 'tshirt_green.png',
+    banner: 'assets/menu_banner_apparel.png',
     groups: [
       {
         title: 'NEW ARRIVALS',
