@@ -1,29 +1,69 @@
 export default async function handler(req, res) {
-  const WP_API_URL = process.env.WP_API_URL;
-  const WP_CONSUMER_KEY = process.env.WP_CONSUMER_KEY;
-  const WP_CONSUMER_SECRET = process.env.WP_CONSUMER_SECRET;
+  // Hardcoded for testing since user provided them in populate_wp.py
+  // For production, move these to Vercel Environment Variables!
+  const WC_STORE_URL = process.env.WC_STORE_URL || "https://lavenderblush-crocodile-478499.hostingersite.com";
+  const WC_CONSUMER_KEY = process.env.WC_CONSUMER_KEY || "ck_984874efa25d893a8abb237d7546db37ccd4c91c";
+  const WC_CONSUMER_SECRET = process.env.WC_CONSUMER_SECRET || "cs_682ca0991aa7492a91485fdde59eacecbb85fa28";
 
-  if (!WP_API_URL || !WP_CONSUMER_KEY || !WP_CONSUMER_SECRET) {
-    return res.status(500).json({ error: 'Missing WooCommerce API credentials in environment variables.' });
-  }
+  const baseUrl = WC_STORE_URL.replace(/\/$/, '');
+  const url = new URL(`${baseUrl}/wp-json/wc/v3/products`);
+  
+  if (req.query.per_page) url.searchParams.append('per_page', req.query.per_page);
+  else url.searchParams.append('per_page', '100'); 
+  
+  if (req.query.category) url.searchParams.append('category', req.query.category);
+  url.searchParams.append('status', 'publish');
 
   try {
-    const url = new URL(WP_API_URL);
-    url.searchParams.append('consumer_key', WP_CONSUMER_KEY);
-    url.searchParams.append('consumer_secret', WP_CONSUMER_SECRET);
+    const response = await fetch(url.toString(), {
+      method: 'GET',
+      headers: {
+        'Authorization': 'Basic ' + Buffer.from(`${WC_CONSUMER_KEY}:${WC_CONSUMER_SECRET}`).toString('base64'),
+        'Content-Type': 'application/json'
+      }
+    });
 
-    const response = await fetch(url.toString());
-    
     if (!response.ok) {
-      console.error('WooCommerce API Error:', response.status);
-      return res.status(response.status).json({ error: 'Failed to fetch products from WooCommerce.' });
+      const errorText = await response.text();
+      console.error("Failed to fetch from WooCommerce", errorText);
+      return res.status(response.status).json({ error: 'Failed to fetch from WooCommerce', details: errorText });
     }
 
-    const products = await response.json();
-    res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate');
-    return res.status(200).json(products);
+    const wcProducts = await response.json();
+
+    const mappedProducts = wcProducts.map(wp => {
+      const mainImage = wp.images && wp.images.length > 0 ? wp.images[0].src : 'assets/tshirt_white.png';
+      const categoryNames = wp.categories ? wp.categories.map(c => c.name) : ['Uncategorized'];
+      const mainCategory = categoryNames.length > 0 ? categoryNames[0] : 'All';
+      
+      let sizes = [];
+      if (wp.attributes) {
+        const sizeAttr = wp.attributes.find(attr => attr.name.toLowerCase() === 'size');
+        if (sizeAttr && sizeAttr.options) {
+          sizes = sizeAttr.options;
+        }
+      }
+      if (sizes.length === 0) sizes = ['S', 'M', 'L']; 
+
+      return {
+        id: wp.id.toString(),
+        name: wp.name,
+        price: parseFloat(wp.price || wp.regular_price || 0),
+        img: mainImage,
+        description: wp.short_description ? wp.short_description.replace(/(<([^>]+)>)/gi, "") : 'Premium WooCommerce Product',
+        category: mainCategory,
+        subcategory: categoryNames.length > 1 ? categoryNames[1] : mainCategory,
+        sizes: sizes,
+        tone: 'bone', 
+        art: 'tee-art', 
+        permalink: wp.permalink
+      };
+    });
+
+    return res.status(200).json(mappedProducts);
+
   } catch (error) {
-    console.error('Serverless Function Error:', error);
-    return res.status(500).json({ error: 'Internal Server Error fetching products.' });
+    console.error("API Error:", error);
+    return res.status(500).json({ error: 'Internal server error while fetching products.' });
   }
 }
