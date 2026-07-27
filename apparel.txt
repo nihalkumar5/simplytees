@@ -1,0 +1,54 @@
+            <li class="has-dropdown">
+              <a href="apparel.html">APPAREL</a>
+                            <div class="mega-menu">
+                <div class="mega-image-row">
+                  <div class="mega-image-card">
+                    <img src="tshirt_black.png" alt="T-Shirts">
+                    <span>T-SHIRTS</span>
+                  </div>
+                  <div class="mega-image-card">
+                    <img src="tshirt_olive.png" alt="Hoodies & Jackets">
+                    <span>HOODIES & JACKETS</span>
+                  </div>
+                  <div class="mega-image-card">
+                    <img src="tshirt_beige.png" alt="Bottomwear">
+                    <span>BOTTOMWEAR</span>
+                  </div>
+                  <div class="mega-image-card">
+                    <img src="tshirt_white.png" alt="AOP Apparel">
+                    <span>AOP APPAREL</span>
+                  </div>
+                </div>
+                <div class="mega-content text-columns">
+                  <div class="mega-col-text">
+                    <h4 style="margin-bottom: 0.5rem; color: #111;"><a href="t-shirts.html" style="color: inherit; text-decoration: none; padding: 0;">T-SHIRTS</a></h4>
+                    <a href="t-shirts.html?filter=Classic%20Crew">Classic Crew</a>
+                    <a href="t-shirts.html?filter=Oversized">Oversized</a>
+                    <a href="t-shirts.html?filter=Baby%20Tee%20%26%20Crop">Baby Tee &amp; Crop</a>
+                    <a href="t-shirts.html?filter=Polo%20%26%20V-Neck">Polo &amp; V-Neck</a>
+                    <a href="t-shirts.html?filter=Supima%20%26%20Stretch">Supima &amp; Stretch</a>
+                    <a href="t-shirts.html?filter=Acid%20Wash%20%26%20Tie%20Dye">Acid Wash &amp; Tie Dye</a>
+                  </div>
+                  <div class="mega-col-text">
+                    <h4 style="margin-bottom: 0.5rem; color: #111;"><a href="hoodies-jackets.html" style="color: inherit; text-decoration: none; padding: 0;">HOODIES &amp; JACKETS</a></h4>
+                    <a href="hoodies-jackets.html?filter=Pullover%20Hoodies">Pullover Hoodies</a>
+                    <a href="hoodies-jackets.html?filter=Zip%20Hoodies">Zip Hoodies</a>
+                    <a href="hoodies-jackets.html?filter=Sweatshirts">Sweatshirts</a>
+                    <a href="hoodies-jackets.html?filter=Bomber%20Jackets">Bomber Jackets</a>
+                    <a href="hoodies-jackets.html?filter=Varsity%20Jackets">Varsity Jackets</a>
+                  </div>
+                  <div class="mega-col-text">
+                    <h4 style="margin-bottom: 0.5rem; color: #111;"><a href="bottomwear.html" style="color: inherit; text-decoration: none; padding: 0;">BOTTOMWEAR</a></h4>
+                    <a href="bottomwear.html?filter=Sweatpants%20%26%20Joggers">Sweatpants &amp; Joggers</a>
+                    <a href="bottomwear.html?filter=Shorts">Shorts</a>
+                    <a href="bottomwear.html?filter=Skirts">Skirts</a>
+                    <a href="bottomwear.html?filter=Leggings">Leggings</a>
+                  </div>
+                  <div class="mega-col-text">
+                    <h4 style="margin-bottom: 0.5rem; color: #111;"><a href="aop-apparel.html" style="color: inherit; text-decoration: none; padding: 0;">AOP APPAREL</a></h4>
+                    <a href="aop-apparel.html?filter=AOP%20T-Shirts">AOP T-Shirts</a>
+                    <a href="aop-apparel.html?filter=AOP%20Tops%20%26%20Dresses">AOP Tops &amp; Dresses</a>
+                    <a href="aop-apparel.html?filter=AOP%20Bottoms">AOP Bottoms</a>
+                    <a href="aop-apparel.html?filter=AOP%20Jackets%20%26%20Sweats">AOP Jackets &amp; Sweats</a>
+                  </div>
+                </div>

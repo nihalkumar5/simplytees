@@ -879,14 +879,10 @@ window.toggleProductWishlist = function(id, event) {
   }
 };
 
-// --- Headless WordPress WooCommerce Integration ---
-const WP_API_URL = 'https://lavenderblush-crocodile-478499.hostingersite.com/wp-json/wc/v3/products';
-const WP_CONSUMER_KEY = 'ck_984874efa25d893a8abb237d7546db37ccd4c91c';
-const WP_CONSUMER_SECRET = 'cs_682ca0991aa7492a91485fdde59eacecbb85fa28';
-
+// --- Headless WordPress WooCommerce Integration via Vercel Serverless Function ---
 async function fetchWooCommerceProducts() {
   try {
-    const response = await fetch(`${WP_API_URL}?consumer_key=${WP_CONSUMER_KEY}&consumer_secret=${WP_CONSUMER_SECRET}`);
+    const response = await fetch('/api/products');
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
