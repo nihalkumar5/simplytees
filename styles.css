@@ -4920,3 +4920,116 @@ body { padding-top: 0 !important; }
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
+/* RARE RABBIT THEME MOBILE MENU (V2) */
+.rare-mobile-menu-v2 {
+  background: var(--paper, #fff);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.rare-menu-close-btn-v2 {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.rare-menu-banner-v2 {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  position: relative;
+}
+.rare-menu-banner-v2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.rare-menu-tabs-v2 {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  scrollbar-width: none;
+}
+.rare-menu-tabs-v2::-webkit-scrollbar { display: none; }
+.rare-menu-tab-v2 {
+  padding: 1.25rem 0;
+  font-family: var(--sans, sans-serif);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: #666;
+  white-space: nowrap;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.rare-menu-tab-v2.active {
+  color: #000;
+  border-bottom-color: #000;
+}
+.rare-tab-content-v2 {
+  flex: 1;
+  padding-bottom: 4rem;
+}
+.rare-accordion-group-v2 {
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.rare-accordion-header-v2 {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--sans, sans-serif);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: #111;
+  cursor: pointer;
+}
+.rare-accordion-header-v2 .chevron {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #999;
+  font-weight: 300;
+  transition: transform 0.3s ease;
+}
+.rare-accordion-group-v2.is-open .chevron {
+  transform: rotate(90deg);
+}
+.rare-sub-list-v2 {
+  display: none;
+  flex-direction: column;
+  padding: 0 1.5rem 1rem 1.5rem;
+}
+.rare-accordion-group-v2.is-open .rare-sub-list-v2 {
+  display: flex;
+}
+.rare-sub-list-v2 a {
+  padding: 0.75rem 0;
+  color: #444;
+  text-decoration: none;
+  font-family: var(--sans, sans-serif);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+}
+.rare-sub-list-v2 a:first-child {
+  font-weight: 700;
+  color: #111;
+}
