@@ -4931,6 +4931,7 @@ body { padding-top: 0 !important; }
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  position: relative;
 }
 .rare-menu-close-btn-v2 {
   position: absolute;
@@ -4981,7 +4982,7 @@ body { padding-top: 0 !important; }
 .rare-menu-tab-v2 { font-size: 1.1rem; font-weight: 500; color: #111; background: transparent; cursor: pointer; letter-spacing: 0.05em; padding: 0.5rem 0 0.4rem 0; white-space: nowrap; border-bottom: 2px solid transparent; font-family: var(--sans, sans-serif); line-height: 1.2; }
 .rare-menu-tab-v2.active { font-weight: 700; border-bottom: 2px solid #111; }
 .rare-accordion-group-v2 { border-bottom: none; }
-.rare-accordion-header-v2 { padding: 2.5rem 1.5rem 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 1.15rem; font-weight: 700; color: #111; letter-spacing: 0.05em; font-family: var(--sans, sans-serif); cursor: pointer; background: transparent; }
+.rare-accordion-header-v2 { padding: 2.5rem 1.5rem 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem; font-weight: 700; color: #111; letter-spacing: 0.05em; font-family: var(--sans, sans-serif); cursor: pointer; background: transparent; }
 .rare-accordion-header-v2 .chevron { transition: transform 0.3s ease; opacity: 0.5; }
 .rare-accordion-group-v2.is-open .rare-accordion-header-v2 .chevron { transform: rotate(90deg); }
 .rare-sub-list-v2 { display: none; flex-direction: column; padding: 0 2rem 1.5rem 2rem; }
