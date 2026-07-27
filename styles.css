@@ -238,7 +238,7 @@ body.menu-open { overflow: hidden; height: 100vh; }
   padding: 10px 20px 30px 20px !important;
   margin: 0 auto !important;
   flex-wrap: nowrap !important;
-  justify-content: center;
+  justify-content: flex-start !important;
   scrollbar-width: none;
   border: none;
 }
@@ -248,9 +248,9 @@ body.menu-open { overflow: hidden; height: 100vh; }
   flex-shrink: 0;
   display: block;
 }
-@media (max-width: 768px) {
+@media (min-width: 769px) {
   .circular-filters {
-    justify-content: flex-start !important;
+    justify-content: center !important;
   }
 }
 .circular-filters::-webkit-scrollbar { display: none; }
