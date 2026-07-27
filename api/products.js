@@ -58,6 +58,22 @@ export default async function handler(req, res) {
         }
       }
       if (sizes.length === 0) sizes = ['S', 'M', 'L']; 
+      
+      let subCategory = categoryNames.length > 1 ? categoryNames[1] : mainCategory;
+      if (categoryNames.length === 0 || categoryNames[0] === 'Uncategorized' || subCategory === mainCategory) {
+          const nameLower = wp.name.toLowerCase();
+          if (mainCategory === 'Hoodies & Jackets') {
+              if (nameLower.includes('zip')) subCategory = 'Zip Hoodies';
+              else if (nameLower.includes('sweatshirt')) subCategory = 'Sweatshirts';
+              else if (nameLower.includes('bomber')) subCategory = 'Bomber Jackets';
+              else if (nameLower.includes('varsity')) subCategory = 'Varsity Jackets';
+              else subCategory = 'Pullover Hoodies';
+          } else if (mainCategory === 'T-Shirts') {
+              if (nameLower.includes('oversized')) subCategory = 'Oversized';
+              else if (nameLower.includes('baby') || nameLower.includes('crop')) subCategory = 'Baby Tee & Crop';
+              else subCategory = 'Classic Crew';
+          }
+      }
 
       return {
         id: wp.id.toString(),
@@ -66,7 +82,7 @@ export default async function handler(req, res) {
         img: mainImage,
         description: wp.short_description ? wp.short_description.replace(/(<([^>]+)>)/gi, "") : 'Premium WooCommerce Product',
         category: mainCategory,
-        subcategory: categoryNames.length > 1 ? categoryNames[1] : mainCategory,
+        subcategory: subCategory,
         sizes: sizes,
         tone: 'bone', 
         art: 'tee-art', 
