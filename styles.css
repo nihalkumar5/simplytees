@@ -253,6 +253,11 @@ body.menu-open { overflow: hidden; height: 100vh; }
 .subcat-scroll-wrapper::-webkit-scrollbar {
   display: none !important;
 }
+@media (min-width: 769px) {
+  .subcat-scroll-wrapper {
+    justify-content: center !important;
+  }
+}
 
 .subcat-scroll-item {
   display: flex !important;
@@ -1807,11 +1812,9 @@ footer.mega-footer {
     top: 55px;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.75) !important;
-    backdrop-filter: blur(16px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.4);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    background: #ffffff !important;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-5px);

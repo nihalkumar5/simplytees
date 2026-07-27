@@ -348,7 +348,7 @@ function closeDrawer() { cartDrawer.classList.remove('is-open'); overlay.classLi
 function openFilterDrawer() { const fd = document.querySelector('[data-filter-drawer]'); if (fd) { fd.classList.add('is-open'); overlay.classList.add('is-open'); fd.setAttribute('aria-hidden', 'false'); } }
 function closeFilterDrawer() { const fd = document.querySelector('[data-filter-drawer]'); if (fd) { fd.classList.remove('is-open'); overlay.classList.remove('is-open'); fd.setAttribute('aria-hidden', 'true'); } }
 function toggleFilterDrawer() { const fd = document.querySelector('[data-filter-drawer]'); if (fd && fd.classList.contains('is-open')) closeFilterDrawer(); else openFilterDrawer(); }
-function openProduct(id) { activeProduct = products.find((product) => product.id === id); const dialogArt = $('[data-dialog-art]'); if (dialogArt) { dialogArt.className = 'dialog-art'; dialogArt.style.background = '#f7f7f7'; dialogArt.style.overflow = 'hidden'; dialogArt.innerHTML = `<img src="${activeProduct.img || 'tshirt_black.png'}" alt="${activeProduct.name}" style="width:100%; height:100%; object-fit:cover;" />`; } $('[data-dialog-category]').textContent = activeProduct.category; $('[data-dialog-title]').textContent = activeProduct.name; $('[data-dialog-description]').textContent = activeProduct.description; $('[data-dialog-price]').textContent = money.format(activeProduct.price); $('[data-dialog-size]').innerHTML = activeProduct.sizes.map((size) => `<option>${size}</option>`).join(''); const addBtn = document.getElementById('dialog-add-to-bag'); if (addBtn) addBtn.dataset.add = id; dialog.showModal(); }
+function openProduct(id) { activeProduct = products.find((product) => product.id === id); const dialogArt = $('[data-dialog-art]'); if (dialogArt) { dialogArt.className = 'dialog-art'; dialogArt.style.background = '#f7f7f7'; dialogArt.style.overflow = 'hidden'; dialogArt.innerHTML = `<img src="${activeProduct.img || 'tshirt_black.png'}" alt="${activeProduct.name}" style="width:100%; height:100%; object-fit:cover;" />`; } $('[data-dialog-category]').textContent = activeProduct.category; $('[data-dialog-title]').textContent = activeProduct.name; $('[data-dialog-description]').textContent = activeProduct.description; const origPrice = activeProduct.price + 300; $('[data-dialog-price]').innerHTML = `${money.format(activeProduct.price)} <span style="text-decoration: line-through; color: #999; font-size: 0.85em; margin-left: 0.4rem;">${money.format(origPrice)}</span>`; $('[data-dialog-size]').innerHTML = activeProduct.sizes.map((size) => `<option>${size}</option>`).join(''); const addBtn = document.getElementById('dialog-add-to-bag'); if (addBtn) addBtn.dataset.add = id; dialog.showModal(); }
 
 // Handles main category clicks from menu/header
 function setCategory(category) {
@@ -745,8 +745,8 @@ function switchRareTab(tabKey) {
   // Update list items with accordion subcategories
   const container = document.getElementById('rare-menu-list-container');
   if (container) {
-    container.innerHTML = data.groups.map(group => `
-      <div class="rare-accordion-group ${group.subs.length > 0 ? 'is-open' : ''}">
+    container.innerHTML = data.groups.map((group, idx) => `
+      <div class="rare-accordion-group ${idx === 0 && group.subs.length > 0 ? 'is-open' : ''}">
         <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
           <span style="font-weight: 700;">${group.title}</span>
           ${group.subs.length > 0 ? '<span class="chevron">›</span>' : ''}
