@@ -4689,7 +4689,9 @@ body { padding-top: 0 !important; }
   left: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
-  background: #FAF8F4 !important;
+  background: transparent !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
   z-index: 99999999 !important;
   display: flex !important;
   justify-content: center !important;
