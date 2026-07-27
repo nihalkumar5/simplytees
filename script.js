@@ -215,7 +215,7 @@ function renderFilters() {
     modelEl.textContent = 'Explore ' + currentView;
   }
 }
-function renderProducts() { if (!productGrid) return; const result = visibleProducts(); productGrid.innerHTML = result.map(productCard).join(''); $('[data-results]').textContent = `${result.length} object${result.length === 1 ? '' : 's'} in view`; $('[data-empty]').hidden = result.length > 0; }
+function renderProducts() { if (!productGrid) return; const result = visibleProducts(); productGrid.innerHTML = result.map(productCard).join(''); if ($('[data-results]')) $('[data-results]').textContent = `${result.length} object${result.length === 1 ? '' : 's'} in view`; if ($('[data-empty]')) $('[data-empty]').hidden = result.length > 0; }
 function saveCart() { localStorage.setItem('asterra-cart', JSON.stringify(state.cart)); }
 function updateBagCount() { const total = state.cart.reduce((sum, item) => sum + item.quantity, 0); document.querySelectorAll('[data-bag-count]').forEach(el => el.textContent = String(total).padStart(2, '0')); document.querySelectorAll('[data-bag]').forEach(el => el.setAttribute('aria-label', `Shopping bag, ${total} item${total === 1 ? '' : 's'}`)); }
 function renderCart() {
@@ -393,8 +393,8 @@ document.addEventListener('click', (event) => {
   if (event.target.closest('[data-close-drawer]') || event.target === overlay) { closeDrawer(); closeFilterDrawer(); }
 });
 document.querySelectorAll('[data-bag]').forEach(btn => btn.addEventListener('click', openDrawer));
-$('[data-close-dialog]').addEventListener('click', () => dialog.close());
-$('[data-checkout]').addEventListener('click', () => showToast('Checkout will connect to your WordPress store.'));
+$('[data-close-dialog]')?.addEventListener('click', () => dialog.close());
+$('[data-checkout]')?.addEventListener('click', () => showToast('Checkout will connect to your WordPress store.'));
 $('[data-search]')?.addEventListener('input', (event) => { state.query = event.target.value.trim(); renderProducts(); });
 $('[data-reset]')?.addEventListener('click', () => setCategory('All objects'));
 
