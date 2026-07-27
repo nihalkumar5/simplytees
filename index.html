@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=147">
+    <link rel="stylesheet" href="styles.css?v=newmenu">
   </head>
   <body class="home-page">
     <!-- Water Fill Brand Preloader -->
@@ -236,91 +236,66 @@
 
       <!-- Mobile Navigation (Original) -->
       <nav id="nav" class="nav mobile-only" aria-label="Primary navigation">
-        <div class="rare-mobile-menu">
-          <button type="button" class="rare-menu-close-btn" onclick="toggleNav(false)" aria-label="Close Menu">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L13 13M1 13L13 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-          </button>
-
-          <!-- Top Banner Image -->
-          <div class="rare-menu-banner">
-            <img id="rare-menu-banner-img" src="assets/asterra-hero.png" alt="Collection Banner">
-          </div>
-
-          <!-- Horizontal Category Tabs (Matching Desktop 1:1) -->
-          <div class="rare-menu-tabs">
-            <div class="rare-menu-tab is-active" data-rare-tab="apparel" onclick="switchNewMobileTab('apparel')">APPAREL</div>
-            <div class="rare-menu-tab" data-rare-tab="kids" onclick="switchNewMobileTab('kids')">KIDS</div>
-            <div class="rare-menu-tab" data-rare-tab="accessories" onclick="switchNewMobileTab('accessories')">ACCESSORIES</div>
-            <div class="rare-menu-tab" data-rare-tab="living" onclick="switchNewMobileTab('living')">LIVING</div>
-            <div class="rare-menu-tab" data-rare-tab="petwear" onclick="switchNewMobileTab('petwear')">PET-WEAR</div>
-            <div class="rare-menu-tab" data-rare-tab="new" onclick="switchNewMobileTab('new')">NEW ARRIVALS</div>
-          </div>
-
-          <!-- Subcategories List (No hardcoded href on group titles) -->
-          <div class="rare-menu-list" id="rare-menu-list-container">
-            <div class="rare-accordion-group is-open">
-              <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
-                <span style="font-weight: 700;">T-SHIRTS</span>
-                <span class="chevron">›</span>
-              </div>
-              <div class="rare-sub-list">
-                <a href="t-shirts.html" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All T-SHIRTS</a>
-                <a href="t-shirts.html?filter=Classic%20Crew" class="rare-sub-item">• Classic Crew</a>
-                <a href="t-shirts.html?filter=Oversized" class="rare-sub-item">• Oversized</a>
-                <a href="t-shirts.html?filter=Baby%20Tee%20%26%20Crop" class="rare-sub-item">• Baby Tee & Crop</a>
-                <a href="t-shirts.html?filter=Polo%20%26%20V-Neck" class="rare-sub-item">• Polo & V-Neck</a>
-                <a href="t-shirts.html?filter=Supima%20%26%20Stretch" class="rare-sub-item">• Supima & Stretch</a>
-                <a href="t-shirts.html?filter=Acid%20Wash%20%26%20Tie%20Dye" class="rare-sub-item">• Acid Wash & Tie Dye</a>
-              </div>
-            </div>
-
-            <div class="rare-accordion-group">
-              <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
-                <span style="font-weight: 700;">HOODIES & JACKETS</span>
-                <span class="chevron">›</span>
-              </div>
-              <div class="rare-sub-list">
-                <a href="hoodies-jackets.html" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All HOODIES & JACKETS</a>
-                <a href="hoodies-jackets.html?filter=Pullover%20Hoodies" class="rare-sub-item">• Pullover Hoodies</a>
-                <a href="hoodies-jackets.html?filter=Zip%20Hoodies" class="rare-sub-item">• Zip Hoodies</a>
-                <a href="hoodies-jackets.html?filter=Sweatshirts" class="rare-sub-item">• Sweatshirts</a>
-                <a href="hoodies-jackets.html?filter=Bomber%20Jackets" class="rare-sub-item">• Bomber Jackets</a>
-                <a href="hoodies-jackets.html?filter=Varsity%20Jackets" class="rare-sub-item">• Varsity Jackets</a>
-              </div>
-            </div>
-
-            <div class="rare-accordion-group">
-              <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
-                <span style="font-weight: 700;">BOTTOMWEAR</span>
-                <span class="chevron">›</span>
-              </div>
-              <div class="rare-sub-list">
-                <a href="bottomwear.html" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All BOTTOMWEAR</a>
-                <a href="bottomwear.html?filter=Sweatpants%20%26%20Joggers" class="rare-sub-item">• Sweatpants & Joggers</a>
-                <a href="bottomwear.html?filter=Shorts" class="rare-sub-item">• Shorts</a>
-                <a href="bottomwear.html?filter=Skirts" class="rare-sub-item">• Skirts</a>
-                <a href="bottomwear.html?filter=Leggings" class="rare-sub-item">• Leggings</a>
-              </div>
-            </div>
-
-            <div class="rare-accordion-group">
-              <div class="rare-accordion-header" onclick="toggleRareAccordion(this)">
-                <span style="font-weight: 700;">AOP APPAREL</span>
-                <span class="chevron">›</span>
-              </div>
-              <div class="rare-sub-list">
-                <a href="aop-apparel.html" class="rare-sub-item" style="font-weight: 700; color: #121311 !important;">→ View All AOP APPAREL</a>
-                <a href="aop-apparel.html?filter=AOP%20T-Shirts" class="rare-sub-item">• AOP T-Shirts</a>
-                <a href="aop-apparel.html?filter=AOP%20Tops%20%26%20Dresses" class="rare-sub-item">• AOP Tops & Dresses</a>
-                <a href="aop-apparel.html?filter=AOP%20Bottoms" class="rare-sub-item">• AOP Bottoms</a>
-                <a href="aop-apparel.html?filter=AOP%20Jackets%20%26%20Sweats" class="rare-sub-item">• AOP Jackets & Sweats</a>
-              </div>
-            </div>
-          </div>
+  <div class="new-mobile-menu">
+    <div class="new-menu-header">
+      <span class="new-menu-title">MENU</span>
+      <button type="button" class="new-menu-close" onclick="toggleNav(false)">×</button>
+    </div>
+    <div class="new-menu-content">
+      <!-- Apparel -->
+      <div class="new-accordion">
+        <button class="new-accordion-btn" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('show');">
+          APPAREL <span class="plus-icon">+</span>
+        </button>
+        <div class="new-accordion-panel">
+          <a href="t-shirts.html">T-Shirts</a>
+          <a href="hoodies-jackets.html">Hoodies & Jackets</a>
+          <a href="bottomwear.html">Bottomwear</a>
+          <a href="aop-apparel.html">AOP Apparel</a>
         </div>
-      </nav>
+      </div>
+      <!-- Kids -->
+      <div class="new-accordion">
+        <button class="new-accordion-btn" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('show');">
+          KIDS <span class="plus-icon">+</span>
+        </button>
+        <div class="new-accordion-panel">
+          <a href="kids-clothing.html">Kids Clothing</a>
+        </div>
+      </div>
+      <!-- Accessories -->
+      <div class="new-accordion">
+        <button class="new-accordion-btn" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('show');">
+          ACCESSORIES <span class="plus-icon">+</span>
+        </button>
+        <div class="new-accordion-panel">
+          <a href="accessories.html">Bags, Caps & More</a>
+        </div>
+      </div>
+      <!-- Living -->
+      <div class="new-accordion">
+        <button class="new-accordion-btn" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('show');">
+          LIVING <span class="plus-icon">+</span>
+        </button>
+        <div class="new-accordion-panel">
+          <a href="living.html">All Living</a>
+          <a href="drinkware.html">Drinkware</a>
+          <a href="notebooks.html">Notebooks</a>
+          <a href="posters.html">Posters</a>
+        </div>
+      </div>
+      <!-- Pet-Wear -->
+      <div class="new-accordion">
+        <button class="new-accordion-btn" onclick="this.classList.toggle('active'); this.nextElementSibling.classList.toggle('show');">
+          PET-WEAR <span class="plus-icon">+</span>
+        </button>
+        <div class="new-accordion-panel">
+          <a href="petwear.html">Pet Clothing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
     </header>
 
         <main id="main">
