@@ -1813,18 +1813,19 @@ footer.mega-footer {
     left: 0;
     width: 100%;
     background: #ffffff !important;
+    background-color: #ffffff !important;
     border-top: 1px solid #eaeaea;
     border-bottom: 1px solid #eaeaea;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-5px);
     transition: all 0.3s ease;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    z-index: 99;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 9999;
   }
 
   .has-dropdown:hover .mega-menu {
-    opacity: 1;
+    opacity: 1 !important;
     visibility: visible;
     transform: translateY(0);
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
