@@ -846,12 +846,15 @@ async function fetchWooCommerceProducts() {
       }
     }
     const fetchedProducts = await response.json();
+    console.log("WooCommerce fetched products:", fetchedProducts);
     
     // Update the global products array so addToCart and visibleProducts work
     products = fetchedProducts;
+    console.log("Global products array updated. Length:", products.length);
     
     // Call the existing renderProducts function which handles filtering and layout
     renderProducts();
+    renderCart();
     
     document.dispatchEvent(new CustomEvent('productsLoaded'));
   } catch (error) {
