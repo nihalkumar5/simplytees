@@ -32,16 +32,16 @@ get_header();
         <div class="showcase-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; border-bottom: 1px solid #ddd;">
           <h2 style="font-size: 1.25rem; font-weight: 800; letter-spacing: 0.1em; margin: 0; text-transform: uppercase;">New Arrivals</h2>
           <div class="showcase-tabs" style="display: flex; border: 1px solid #111;">
-            <button style="padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 700; background: #ddd; border: none; border-right: 1px solid #111; cursor: pointer;">ALL</button>
-            <button style="padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 700; background: #fff; border: none; border-right: 1px solid #111; cursor: pointer;">MEN'S</button>
-            <button style="padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 700; background: #fff; border: none; cursor: pointer;">WOMEN'S</button>
+            <button onclick="filterNewArrivals('all', this)" style="padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 700; background: #ddd; border: none; border-right: 1px solid #111; cursor: pointer;">ALL</button>
+            <button onclick="filterNewArrivals('men', this)" style="padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 700; background: #fff; border: none; border-right: 1px solid #111; cursor: pointer;">MEN'S</button>
+            <button onclick="filterNewArrivals('women', this)" style="padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 700; background: #fff; border: none; cursor: pointer;">WOMEN'S</button>
           </div>
         </div>
         
         <div class="showcase-scroll" style="display: flex; overflow-x: auto; width: 100%; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; border-top: 1px solid #111;">
           
           <!-- Card 1 -->
-          <div class="showcase-card" style="position: relative; border-right: 1px solid #111; display: flex; flex-direction: column; flex: 0 0 35%; min-width: 320px; scroll-snap-align: start;">
+          <div class="showcase-card" data-category="men" style="position: relative; border-right: 1px solid #111; display: flex; flex-direction: column; flex: 0 0 35%; min-width: 320px; scroll-snap-align: start;">
             <div class="card-image-wrap" style="position: relative; overflow: hidden; border-bottom: 1px solid #111;">
               <div class="card-badges" style="position: absolute; top: 1rem; left: 1rem; z-index: 2; display: flex; gap: 0.5rem;">
                 <span style="font-size: 0.65rem; font-weight: 700; border: 1px solid #111; padding: 0.2rem 0.5rem; background: rgba(255,255,255,0.8);">NEW</span>
@@ -58,13 +58,13 @@ get_header();
                 <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start;">
                   <span style="font-weight: 600; font-size: 0.9rem;">₹ 1,600</span>
                 </div>
-                <button style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
+                <button data-view="5" style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
               </div>
             </div>
           </div>
 
           <!-- Card 2 -->
-          <div class="showcase-card" style="position: relative; border-right: 1px solid #111; display: flex; flex-direction: column; flex: 0 0 35%; min-width: 320px; scroll-snap-align: start;">
+          <div class="showcase-card" data-category="men" style="position: relative; border-right: 1px solid #111; display: flex; flex-direction: column; flex: 0 0 35%; min-width: 320px; scroll-snap-align: start;">
             <div class="card-image-wrap" style="position: relative; overflow: hidden; border-bottom: 1px solid #111;">
               <div class="card-badges" style="position: absolute; top: 1rem; left: 1rem; z-index: 2; display: flex; gap: 0.5rem;">
                 <span style="font-size: 0.65rem; font-weight: 700; border: 1px solid #111; padding: 0.2rem 0.5rem; background: rgba(255,255,255,0.8);">NEW</span>
@@ -81,13 +81,13 @@ get_header();
                 <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start;">
                   <span style="font-weight: 600; font-size: 0.9rem;">₹ 2,499</span>
                 </div>
-                <button style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
+                <button data-view="6" style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
               </div>
             </div>
           </div>
 
           <!-- Card 3 -->
-          <div class="showcase-card" style="position: relative; border-right: 1px solid #111; display: flex; flex-direction: column; flex: 0 0 35%; min-width: 320px; scroll-snap-align: start;">
+          <div class="showcase-card" data-category="women" style="position: relative; border-right: 1px solid #111; display: flex; flex-direction: column; flex: 0 0 35%; min-width: 320px; scroll-snap-align: start;">
             <div class="card-image-wrap" style="position: relative; overflow: hidden; border-bottom: 1px solid #111;">
               <div class="card-badges" style="position: absolute; top: 1rem; left: 1rem; z-index: 2; display: flex; gap: 0.5rem;">
                 <span style="font-size: 0.65rem; font-weight: 700; border: 1px solid #111; padding: 0.2rem 0.5rem; background: rgba(255,255,255,0.8);">NEW</span>
@@ -108,13 +108,13 @@ get_header();
                   </div>
                   <span style="font-weight: 600; font-size: 0.9rem;">₹ 2,990</span>
                 </div>
-                <button style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
+                <button data-view="7" style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
               </div>
             </div>
           </div>
           
           <!-- Card 4 -->
-          <div class="showcase-card" style="position: relative; border-right: 1px solid #111; display: flex; flex-direction: column; flex: 0 0 35%; min-width: 320px; scroll-snap-align: start;">
+          <div class="showcase-card" data-category="women" style="position: relative; border-right: 1px solid #111; display: flex; flex-direction: column; flex: 0 0 35%; min-width: 320px; scroll-snap-align: start;">
             <div class="card-image-wrap" style="position: relative; overflow: hidden; border-bottom: 1px solid #111;">
               <div class="card-badges" style="position: absolute; top: 1rem; left: 1rem; z-index: 2; display: flex; gap: 0.5rem;">
                 <span style="font-size: 0.65rem; font-weight: 700; border: 1px solid #111; padding: 0.2rem 0.5rem; background: rgba(255,255,255,0.8);">NEW</span>
@@ -135,7 +135,7 @@ get_header();
                   </div>
                   <span style="font-weight: 600; font-size: 0.9rem;">₹ 2,190</span>
                 </div>
-                <button style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
+                <button data-view="8" style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
               </div>
             </div>
           </div>
