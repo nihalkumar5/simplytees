@@ -110,25 +110,23 @@ function visibleProducts() {
 }
 function productCard(product) {
   const origPrice = product.price + 300;
-  return `<article class="product" style="display: flex; flex-direction: column; height: 100%;">
-    <div class="product-image-container" onclick="window.location.href='product-detail.html?id=${product.id}'" style="cursor: pointer; position: relative; overflow: hidden; padding-top: 125%; background: #f7f7f7;">
-      <div class="heart-icon" data-wishlist-btn="${product.id}" onclick="toggleProductWishlist('${product.id}', event)" style="position: absolute; top: 10px; right: 10px; z-index: 2; color: #111; font-size: 1.4rem; cursor: pointer;">${state.wishlist.includes(product.id) ? '&#9829;' : '&#9825;'}</div>
-      <img src="${product.img || 'assets/images/tshirt_black.png'}" alt="${product.name}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+  return `<article class="product-card" style="display: flex; flex-direction: column; height: 100%;">
+    <div class="product-image-container" onclick="window.location.href='product-detail.html?id=${product.id}'" style="cursor: pointer; position: relative; overflow: hidden; padding-top: 125%; background: #eaeaea; border-bottom: 1px solid #111;">
+      <div class="heart-icon" data-wishlist-btn="${product.id}" onclick="toggleProductWishlist('${product.id}', event)" style="position: absolute; top: 10px; right: 10px; z-index: 2; color: #111; font-size: 1.4rem; cursor: pointer; background: transparent; border: none; box-shadow: none;">${state.wishlist.includes(product.id) ? '&#9829;' : '&#9825;'}</div>
+      <img src="${product.img || 'assets/images/tshirt_black.png'}" alt="${product.name}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
     </div>
-    <div class="product-meta" style="text-align: center; display: flex; flex-direction: column; flex: 1; justify-content: space-between; padding-top: 1rem;">
-      <div style="flex: 1;">
-        <p class="category-label">${product.category}</p>
-        <h3 onclick="window.location.href='product-detail.html?id=${product.id}'" style="cursor: pointer;">${product.name}</h3>
-      </div>
-      <div style="margin-top: auto;">
-        <div class="price-row" style="margin-bottom: 1rem; display: flex; justify-content: center; align-items: center;">
-          <span class="current-price">${money.format(product.price)}</span>
-          <span class="original-price" style="text-decoration: line-through; color: #999; margin-left: 0.5rem;"><del>${money.format(origPrice)}</del></span>
+    <div class="product-meta" style="padding: 1.25rem 1rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; text-align: left; background: #fdfbf7;">
+      <h3 onclick="window.location.href='product-detail.html?id=${product.id}'" style="cursor: pointer; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5rem; color: #111; letter-spacing: 0.05em; font-family: 'DM Mono', monospace; line-height: 1.4;">${product.name}</h3>
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto;">
+        <div class="price-row" style="display: flex; gap: 0.5rem; align-items: center;">
+          <span class="current-price" style="font-weight: 700; font-size: 0.9rem; color: #b73225;">${money.format(product.price)}</span>
+          <span class="original-price" style="text-decoration: line-through; color: #999; font-size: 0.75rem;">${money.format(origPrice)}</span>
         </div>
-        <button class="add-button full-width-add" type="button" data-view="${product.id}" aria-label="Add ${product.name} to bag">
-          ADD TO BAG
+        <button class="add-button" type="button" data-view="${product.id}" aria-label="Add ${product.name} to bag" style="background: transparent; border: none; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; cursor: pointer; color: #111; padding: 0; letter-spacing: 0.05em;">
+          + ADD
         </button>
       </div>
+    </div>
   </article>`;
 }
 function renderFilters() {
