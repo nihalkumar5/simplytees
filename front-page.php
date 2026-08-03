@@ -200,51 +200,87 @@ get_header();
         </div>
         
         <div class="product-grid" style="grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
-          <div class="product-card">
-            <picture><img src="<?php echo get_template_directory_uri(); ?>/assets/images/tshirt_black.png" alt="Classic Oversized Heavyweight Tee" style="width:100%; height:260px; object-fit:cover;"></picture>
-            <div class="product-info">
-              <span class="eyebrow" style="font-size: 0.7rem; color: #666;">APPAREL</span>
-              <h3>Classic Oversized Tee</h3>
-              <div class="price-container">
-                <span class="current-price">₹1,539</span>
+          <div class="showcase-card" style="position: relative; border: 1px solid #111; display: flex; flex-direction: column; width: 100%;">
+            <div class="card-image-wrap" style="position: relative; overflow: hidden; border-bottom: 1px solid #111;">
+              <div class="card-badges" style="position: absolute; top: 1rem; left: 1rem; z-index: 2; display: flex; gap: 0.5rem;">
+                <span style="font-size: 0.65rem; font-weight: 700; border: 1px solid #111; padding: 0.2rem 0.5rem; background: rgba(255,255,255,0.8);">TRENDING</span>
               </div>
-              <button class="button-primary-dark" type="button" style="width: 100%; margin-top: 1rem; padding: 0.6rem;" data-view="4">ADD TO BAG</button>
+              <button style="position: absolute; top: 1rem; right: 1rem; z-index: 2; background: #fff; border: 1px solid #111; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"></path></svg>
+              </button>
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tshirt_black.png" style="width: 100%; height: 350px; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product">
+            </div>
+            <div class="card-info" style="padding: 1rem; display: flex; flex-direction: column; gap: 1rem; background: #fff; flex-grow: 1;">
+              <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0; text-transform: uppercase; text-align: left;">CLASSIC OVERSIZED TEE</h3>
+              <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto;">
+                <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start;">
+                  <span style="font-weight: 600; font-size: 0.9rem;">₹ 1,539</span>
+                </div>
+                <button data-view="45" style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
+              </div>
             </div>
           </div>
           
-          <div class="product-card">
-            <picture><img src="<?php echo get_template_directory_uri(); ?>/assets/images/tshirt_olive.png" alt="Pullover Heavy Hoodie" style="width:100%; height:260px; object-fit:cover;"></picture>
-            <div class="product-info">
-              <span class="eyebrow" style="font-size: 0.7rem; color: #666;">HOODIES</span>
-              <h3>Heavyweight Pullover Hoodie</h3>
-              <div class="price-container">
-                <span class="current-price">₹1,599</span>
+          <div class="showcase-card" style="position: relative; border: 1px solid #111; display: flex; flex-direction: column; width: 100%;">
+            <div class="card-image-wrap" style="position: relative; overflow: hidden; border-bottom: 1px solid #111;">
+              <div class="card-badges" style="position: absolute; top: 1rem; left: 1rem; z-index: 2; display: flex; gap: 0.5rem;">
+                <span style="font-size: 0.65rem; font-weight: 700; border: 1px solid #111; padding: 0.2rem 0.5rem; background: rgba(255,255,255,0.8);">TRENDING</span>
               </div>
-              <button class="button-primary-dark" type="button" style="width: 100%; margin-top: 1rem; padding: 0.6rem;" data-view="2">ADD TO BAG</button>
+              <button style="position: absolute; top: 1rem; right: 1rem; z-index: 2; background: #fff; border: 1px solid #111; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"></path></svg>
+              </button>
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tshirt_olive.png" style="width: 100%; height: 350px; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product">
+            </div>
+            <div class="card-info" style="padding: 1rem; display: flex; flex-direction: column; gap: 1rem; background: #fff; flex-grow: 1;">
+              <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0; text-transform: uppercase; text-align: left;">HEAVYWEIGHT PULLOVER HOODIE</h3>
+              <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto;">
+                <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start;">
+                  <span style="font-weight: 600; font-size: 0.9rem;">₹ 1,599</span>
+                </div>
+                <button data-view="44" style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
+              </div>
             </div>
           </div>
           
-          <div class="product-card">
-            <picture><img src="<?php echo get_template_directory_uri(); ?>/assets/images/tshirt_beige.png" alt="Minimalist Tote Bag" style="width:100%; height:260px; object-fit:cover;"></picture>
-            <div class="product-info">
-              <span class="eyebrow" style="font-size: 0.7rem; color: #666;">BAGS</span>
-              <h3>Canvas Utility Tote</h3>
-              <div class="price-container">
-                <span class="current-price">₹1,529</span>
+          <div class="showcase-card" style="position: relative; border: 1px solid #111; display: flex; flex-direction: column; width: 100%;">
+            <div class="card-image-wrap" style="position: relative; overflow: hidden; border-bottom: 1px solid #111;">
+              <div class="card-badges" style="position: absolute; top: 1rem; left: 1rem; z-index: 2; display: flex; gap: 0.5rem;">
+                <span style="font-size: 0.65rem; font-weight: 700; border: 1px solid #111; padding: 0.2rem 0.5rem; background: rgba(255,255,255,0.8);">TRENDING</span>
               </div>
-              <button class="button-primary-dark" type="button" style="width: 100%; margin-top: 1rem; padding: 0.6rem;" data-view="3">ADD TO BAG</button>
+              <button style="position: absolute; top: 1rem; right: 1rem; z-index: 2; background: #fff; border: 1px solid #111; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"></path></svg>
+              </button>
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tshirt_beige.png" style="width: 100%; height: 350px; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product">
+            </div>
+            <div class="card-info" style="padding: 1rem; display: flex; flex-direction: column; gap: 1rem; background: #fff; flex-grow: 1;">
+              <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0; text-transform: uppercase; text-align: left;">CANVAS UTILITY TOTE</h3>
+              <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto;">
+                <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start;">
+                  <span style="font-weight: 600; font-size: 0.9rem;">₹ 1,529</span>
+                </div>
+                <button data-view="43" style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
+              </div>
             </div>
           </div>
 
-          <div class="product-card">
-            <picture><img src="<?php echo get_template_directory_uri(); ?>/assets/images/tshirt_white.png" alt="Kids Organic Cotton Tee" style="width:100%; height:260px; object-fit:cover;"></picture>
-            <div class="product-info">
-              <span class="eyebrow" style="font-size: 0.7rem; color: #666;">KIDS</span>
-              <h3>Soft Organic Crew Tee</h3>
-              <div class="price-container">
-                <span class="current-price">₹1,299</span>
+          <div class="showcase-card" style="position: relative; border: 1px solid #111; display: flex; flex-direction: column; width: 100%;">
+            <div class="card-image-wrap" style="position: relative; overflow: hidden; border-bottom: 1px solid #111;">
+              <div class="card-badges" style="position: absolute; top: 1rem; left: 1rem; z-index: 2; display: flex; gap: 0.5rem;">
+                <span style="font-size: 0.65rem; font-weight: 700; border: 1px solid #111; padding: 0.2rem 0.5rem; background: rgba(255,255,255,0.8);">TRENDING</span>
               </div>
-              <button class="button-primary-dark" type="button" style="width: 100%; margin-top: 1rem; padding: 0.6rem;" data-view="1">ADD TO BAG</button>
+              <button style="position: absolute; top: 1rem; right: 1rem; z-index: 2; background: #fff; border: 1px solid #111; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"></path></svg>
+              </button>
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tshirt_white.png" style="width: 100%; height: 350px; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product">
+            </div>
+            <div class="card-info" style="padding: 1rem; display: flex; flex-direction: column; gap: 1rem; background: #fff; flex-grow: 1;">
+              <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0; text-transform: uppercase; text-align: left;">SOFT ORGANIC CREW TEE</h3>
+              <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto;">
+                <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start;">
+                  <span style="font-weight: 600; font-size: 0.9rem;">₹ 1,299</span>
+                </div>
+                <button data-view="42" style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
+              </div>
             </div>
           </div>
         </div>
