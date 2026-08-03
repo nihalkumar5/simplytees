@@ -5240,7 +5240,7 @@ nav.nav.mobile-only {
   background: #fdfbf7 !important;
   text-decoration: none !important;
   color: #111 !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 @media (min-width: 768px) {
   .pand-category-card {
@@ -5249,15 +5249,15 @@ nav.nav.mobile-only {
 }
 
 .pand-category-card:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: 4px 4px 0px #111 !important;
+  transform: translateY(-6px) scale(1.01) !important;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.06) !important;
 }
 
 .pand-category-card .pand-img-wrap {
   width: 100% !important;
   height: 0 !important;
   padding-bottom: 125% !important; /* Portrait aspect ratio (4:5) */
-  border-bottom: 1px solid #111 !important;
+  border-bottom: 1px solid rgba(17,17,17,0.1) !important;
   position: relative !important;
   overflow: hidden !important;
 }
@@ -5269,11 +5269,12 @@ nav.nav.mobile-only {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  transition: transform 0.5s ease !important;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease !important;
 }
 
 .pand-category-card:hover .pand-img-wrap img {
-  transform: scale(1.05) !important;
+  transform: scale(1.06) !important;
+  filter: brightness(0.96) !important;
 }
 
 .pand-category-card .pand-text-wrap {
