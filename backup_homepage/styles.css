@@ -1705,9 +1705,9 @@ footer.mega-footer {
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     width: 100%;
-    max-width: none;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 4vw;
+    padding: 0 2vw;
     height: 55px;
   }
 
@@ -5101,91 +5101,3 @@ nav.nav.mobile-only {
 .rare-sub-list-v2 { display: none; flex-direction: column; padding: 0 2rem 1.5rem 2rem; }
 .rare-accordion-group-v2.is-open .rare-sub-list-v2 { display: flex; }
 .rare-sub-list-v2 a { padding: 1.15rem 0; color: #333 !important; font-weight: 500; display: flex !important; text-decoration: none; font-family: var(--sans, sans-serif); font-size: 0.75rem !important; letter-spacing: 0.05em; visibility: visible !important; opacity: 1 !important; }
-
-/* Shift desktop nav and icons slightly to the right */
-@media (min-width: 901px) {
-  .desktop-nav {
-    margin-left: 40px !important;
-  }
-  .header-icons {
-    margin-right: -15px !important;
-  }
-
-/* =========================================================
-   WOW FACTOR: DYNAMIC MICRO-ANIMATIONS & MOTION
-   ========================================================= */
-
-/* 1. Mega Menu Smooth Drop-In */
-.has-dropdown:hover .mega-menu {
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  animation: megaDropIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.mega-menu {
-  transform: translateY(12px);
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  backdrop-filter: blur(16px);
-  background: rgba(255, 255, 255, 0.98) !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1) !important;
-}
-
-@keyframes megaDropIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 2. Mega Menu Links & Underline Animation */
-.mega-col-text a {
-  position: relative;
-  transition: color 0.2s ease, transform 0.2s ease;
-  display: inline-block;
-}
-.mega-col-text a:hover {
-  color: #000 !important;
-  transform: translateX(5px);
-}
-
-/* 3. Product Card 3D Tilt & Lift */
-.product-card, .cat-card {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease !important;
-  will-change: transform;
-}
-.product-card:hover, .cat-card:hover {
-  transform: translateY(-8px) scale(1.01) !important;
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12) !important;
-}
-
-.product-art {
-  overflow: hidden;
-  position: relative;
-}
-.product-art img {
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-.product-card:hover .product-art img {
-  transform: scale(1.07);
-}
-
-/* 4. Magnetic Buttons */
-.button-primary-dark, .button-outline-dark {
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important;
-}
-.button-primary-dark:hover {
-  transform: translateY(-3px) scale(1.03) !important;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25) !important;
-}
-.button-outline-dark:hover {
-  transform: translateY(-3px) scale(1.03) !important;
-  background: #111 !important;
-  color: #fff !important;
-}

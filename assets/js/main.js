@@ -113,7 +113,7 @@ function productCard(product) {
   return `<article class="product" style="display: flex; flex-direction: column; height: 100%;">
     <div class="product-image-container" onclick="window.location.href='product-detail.html?id=${product.id}'" style="cursor: pointer; position: relative; overflow: hidden; padding-top: 125%; background: #f7f7f7;">
       <div class="heart-icon" data-wishlist-btn="${product.id}" onclick="toggleProductWishlist('${product.id}', event)" style="position: absolute; top: 10px; right: 10px; z-index: 2; color: #111; font-size: 1.4rem; cursor: pointer;">${state.wishlist.includes(product.id) ? '&#9829;' : '&#9825;'}</div>
-      <img src="${product.img || 'assets/images/tshirt_black.png'}" alt="${product.name}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+      <img src="${product.img || 'tshirt_black.png'}" alt="${product.name}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
     </div>
     <div class="product-meta" style="text-align: center; display: flex; flex-direction: column; flex: 1; justify-content: space-between; padding-top: 1rem;">
       <div style="flex: 1;">
@@ -172,10 +172,10 @@ function renderFilters() {
     filtersEl.innerHTML = subs.map((sub, index) => {
       const isActive = state.subcategory === sub ? 'is-active' : '';
 
-      let imgUrl = 'assets/images/tshirt_black.png';
-      if (index === 1) imgUrl = 'assets/images/tshirt_white.png';
-      if (index === 2) imgUrl = 'assets/images/tshirt_olive.png';
-      if (index === 3) imgUrl = 'assets/images/tshirt_beige.png';
+      let imgUrl = 'tshirt_black.png';
+      if (index === 1) imgUrl = 'tshirt_white.png';
+      if (index === 2) imgUrl = 'tshirt_olive.png';
+      if (index === 3) imgUrl = 'tshirt_beige.png';
 
       const innerContent = sub === 'All'
         ? `<span style="font-weight: 800; font-size: 0.75rem; color: ${isActive ? '#ffffff' : '#111111'};">ALL</span>`
@@ -258,7 +258,7 @@ function renderCart() {
         ${products.slice(0, 4).map(p => `
           <div class="bag-recommendation-card">
             <div class="bag-recommendation-img">
-              <img src="${p.img || 'assets/images/tshirt_black.png'}" alt="${p.name}" />
+              <img src="${p.img || 'tshirt_black.png'}" alt="${p.name}" />
             </div>
             <div class="bag-recommendation-info">
               <div class="bag-recommendation-title">${p.name}</div>
@@ -280,7 +280,7 @@ function renderCart() {
   $('[data-cart-items]').innerHTML = items.map(({ product, quantity, size }) => `
     <div class="premium-cart-item">
       <div class="premium-cart-img">
-        <img src="${product.img || 'assets/images/tshirt_black.png'}" alt="${product.name}" />
+        <img src="${product.img || 'tshirt_black.png'}" alt="${product.name}" />
       </div>
       <div class="premium-cart-details">
         <div class="premium-cart-title-row">
@@ -348,7 +348,7 @@ function closeDrawer() { cartDrawer.classList.remove('is-open'); overlay.classLi
 function openFilterDrawer() { const fd = document.querySelector('[data-filter-drawer]'); if (fd) { fd.classList.add('is-open'); overlay.classList.add('is-open'); fd.setAttribute('aria-hidden', 'false'); } }
 function closeFilterDrawer() { const fd = document.querySelector('[data-filter-drawer]'); if (fd) { fd.classList.remove('is-open'); overlay.classList.remove('is-open'); fd.setAttribute('aria-hidden', 'true'); } }
 function toggleFilterDrawer() { const fd = document.querySelector('[data-filter-drawer]'); if (fd && fd.classList.contains('is-open')) closeFilterDrawer(); else openFilterDrawer(); }
-function openProduct(id) { activeProduct = products.find((product) => product.id === id); const dialogArt = $('[data-dialog-art]'); if (dialogArt) { dialogArt.className = 'dialog-art'; dialogArt.style.background = '#f7f7f7'; dialogArt.style.overflow = 'hidden'; dialogArt.innerHTML = `<img src="${activeProduct.img || 'assets/images/tshirt_black.png'}" alt="${activeProduct.name}" style="width:100%; height:100%; object-fit:cover;" />`; } $('[data-dialog-category]').textContent = activeProduct.category; $('[data-dialog-title]').textContent = activeProduct.name; $('[data-dialog-description]').textContent = activeProduct.description; const origPrice = activeProduct.price + 300; $('[data-dialog-price]').innerHTML = `${money.format(activeProduct.price)} <span style="text-decoration: line-through; color: #999; font-size: 0.85em; margin-left: 0.4rem;">${money.format(origPrice)}</span>`; $('[data-dialog-size]').innerHTML = activeProduct.sizes.map((size) => `<option>${size}</option>`).join(''); const addBtn = document.getElementById('dialog-add-to-bag'); if (addBtn) addBtn.dataset.add = id; dialog.showModal(); }
+function openProduct(id) { activeProduct = products.find((product) => product.id === id); const dialogArt = $('[data-dialog-art]'); if (dialogArt) { dialogArt.className = 'dialog-art'; dialogArt.style.background = '#f7f7f7'; dialogArt.style.overflow = 'hidden'; dialogArt.innerHTML = `<img src="${activeProduct.img || 'tshirt_black.png'}" alt="${activeProduct.name}" style="width:100%; height:100%; object-fit:cover;" />`; } $('[data-dialog-category]').textContent = activeProduct.category; $('[data-dialog-title]').textContent = activeProduct.name; $('[data-dialog-description]').textContent = activeProduct.description; const origPrice = activeProduct.price + 300; $('[data-dialog-price]').innerHTML = `${money.format(activeProduct.price)} <span style="text-decoration: line-through; color: #999; font-size: 0.85em; margin-left: 0.4rem;">${money.format(origPrice)}</span>`; $('[data-dialog-size]').innerHTML = activeProduct.sizes.map((size) => `<option>${size}</option>`).join(''); const addBtn = document.getElementById('dialog-add-to-bag'); if (addBtn) addBtn.dataset.add = id; dialog.showModal(); }
 
 // Handles main category clicks from menu/header
 function setCategory(category) {
