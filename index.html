@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="styles.css?v=4">
   </head>
   <body class="home-page">
 
@@ -549,30 +549,42 @@
 
       <!-- 1.8 CORE VALUES SECTION -->
       <section class="core-values-section" style="background: #EFEBE3; padding: 5rem 2rem; border-bottom: 1px solid #111;">
+        <style>
+          .value-item svg {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+          .value-item:hover svg {
+            transform: translateY(-8px) scale(1.05);
+          }
+        </style>
         <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; text-align: center;">
           
-          <div class="value-item" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
-            <svg width="65" height="65" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 12h.01M15 12h.01M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"></path>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-              <path d="M2 12h20"></path>
+          <div class="value-item" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; cursor: pointer;">
+            <!-- Globe & Hands Premium SVG -->
+            <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#2c2c2c" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 21.5c-4-4-9-7.5-9-12.5a4.5 4.5 0 0 1 7.5-3.36L12 7l1.5-1.36A4.5 4.5 0 0 1 21 9c0 5-5 8.5-9 12.5z"></path>
+              <path d="M12 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"></path>
             </svg>
             <p style="font-size: 0.95rem; font-weight: 500; font-family: 'Manrope', sans-serif; color: #444; line-height: 1.4; margin: 0;">Every Purchase<br>Gives Back</p>
           </div>
           
-          <div class="value-item" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
-            <svg width="65" height="65" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
-              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+          <div class="value-item" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; cursor: pointer;">
+            <!-- Sustainability Leaf Premium SVG -->
+            <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#2c2c2c" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22v-7l-2-2"></path>
+              <path d="M12 15l2-2"></path>
+              <path d="M12 22C6 22 2 16 2 10c0-4.4 3.6-8 8-8s8 3.6 8 8c0 2.2-1.8 4-4 4-2.2 0-4-1.8-4-4"></path>
+              <path d="M14 6c3.3 0 6 2.7 6 6 0 2.2-1.8 4-4 4-1.3 0-2.5-.6-3.3-1.6"></path>
             </svg>
             <p style="font-size: 0.95rem; font-weight: 500; font-family: 'Manrope', sans-serif; color: #444; line-height: 1.4; margin: 0;">Highest Sustainability<br>Standards</p>
           </div>
 
-          <div class="value-item" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
-            <svg width="65" height="65" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 17a10 10 0 0 0-20 0"></path>
-              <path d="M18 17a6 6 0 0 0-12 0"></path>
-              <path d="M14 17a2 2 0 0 0-4 0"></path>
+          <div class="value-item" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; cursor: pointer;">
+            <!-- Joy / Sun / Rainbow Premium SVG -->
+            <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#2c2c2c" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path>
+              <path d="M9 14s1.5 2 3 2 3-2 3-2"></path>
             </svg>
             <p style="font-size: 0.95rem; font-weight: 500; font-family: 'Manrope', sans-serif; color: #444; line-height: 1.4; margin: 0;">Joy Backed<br>Guarantee</p>
           </div>
