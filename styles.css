@@ -5208,3 +5208,10 @@ nav.nav.mobile-only {
   background: #111 !important;
   color: #fff !important;
 }
+
+.subcat-scroll-item:hover .item-circle {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+  border-color: #111 !important;
+}
+
