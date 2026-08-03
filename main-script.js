@@ -169,8 +169,12 @@ function renderFilters() {
     }
 
     const subs = subcategoryMap[state.category] || ['All'];
+    filtersEl.className = 'pand-category-slider';
     filtersEl.innerHTML = subs.map((sub, index) => {
       const isActive = state.subcategory === sub ? 'is-active' : '';
+      const activeStyles = isActive 
+        ? 'background: #111; color: #fff; border-color: #111;' 
+        : 'background: #fdfbf7; color: #111; border-color: #111;';
 
       let imgUrl = 'assets/images/tshirt_black.png';
       if (index === 1) imgUrl = 'assets/images/tshirt_white.png';
@@ -178,14 +182,16 @@ function renderFilters() {
       if (index === 3) imgUrl = 'assets/images/tshirt_beige.png';
 
       const innerContent = sub === 'All'
-        ? `<span style="font-weight: 800; font-size: 0.75rem; color: ${isActive ? '#ffffff' : '#111111'};">ALL</span>`
+        ? `<div style="display:flex; height:100%; align-items:center; justify-content:center; background:#e5e5e5; color:#111; font-weight:800; font-size:1.5rem;">ALL</div>`
         : `<img src="${imgUrl}" alt="${sub}" />`;
 
-      return `<button type="button" data-subfilter="${sub}" class="subcat-scroll-item ${isActive}">
-        <div class="item-circle">
+      return `<button type="button" data-subfilter="${sub}" class="pand-category-card ${isActive}" style="${activeStyles}">
+        <div class="pand-img-wrap">
           ${innerContent}
         </div>
-        <span class="item-text">${sub}</span>
+        <div class="pand-text-wrap" style="color: inherit;">
+          <span>${sub}</span>
+        </div>
       </button>`;
     }).join('');
   }
@@ -472,38 +478,32 @@ $('[data-menu]')?.addEventListener('click', (event) => {
 $('[data-signup]')?.addEventListener('submit', (event) => { event.preventDefault(); const email = event.currentTarget.email; const message = event.currentTarget.querySelector('.form-message'); if (!email.validity.valid) { message.textContent = 'Enter a valid email address to stay close.'; email.focus(); return; } message.textContent = 'You are on the list. We will write when there is something worth seeing.'; event.currentTarget.reset(); });
 renderFilters(); renderProducts(); renderCart();
 
-// Sticky Shrinking Header
+// Clean & Optimized Sticky Header
 const header = document.querySelector('.site-header');
 if (header) {
-  let isScrolling = false;
-  let lastScrollY = window.scrollY || window.pageYOffset;
+  let lastScroll = window.scrollY;
+  let ticking = false;
+
   window.addEventListener('scroll', () => {
-    if (!isScrolling) {
+    if (!ticking) {
       window.requestAnimationFrame(() => {
-        const currentScrollY = window.scrollY || window.pageYOffset;
+        const currentScroll = window.scrollY;
         
-        // Hide/Show logic
-        if (currentScrollY <= 25) {
-          header.classList.remove('header-hidden');
-        } else if (currentScrollY > lastScrollY && currentScrollY > 30) {
-          // Scrolling down
-          header.classList.add('header-hidden');
-        } else if (currentScrollY < lastScrollY) {
-          // Scrolling up
-          header.classList.remove('header-hidden');
-        }
-        
-        // Scrolled state
-        if (currentScrollY > 25) {
+        if (currentScroll > 25) {
           header.classList.add('is-scrolled');
+          if (currentScroll > lastScroll && currentScroll > 80) {
+            header.classList.add('header-hidden');
+          } else {
+            header.classList.remove('header-hidden');
+          }
         } else {
-          header.classList.remove('is-scrolled');
+          header.classList.remove('is-scrolled', 'header-hidden');
         }
         
-        lastScrollY = currentScrollY;
-        isScrolling = false;
+        lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+        ticking = false;
       });
-      isScrolling = true;
+      ticking = true;
     }
   }, { passive: true });
 }

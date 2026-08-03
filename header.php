@@ -13,7 +13,7 @@
     <a class="skip-link" href="#main">Skip to collection</a>
     <div class="dispatch-bar">Complimentary delivery over INR 2,800 - Dispatches in 48 hours</div>
     
-    <header id="master-header" class="site-header" data-header="">
+    <header class="site-header" data-header="">
       <div class="header-inner">
         <!-- Mobile menu toggle (hidden on desktop) -->
         <button class="menu-button mobile-only" type="button" aria-expanded="false" aria-controls="nav" data-menu="">
