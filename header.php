@@ -8,16 +8,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-    <!-- Water Fill Brand Preloader -->
-    <div id="preloader" class="water-fill-preloader">
-      <div class="water-fill-content">
-        <div class="water-text-wrap">
-          <span class="water-text-outline">ASTERRA</span>
-          <span class="water-text-fill" id="water-fill-el">ASTERRA</span>
-        </div>
-        <div class="water-count" id="loader-count">0%</div>
-      </div>
-    </div>
+
 
     <a class="skip-link" href="#main">Skip to collection</a>
     <div class="dispatch-bar">Complimentary delivery over INR 2,800 - Dispatches in 48 hours</div>
