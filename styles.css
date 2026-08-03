@@ -1939,12 +1939,15 @@ footer.mega-footer {
   }
   
   .mega-col-text a {
-    color: #444;
+    color: #333;
     text-decoration: none;
     font-size: 0.8rem;
+    font-family: 'DM Mono', monospace;
     font-weight: 500;
-    transition: color 0.2s ease;
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease, transform 0.2s ease;
     white-space: normal;
+    text-transform: uppercase;
   }
   
   .mega-col-text a:hover {
@@ -1960,10 +1963,13 @@ footer.mega-footer {
   }
   
   .mega-col-text h4 a {
-    font-weight: 800;
-    font-size: 0.95rem;
+    font-weight: 700;
+    font-size: 1.3rem;
     color: #111;
     letter-spacing: 0.05em;
+    font-family: 'Bebas Neue', sans-serif;
+    margin-bottom: 0.5rem;
+    display: inline-block;
   }
 }
 
@@ -4959,14 +4965,17 @@ body { padding-top: 0 !important; }
 .mega-image-row {
   display: flex;
   width: 100%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Subtle separator */
+  border-bottom: 1px solid #111;
 }
 .mega-image-card {
   flex: 1;
   position: relative;
   overflow: hidden;
-  /* aspect-ratio: 16/9 or similar to make them wide rectangles */
+  border-right: 1px solid #111;
   height: 250px; 
+}
+.mega-image-card:last-child {
+  border-right: none;
 }
 .mega-image-card img {
   width: 100%;
@@ -5179,9 +5188,10 @@ nav.nav.mobile-only {
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
   backdrop-filter: blur(16px);
-  background: rgba(255, 255, 255, 0.98) !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1) !important;
+  background: #fdfbf7 !important;
+  border: 1px solid #111 !important;
+  border-top: none !important;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08) !important;
 }
 
 @keyframes megaDropIn {
