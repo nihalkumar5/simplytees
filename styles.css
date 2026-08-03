@@ -5217,3 +5217,23 @@ nav.nav.mobile-only {
   border-color: #111 !important;
 }
 
+
+/* ========================================================
+   MASTER HEADER OVERRIDE
+   Guarantees header hide/show logic across all pages
+   ======================================================== */
+#master-header {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), top 0.35s ease, background 0.35s ease, padding 0.35s ease !important;
+  z-index: 9999 !important;
+}
+
+#master-header.is-scrolled {
+  position: fixed !important;
+  top: 0 !important;
+}
+
+#master-header.header-hidden {
+  transform: translateY(-150%) !important;
+  top: -20px !important;
+  pointer-events: none !important;
+}
