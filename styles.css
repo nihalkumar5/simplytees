@@ -855,6 +855,11 @@ body.shop-page {
   background: #fdfbf7;
 }
 
+.shop-page .product-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
 .shop-page .product-card .product-art {
   border-radius: 0 !important;
   margin: 0;
