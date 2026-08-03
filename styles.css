@@ -5216,6 +5216,79 @@ nav.nav.mobile-only {
   color: #fff !important;
 }
 
+/* --- OUR STORY SPLIT SECTION --- */
+.our-story-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-bottom: 1px solid #111;
+  background: #fdfbf7;
+}
+@media (min-width: 768px) {
+  .our-story-split {
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+  }
+}
+.our-story-split .story-image {
+  border-bottom: 1px solid #111;
+}
+@media (min-width: 768px) {
+  .our-story-split .story-image {
+    border-bottom: none;
+    border-right: 1px solid #111;
+  }
+}
+.our-story-split .story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.our-story-split .story-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+@media (min-width: 768px) {
+  .our-story-split .story-content {
+    padding: 4rem 10%;
+  }
+}
+.our-story-split .story-content h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin: 0 0 1.5rem;
+  color: #111;
+  text-transform: uppercase;
+}
+.our-story-split .story-content p {
+  font-family: "DM Mono", monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #111;
+  margin: 0 0 2rem;
+}
+.our-story-split .story-content a {
+  font-family: "DM Mono", monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #bd9b7d; /* slightly brownish to match the reference text color or just keep #111 */
+  text-decoration: none;
+  border-bottom: 1px solid #bd9b7d;
+  padding-bottom: 3px;
+  letter-spacing: 0.05em;
+  transition: opacity 0.3s ease;
+}
+.our-story-split .story-content a:hover {
+  opacity: 0.7;
+}
 
 /* --- NEW CATEGORY SLIDER (PAND.CO STYLE) --- */
 .pand-category-slider {
