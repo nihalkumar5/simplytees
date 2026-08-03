@@ -485,7 +485,7 @@ if (header) {
         // Hide/Show logic
         if (currentScrollY <= 25) {
           header.classList.remove('header-hidden');
-        } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        } else if (currentScrollY > lastScrollY && currentScrollY > 30) {
           // Scrolling down
           header.classList.add('header-hidden');
         } else if (currentScrollY < lastScrollY) {
