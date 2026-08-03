@@ -169,12 +169,8 @@ function renderFilters() {
     }
 
     const subs = subcategoryMap[state.category] || ['All'];
-    filtersEl.className = 'pand-category-slider';
     filtersEl.innerHTML = subs.map((sub, index) => {
       const isActive = state.subcategory === sub ? 'is-active' : '';
-      const activeStyles = isActive 
-        ? 'background: #111; color: #fff; border-color: #111;' 
-        : 'background: #fdfbf7; color: #111; border-color: #111;';
 
       let imgUrl = 'assets/images/tshirt_black.png';
       if (index === 1) imgUrl = 'assets/images/tshirt_white.png';
@@ -182,16 +178,14 @@ function renderFilters() {
       if (index === 3) imgUrl = 'assets/images/tshirt_beige.png';
 
       const innerContent = sub === 'All'
-        ? `<div style="display:flex; height:100%; align-items:center; justify-content:center; background:#e5e5e5; color:#111; font-weight:800; font-size:1.5rem;">ALL</div>`
+        ? `<span style="font-weight: 800; font-size: 0.75rem; color: ${isActive ? '#ffffff' : '#111111'};">ALL</span>`
         : `<img src="${imgUrl}" alt="${sub}" />`;
 
-      return `<button type="button" data-subfilter="${sub}" class="pand-category-card ${isActive}" style="${activeStyles}">
-        <div class="pand-img-wrap">
+      return `<button type="button" data-subfilter="${sub}" class="subcat-scroll-item ${isActive}">
+        <div class="item-circle">
           ${innerContent}
         </div>
-        <div class="pand-text-wrap" style="color: inherit;">
-          <span>${sub}</span>
-        </div>
+        <span class="item-text">${sub}</span>
       </button>`;
     }).join('');
   }

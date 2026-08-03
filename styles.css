@@ -879,6 +879,15 @@ body.shop-page {
   padding-right: 2rem;
 }
 
+.explore-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.explore-card:hover img {
+  transform: scale(1.05);
+}
+
 /* Better Search Bar UI */
 .shop-page .product-search {
   position: relative;
