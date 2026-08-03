@@ -1087,45 +1087,7 @@ window.switchNewMobileTab = function(tabKey) {
    WOW FACTOR: DYNAMIC MEGA-MENU INTERACTIVE PREVIEWS & MOTION
    ========================================================= */
 document.addEventListener('DOMContentLoaded', () => {
-  // Mega menu hover image preview switcher
-  const megaLinks = document.querySelectorAll('.mega-col-text a');
-  megaLinks.forEach(link => {
-    link.addEventListener('mouseenter', (e) => {
-      const parentDropdown = link.closest('.mega-menu');
-      if (!parentDropdown) return;
-      
-      const imageCards = parentDropdown.querySelectorAll('.mega-image-card img');
-      if (imageCards.length === 0) return;
-      
-      // Randomize or pick image based on link text hash
-      const text = link.textContent.trim();
-      let hash = 0;
-      for (let i = 0; i < text.length; i++) {
-        hash = text.charCodeAt(i) + ((hash << 5) - hash);
-      }
-      const targetIndex = Math.abs(hash) % imageCards.length;
-      
-      imageCards.forEach((card, idx) => {
-        if (idx === targetIndex) {
-          card.style.transform = 'scale(1.1)';
-          card.style.opacity = '1';
-        } else {
-          card.style.transform = 'scale(1)';
-          card.style.opacity = '0.7';
-        }
-      });
-    });
-    
-    link.addEventListener('mouseleave', (e) => {
-      const parentDropdown = link.closest('.mega-menu');
-      if (!parentDropdown) return;
-      const imageCards = parentDropdown.querySelectorAll('.mega-image-card img');
-      imageCards.forEach(card => {
-        card.style.transform = 'scale(1)';
-        card.style.opacity = '1';
-      });
-    });
-  });
+/* Removed mega menu hover image preview switcher based on user feedback */
 
   // 3D Tilt calculation on product cards
   const cards = document.querySelectorAll('.product-card, .cat-card');
