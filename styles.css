@@ -2245,9 +2245,12 @@ footer.mega-footer {
 
 /* Trending Best Sellers Section */
 .trending-section {
-  padding: 6rem 2.5rem;
-  max-width: 1300px;
-  margin: 0 auto;
+  padding: 6rem 0;
+  width: 100%;
+}
+.trending-section .section-header-flex {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 .section-header-flex {
   display: flex;
