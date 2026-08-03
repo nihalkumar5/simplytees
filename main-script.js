@@ -481,17 +481,23 @@ if (header) {
     if (!isScrolling) {
       window.requestAnimationFrame(() => {
         const currentScrollY = window.scrollY || window.pageYOffset;
+        
+        // Hide/Show logic
+        if (currentScrollY <= 25) {
+          header.classList.remove('header-hidden');
+        } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          // Scrolling down
+          header.classList.add('header-hidden');
+        } else if (currentScrollY < lastScrollY) {
+          // Scrolling up
+          header.classList.remove('header-hidden');
+        }
+        
+        // Scrolled state
         if (currentScrollY > 25) {
           header.classList.add('is-scrolled');
         } else {
           header.classList.remove('is-scrolled');
-        }
-        
-        // Hide header on scroll down, show on scroll up
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-          header.classList.add('header-hidden');
-        } else {
-          header.classList.remove('header-hidden');
         }
         
         lastScrollY = currentScrollY;

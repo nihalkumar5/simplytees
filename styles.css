@@ -873,6 +873,8 @@ body.shop-page {
 
 .site-header.header-hidden {
   transform: translateY(-100%) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .site-header.is-scrolled {
