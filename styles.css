@@ -868,7 +868,11 @@ body.shop-page {
   width: 100% !important;
   top: 1.65rem !important;
   z-index: 100 !important;
-  transition: padding 0.3s ease, background-color 0.3s ease, top 0.3s ease !important;
+  transition: transform 0.3s ease, padding 0.3s ease, background-color 0.3s ease, top 0.3s ease !important;
+}
+
+.site-header.header-hidden {
+  transform: translateY(-100%) !important;
 }
 
 .site-header.is-scrolled {

@@ -29,8 +29,11 @@ get_header();
       </section>
       <!-- 1.5 NEW ARRIVALS LARGE CARDS SECTION -->
       <section class="large-product-showcase" style="width: 100%; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; margin-bottom: 2rem;">
-        <div class="showcase-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; border-bottom: 1px solid #ddd;">
-          <h2 style="font-size: 1.25rem; font-weight: 800; letter-spacing: 0.1em; margin: 0; text-transform: uppercase;">New Arrivals</h2>
+        <div class="section-header-flex" style="padding: 1.5rem 2.5rem; margin-bottom: 0; border-bottom: 1px solid #ddd;">
+          <div>
+            <p class="eyebrow" style="margin-bottom: 0.3rem;">Curated Selection</p>
+            <h2>New Arrivals</h2>
+          </div>
           <div class="showcase-tabs" style="display: flex; border: 1px solid #111;">
             <button onclick="filterNewArrivals('all', this)" style="padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 700; background: #ddd; border: none; border-right: 1px solid #111; cursor: pointer;">ALL</button>
             <button onclick="filterNewArrivals('men', this)" style="padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 700; background: #fff; border: none; border-right: 1px solid #111; cursor: pointer;">MEN'S</button>

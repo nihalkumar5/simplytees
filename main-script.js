@@ -476,14 +476,25 @@ renderFilters(); renderProducts(); renderCart();
 const header = document.querySelector('.site-header');
 if (header) {
   let isScrolling = false;
+  let lastScrollY = window.scrollY || window.pageYOffset;
   window.addEventListener('scroll', () => {
     if (!isScrolling) {
       window.requestAnimationFrame(() => {
-        if (window.scrollY > 25) {
+        const currentScrollY = window.scrollY || window.pageYOffset;
+        if (currentScrollY > 25) {
           header.classList.add('is-scrolled');
         } else {
           header.classList.remove('is-scrolled');
         }
+        
+        // Hide header on scroll down, show on scroll up
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          header.classList.add('header-hidden');
+        } else {
+          header.classList.remove('header-hidden');
+        }
+        
+        lastScrollY = currentScrollY;
         isScrolling = false;
       });
       isScrolling = true;
