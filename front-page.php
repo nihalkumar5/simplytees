@@ -28,7 +28,7 @@ get_header();
         </div>
       </section>
       <!-- 1.5 NEW ARRIVALS LARGE CARDS SECTION -->
-      <section class="large-product-showcase" style="width: 100%; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; margin-bottom: 2rem;">
+      <section class="large-product-showcase" style="width: 100%; border-top: 1px solid #111; border-bottom: none;">
         <div class="section-header-flex" style="padding: 1.5rem 2.5rem; margin-bottom: 0; border-bottom: 1px solid #ddd;">
           <div>
             <p class="eyebrow" style="margin-bottom: 0.3rem;">Curated Selection</p>
@@ -145,6 +145,44 @@ get_header();
 
         </div>
       </section>
+
+      <!-- 1.6 FEATURES BAR -->
+      <section class="features-bar" style="width: 100%; border-bottom: 1px solid #111;">
+        <!-- Top Reviews Bar -->
+        <div style="background: #191816; color: #d0c0a5; text-align: center; padding: 0.5rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: center; gap: 0.5rem; border-bottom: 1px solid #111;">
+          <span style="font-size: 0.8rem;">★★★★★</span>
+          <span>4.8/5 STARS ON REVIEWS.IO</span>
+        </div>
+        <!-- 4 Columns -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); background: #f4f4f2;">
+          
+          <div style="padding: 2.5rem 1.5rem; text-align: center; border-right: 1px solid #111; display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+            <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0 0 1rem; text-transform: uppercase;">15% OFF<br>FIRST ORDER</h3>
+            <p style="font-size: 0.7rem; font-weight: 500; color: #333; margin: 0 0 1.5rem; line-height: 1.4;">Subscribe to our mailing list<br>for 15% off your first order</p>
+            <div style="width: 18px; height: 18px; border-radius: 50%; border: 1px solid #333; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: #333;">i</div>
+          </div>
+          
+          <div style="padding: 2.5rem 1.5rem; text-align: center; border-right: 1px solid #111; display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+            <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0 0 1rem; text-transform: uppercase;">EASY RETURNS<br>& INSTANT EXCHANGES</h3>
+            <p style="font-size: 0.7rem; font-weight: 500; color: #333; margin: 0 0 1.5rem; line-height: 1.4;">Get your new items sent out<br>straight away on UK & EU orders</p>
+            <div style="width: 18px; height: 18px; border-radius: 50%; border: 1px solid #333; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: #333;">i</div>
+          </div>
+
+          <div style="padding: 2.5rem 1.5rem; text-align: center; border-right: 1px solid #111; display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+            <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0 0 1rem; text-transform: uppercase;">FREE WORLDWIDE<br>DELIVERY</h3>
+            <p style="font-size: 0.7rem; font-weight: 500; color: #333; margin: 0 0 1.5rem; line-height: 1.4;">Free worldwide delivery on all<br>orders over £80</p>
+            <div style="width: 18px; height: 18px; border-radius: 50%; border: 1px solid #333; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: #333;">i</div>
+          </div>
+
+          <div style="padding: 2.5rem 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+            <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0 0 1rem; text-transform: uppercase;">30 DAY<br>RETURNS</h3>
+            <p style="font-size: 0.7rem; font-weight: 500; color: #333; margin: 0 0 1.5rem; line-height: 1.4;">Orders are eligible for returns<br>within 30 days of dispatch from<br>our UK warehouse</p>
+            <div style="width: 18px; height: 18px; border-radius: 50%; border: 1px solid #333; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: #333;">i</div>
+          </div>
+
+        </div>
+      </section>
+
 
       <!-- 2. QUICK CATEGORY STORY HIGHLIGHTS -->
       <section class="home-categories-bar">
