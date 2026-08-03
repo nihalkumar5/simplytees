@@ -1128,8 +1128,25 @@ document.addEventListener('DOMContentLoaded', () => {
       card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-8px) scale(1.02)`;
     });
 
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0deg) scale(1)';
     });
   });
 });
+
+window.filterNewArrivals = function(category, btnElement) {
+  const tabsContainer = btnElement.parentElement;
+  const buttons = tabsContainer.querySelectorAll('button');
+  buttons.forEach(btn => btn.style.background = '#fff');
+  btnElement.style.background = '#ddd';
+
+  const showcaseScroll = tabsContainer.closest('.large-product-showcase').querySelector('.showcase-scroll');
+  const cards = showcaseScroll.querySelectorAll('.showcase-card');
+  
+  cards.forEach(card => {
+    if (category === 'all' || card.dataset.category === category) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+};
+

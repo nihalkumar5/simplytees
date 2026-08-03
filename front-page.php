@@ -58,7 +58,7 @@ get_header();
                 <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start;">
                   <span style="font-weight: 600; font-size: 0.9rem;">₹ 1,600</span>
                 </div>
-                <button data-view="5" style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
+                <button data-view="45" style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
               </div>
             </div>
           </div>
@@ -81,7 +81,7 @@ get_header();
                 <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start;">
                   <span style="font-weight: 600; font-size: 0.9rem;">₹ 2,499</span>
                 </div>
-                <button data-view="6" style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
+                <button data-view="44" style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
               </div>
             </div>
           </div>
@@ -108,7 +108,7 @@ get_header();
                   </div>
                   <span style="font-weight: 600; font-size: 0.9rem;">₹ 2,990</span>
                 </div>
-                <button data-view="7" style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
+                <button data-view="43" style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
               </div>
             </div>
           </div>
@@ -135,7 +135,7 @@ get_header();
                   </div>
                   <span style="font-weight: 600; font-size: 0.9rem;">₹ 2,190</span>
                 </div>
-                <button data-view="8" style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
+                <button data-view="42" style="background: none; border: none; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0;">+ ADD</button>
               </div>
             </div>
           </div>
