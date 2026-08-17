@@ -63,27 +63,26 @@
         font-weight: 600;
       }
       
-      /* Super Modern Slider */
+      /* Super Modern Hero Slider & Animations */
       .custom-modern-slider {
         position: relative;
         width: 100%;
         height: 100dvh;
         overflow: hidden;
-        background: #000;
-        display: flex; align-items: center; justify-content: center;
+        background: #0d0d0d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       @media (max-width: 768px) {
         .custom-modern-slider {
           height: calc(100svh - 60px) !important;
           min-height: calc(100svh - 60px) !important;
         }
-        .slider-controls {
-          bottom: 2rem !important;
-        }
       }
       
-      @keyframes slowZoom {
-        0% { transform: scale(1.12); }
+      @keyframes slowZoomOut {
+        0% { transform: scale(1.1); }
         100% { transform: scale(1); }
       }
 
@@ -91,59 +90,274 @@
         position: absolute;
         top: 0; left: 0; width: 100%; height: 100%;
         opacity: 0;
+        visibility: hidden;
         z-index: 1;
-        clip-path: circle(0% at 50% 50%);
-        transform: scale(1.1);
-        transition: clip-path 1.2s cubic-bezier(0.85, 0, 0.15, 1), transform 1.2s cubic-bezier(0.85, 0, 0.15, 1);
+        transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s;
+        will-change: opacity, transform;
       }
-      .active-slide {
+      .slider-slide.active-slide {
         opacity: 1;
+        visibility: visible;
         z-index: 2;
-        clip-path: circle(150% at 50% 50%);
-        transform: scale(1);
       }
       .slider-slide.prev-slide {
-        opacity: 1;
+        opacity: 0;
+        visibility: visible;
         z-index: 1;
-        clip-path: circle(150% at 50% 50%);
-        transform: scale(0.9);
-        transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1);
       }
+      
       .slider-slide picture, .slider-slide img {
-        width: 100%; height: 100%; object-fit: cover; display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
         transform-origin: center center;
-        will-change: transform;
       }
       .slider-slide.active-slide img {
-        animation: slowZoom 6.5s linear forwards;
+        animation: slowZoomOut 6.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
       }
-      .slider-controls {
+
+      /* Dark Gradient Scrim Overlay */
+      .hero-overlay-scrim {
         position: absolute;
-        z-index: 20;
-        bottom: 2rem;
-        right: 2rem;
-        display: none;
-        gap: 0.5rem;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.35) 0%,
+          rgba(0, 0, 0, 0.05) 30%,
+          rgba(0, 0, 0, 0.45) 65%,
+          rgba(0, 0, 0, 0.85) 100%
+        );
+        pointer-events: none;
+        z-index: 2;
       }
-      .slider-btn {
-        background: rgba(255,255,255,0.2);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.5);
-        color: #fff;
-        width: 3rem;
-        height: 3rem;
-        border-radius: 50%;
+
+      /* Hero Content & Text Layout */
+      .hero-content-wrapper {
+        position: absolute;
+        bottom: 4.5rem;
+        left: 0;
+        width: 100%;
+        padding: 0 1.5rem;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      @media (min-width: 769px) {
+        .hero-content-wrapper {
+          bottom: 5.5rem;
+          padding: 0 3rem;
+        }
+      }
+
+      .hero-eyebrow {
+        font-family: var(--mono, monospace);
+        font-size: clamp(0.7rem, 2vw, 0.85rem);
+        font-weight: 600;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 0.75rem;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      .hero-headline {
+        font-family: 'Syne', sans-serif;
+        font-size: clamp(2.4rem, 9vw, 5rem);
+        font-weight: 800;
+        line-height: 1.02;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+        color: #ffffff;
+        margin: 0 0 0.85rem 0;
+        text-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        transform: translateY(28px) scale(0.96);
+        filter: blur(4px);
+      }
+
+      .hero-headline span {
+        color: #ffffff;
+        display: inline-block;
+      }
+
+      .hero-subtext {
+        font-size: clamp(0.85rem, 2.5vw, 1.05rem);
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 480px;
+        margin: 0 0 1.6rem 0;
+        line-height: 1.45;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      .hero-action-row {
+        opacity: 0;
+        transform: translateY(20px) scale(0.94);
+      }
+
+      .hero-shop-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        background: #ffffff;
+        color: #111111;
+        padding: 0.85rem 2.2rem;
+        border-radius: 9999px;
+        font-family: 'Syne', sans-serif;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-shop-pill svg {
+        transition: transform 0.3s ease;
+      }
+
+      .hero-shop-pill:hover {
+        background: #f0f0f0;
+        color: #000000;
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 12px 35px rgba(255, 255, 255, 0.25), 0 8px 25px rgba(0, 0, 0, 0.4);
+      }
+
+      .hero-shop-pill:hover svg {
+        transform: translateX(4px);
+      }
+
+      /* Staggered Animations on Active Slide */
+      .slider-slide.active-slide .hero-eyebrow {
+        animation: heroFadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+      }
+      .slider-slide.active-slide .hero-headline {
+        animation: heroHeadlineReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+      }
+      .slider-slide.active-slide .hero-subtext {
+        animation: heroFadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+      }
+      .slider-slide.active-slide .hero-action-row {
+        animation: heroPopUp 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards;
+      }
+
+      @keyframes heroFadeSlideUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes heroHeadlineReveal {
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+          filter: blur(0);
+        }
+      }
+
+      @keyframes heroPopUp {
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      /* Animated Timer Progress Dots Indicator */
+      .hero-indicators {
+        position: absolute;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .hero-dot {
+        position: relative;
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        background: transparent;
+        border: none;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.2rem;
-        transition: background 0.3s, transform 0.3s;
       }
-      .slider-btn:hover {
-        background: rgba(255,255,255,0.4);
-        transform: scale(1.1);
+
+      .hero-dot .dot-inner {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.45);
+        transition: all 0.3s ease;
+      }
+
+      .hero-dot.active .dot-inner {
+        background: #ffffff;
+        transform: scale(1.15);
+      }
+
+      .hero-dot .progress-ring {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: rotate(-90deg);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .hero-dot .ring-bg {
+        fill: none;
+        stroke: rgba(255, 255, 255, 0.15);
+        stroke-width: 2.5;
+      }
+
+      .hero-dot .ring-bar {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-dasharray: 88;
+        stroke-dashoffset: 88;
+      }
+
+      .hero-dot.active .progress-ring {
+        opacity: 1;
+      }
+
+      .hero-dot.active.animating .ring-bar {
+        animation: progressCountDown 6s linear forwards;
+      }
+
+      @keyframes progressCountDown {
+        from {
+          stroke-dashoffset: 88;
+        }
+        to {
+          stroke-dashoffset: 0;
+        }
       }
     </style>
   </head>
@@ -170,38 +384,115 @@
 
         <main id="main">
       <!-- 1. HERO SECTION -->
-      <section id="top" class="hero full-width-hero custom-modern-slider">
-        <div class="slider-slide active-slide">
+      <section id="top" class="hero full-width-hero custom-modern-slider" aria-label="Hero Carousel">
+        <!-- Slide 1 -->
+        <div class="slider-slide active-slide" data-index="0">
           <picture>
             <source media="(max-width: 768px)" srcset="assets/images/hero-tshirt-10.png">
             <img src="assets/images/hero-tshirt-10.png" alt="Hero Banner 10">
           </picture>
+          <div class="hero-overlay-scrim"></div>
+          <div class="hero-content-wrapper">
+            <div class="hero-eyebrow">MADE TO MOVE WITH YOU</div>
+            <h1 class="hero-headline">FREESTYLE<br><span>COLLECTION</span></h1>
+            <p class="hero-subtext">Heavyweight 280 GSM custom French terry crafted for everyday culture.</p>
+            <div class="hero-action-row">
+              <a href="shop.html" class="hero-shop-pill">
+                SHOP NOW
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="slider-slide">
+
+        <!-- Slide 2 -->
+        <div class="slider-slide" data-index="1">
           <picture>
             <source media="(max-width: 768px)" srcset="assets/images/hero-zip-7.png">
             <img src="assets/images/hero-zip-7.png" alt="Hero Banner Zip 7">
           </picture>
+          <div class="hero-overlay-scrim"></div>
+          <div class="hero-content-wrapper">
+            <div class="hero-eyebrow">DROP 02 // LIMITED RUN</div>
+            <h1 class="hero-headline">OVERSIZED<br><span>ARCHIVE</span></h1>
+            <p class="hero-subtext">Relaxed streetwear silhouettes engineered with vintage acid wash tones.</p>
+            <div class="hero-action-row">
+              <a href="shop.html" class="hero-shop-pill">
+                EXPLORE DROP
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="slider-slide">
+
+        <!-- Slide 3 -->
+        <div class="slider-slide" data-index="2">
           <picture>
             <source media="(max-width: 768px)" srcset="assets/images/hero-zip-9.png">
             <img src="assets/images/hero-zip-9.png" alt="Hero Banner Zip 9">
           </picture>
+          <div class="hero-overlay-scrim"></div>
+          <div class="hero-content-wrapper">
+            <div class="hero-eyebrow">SIGNATURE ESSENTIALS</div>
+            <h1 class="hero-headline">URBAN<br><span>STATEMENT</span></h1>
+            <p class="hero-subtext">Minimalist graphics meet luxury drape. Built to endure seasons, not trends.</p>
+            <div class="hero-action-row">
+              <a href="shop.html" class="hero-shop-pill">
+                VIEW LOOKBOOK
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div class="slider-controls">
-          <button class="slider-btn prev-btn" aria-label="Previous slide">&#8592;</button>
-          <button class="slider-btn next-btn" aria-label="Next slide">&#8594;</button>
+        <!-- Interactive Progress Dots Indicator -->
+        <div class="hero-indicators" aria-label="Hero slider pagination">
+          <button class="hero-dot active animating" data-slide="0" aria-label="Go to slide 1">
+            <svg class="progress-ring" viewBox="0 0 36 36">
+              <circle class="ring-bg" cx="18" cy="18" r="14"/>
+              <circle class="ring-bar" cx="18" cy="18" r="14"/>
+            </svg>
+            <span class="dot-inner"></span>
+          </button>
+          <button class="hero-dot" data-slide="1" aria-label="Go to slide 2">
+            <svg class="progress-ring" viewBox="0 0 36 36">
+              <circle class="ring-bg" cx="18" cy="18" r="14"/>
+              <circle class="ring-bar" cx="18" cy="18" r="14"/>
+            </svg>
+            <span class="dot-inner"></span>
+          </button>
+          <button class="hero-dot" data-slide="2" aria-label="Go to slide 3">
+            <svg class="progress-ring" viewBox="0 0 36 36">
+              <circle class="ring-bg" cx="18" cy="18" r="14"/>
+              <circle class="ring-bar" cx="18" cy="18" r="14"/>
+            </svg>
+            <span class="dot-inner"></span>
+          </button>
         </div>
       </section>
 
       <script>
         document.addEventListener('DOMContentLoaded', () => {
+          const heroSlider = document.querySelector('.custom-modern-slider');
           const slides = document.querySelectorAll('.slider-slide');
-          if(slides.length === 0) return;
+          const dots = document.querySelectorAll('.hero-dot');
+          if (slides.length === 0) return;
+          
           let current = 0;
           let isAnimating = false;
+          let slideTimer = null;
+          const slideDuration = 6000;
+
+          function updateDots(index) {
+            dots.forEach((dot, idx) => {
+              dot.classList.remove('active', 'animating');
+              if (idx === index) {
+                // Force reflow to restart CSS stroke countdown animation
+                void dot.offsetWidth;
+                dot.classList.add('active', 'animating');
+              }
+            });
+          }
 
           function goToSlide(index) {
             if (isAnimating || index === current) return;
@@ -213,39 +504,88 @@
 
             slides.forEach(s => {
               s.classList.remove('prev-slide');
-              s.style.zIndex = 0;
+              s.style.zIndex = 1;
             });
             
-            currentSlide.style.zIndex = 1;
             currentSlide.classList.add('prev-slide');
-            
-            nextSlide.style.zIndex = 2;
+            nextSlide.style.zIndex = 3;
             nextSlide.classList.add('active-slide');
+            
+            // Trigger animation resets on content inside nextSlide
+            const nextImg = nextSlide.querySelector('img');
+            if (nextImg) {
+              nextImg.style.animation = 'none';
+              void nextImg.offsetWidth;
+              nextImg.style.animation = '';
+            }
+
+            updateDots(next);
 
             setTimeout(() => {
-              currentSlide.classList.remove('active-slide');
+              currentSlide.classList.remove('active-slide', 'prev-slide');
               current = next;
               isAnimating = false;
-            }, 1200); 
+            }, 1000);
+
+            resetTimer();
           }
 
-          const nextBtn = document.querySelector('.next-btn');
-          const prevBtn = document.querySelector('.prev-btn');
-          
-          if(nextBtn) {
-            nextBtn.addEventListener('click', () => {
-              goToSlide((current + 1) % slides.length);
-            });
-          }
-          if(prevBtn) {
-            prevBtn.addEventListener('click', () => {
-              goToSlide((current - 1 + slides.length) % slides.length);
-            });
+          function nextSlide() {
+            goToSlide((current + 1) % slides.length);
           }
 
-          setInterval(() => {
-             if(nextBtn) nextBtn.click();
-          }, 6000);
+          function prevSlide() {
+            goToSlide((current - 1 + slides.length) % slides.length);
+          }
+
+          function resetTimer() {
+            if (slideTimer) clearInterval(slideTimer);
+            slideTimer = setInterval(nextSlide, slideDuration);
+          }
+
+          // Dot click listeners
+          dots.forEach((dot, idx) => {
+            dot.addEventListener('click', (e) => {
+              e.preventDefault();
+              goToSlide(idx);
+            });
+          });
+
+          // Touch swipe support for mobile
+          let touchStartX = 0;
+          let touchStartY = 0;
+          let touchEndX = 0;
+          let touchEndY = 0;
+
+          if (heroSlider) {
+            heroSlider.addEventListener('touchstart', (e) => {
+              touchStartX = e.changedTouches[0].screenX;
+              touchStartY = e.changedTouches[0].screenY;
+            }, { passive: true });
+
+            heroSlider.addEventListener('touchend', (e) => {
+              touchEndX = e.changedTouches[0].screenX;
+              touchEndY = e.changedTouches[0].screenY;
+              handleSwipe();
+            }, { passive: true });
+          }
+
+          function handleSwipe() {
+            const diffX = touchEndX - touchStartX;
+            const diffY = touchEndY - touchStartY;
+            // Only trigger if horizontal swipe is greater than vertical movement and exceeds 40px
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+              if (diffX < 0) {
+                nextSlide();
+              } else {
+                prevSlide();
+              }
+            }
+          }
+
+          // Initial start
+          updateDots(0);
+          resetTimer();
         });
       </script>
 
