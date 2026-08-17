@@ -5422,3 +5422,13 @@ nav.nav.mobile-only {
     width: 100% !important;
   }
 }
+
+/* Fix New Arrivals / Lookbook Product Cards Aspect Ratio on Mobile */
+@media (max-width: 768px) {
+  .showcase-card img,
+  .card-image-wrap img {
+    height: auto !important;
+    aspect-ratio: 4/5 !important;
+    width: 100% !important;
+  }
+}
