@@ -5411,3 +5411,14 @@ nav.nav.mobile-only {
 .pand-category-card:hover .pand-text-wrap::after {
   transform: translateX(3px) !important;
 }
+
+/* Fix for tall product cards on mobile */
+@media (max-width: 768px) {
+  .product-grid .product-art,
+  .shop-page .product-card .product-art,
+  .product-card picture {
+    height: auto !important;
+    aspect-ratio: 4/5 !important;
+    width: 100% !important;
+  }
+}
