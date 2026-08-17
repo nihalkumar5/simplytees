@@ -358,6 +358,277 @@
           stroke-dashoffset: 0;
         }
       }
+
+      /* ==========================================================================
+         Aesthetic Kinetic Manifesto & Editorial Text Section
+         ========================================================================== */
+      .manifesto-section {
+        position: relative;
+        background: #f7f5f0;
+        padding: 7.5rem 2rem;
+        text-align: center;
+        border-bottom: 1px solid #111;
+        overflow: hidden;
+        isolation: isolate;
+        cursor: default;
+      }
+
+      /* Subtle Luxury Background Grid & Lighting */
+      .manifesto-bg-aura {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 700px;
+        height: 500px;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(circle, rgba(212, 197, 169, 0.4) 0%, rgba(247, 245, 240, 0) 70%);
+        filter: blur(70px);
+        pointer-events: none;
+        z-index: 0;
+        transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .manifesto-spotlight {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(550px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.75), transparent 70%);
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      .manifesto-section:hover .manifesto-spotlight {
+        opacity: 1;
+      }
+
+      .manifesto-container {
+        position: relative;
+        z-index: 2;
+        max-width: 1040px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Luxury Badge at Top */
+      .manifesto-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        padding: 0.45rem 1.2rem;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.85);
+        border: 1px solid rgba(17, 17, 17, 0.12);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+        margin-bottom: 2.5rem;
+        transform: translateY(16px);
+        opacity: 0;
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .manifesto-section.is-visible .manifesto-badge {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .manifesto-pulse-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #111;
+        position: relative;
+        display: inline-block;
+      }
+      .manifesto-pulse-dot::after {
+        content: '';
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        background: rgba(17, 17, 17, 0.35);
+        animation: manifestoDotPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      @keyframes manifestoDotPulse {
+        0%, 100% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(2); opacity: 0; }
+      }
+
+      .manifesto-badge-text {
+        font-family: var(--mono, monospace);
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #111;
+      }
+
+      /* Kinetic Headline & Word Split Styling */
+      .manifesto-heading {
+        font-family: 'Syne', sans-serif;
+        font-size: clamp(2rem, 4.4vw, 3.35rem);
+        font-weight: 800;
+        line-height: 1.34;
+        letter-spacing: -0.025em;
+        color: #111;
+        margin: 0 auto 3rem auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 0.3em;
+        row-gap: 0.15em;
+        perspective: 1000px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      .m-word {
+        display: inline-block;
+        position: relative;
+        opacity: 0.16;
+        filter: blur(5px);
+        transform: translateY(18px) rotateX(12deg);
+        transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
+                    filter 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
+                    transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
+                    color 0.3s ease;
+        will-change: opacity, filter, transform;
+        cursor: default;
+      }
+
+      /* Lit / Active State for Word */
+      .m-word.is-lit {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0) rotateX(0deg);
+        color: #111111;
+      }
+
+      /* Interactive Hover Physics on individual words */
+      .m-word:hover {
+        transform: translateY(-4px) scale(1.06) !important;
+        transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+        text-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Special Luxury Word Accents */
+      .m-word.highlight-year {
+        font-style: italic;
+        font-family: 'Syne', sans-serif;
+        font-weight: 800;
+        background: linear-gradient(135deg, #111111 20%, #7d6b4f 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .m-word.highlight-planet.is-lit {
+        background: linear-gradient(135deg, #183e28 0%, #2f6946 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .m-word.highlight-community.is-lit {
+        background: linear-gradient(135deg, #6c321d 0%, #9e5336 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .m-word.highlight-core {
+        position: relative;
+      }
+      .m-word.highlight-core::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 2px;
+        width: 0%;
+        height: 2.5px;
+        background: #111;
+        border-radius: 2px;
+        transition: width 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+      }
+      .m-word.highlight-core.is-lit::after {
+        width: 100%;
+      }
+
+      /* Brand Pillars Bar at the Bottom of Manifesto */
+      .manifesto-pillars {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5rem 3rem;
+        padding-top: 2.2rem;
+        border-top: 1px solid rgba(17, 17, 17, 0.12);
+        width: 100%;
+        max-width: 920px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+      }
+
+      .manifesto-section.is-visible .manifesto-pillars {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .pillar-item {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        transition: transform 0.3s ease;
+      }
+      .pillar-item:hover {
+        transform: translateY(-2px);
+      }
+
+      .pillar-num {
+        font-family: var(--mono, monospace);
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: #777;
+        letter-spacing: 0.05em;
+        background: rgba(0, 0, 0, 0.05);
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+      }
+
+      .pillar-title {
+        font-family: var(--mono, monospace);
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #222;
+      }
+
+      .pillar-divider {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #bbb;
+      }
+
+      @media (max-width: 768px) {
+        .manifesto-section {
+          padding: 4.8rem 1.25rem;
+        }
+        .manifesto-heading {
+          font-size: clamp(1.65rem, 6.5vw, 2.3rem);
+          margin-bottom: 2rem;
+        }
+        .manifesto-pillars {
+          flex-direction: column;
+          gap: 0.85rem;
+          align-items: flex-start;
+          padding-left: 0.5rem;
+        }
+        .pillar-divider {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body class="home-page">
@@ -611,10 +882,135 @@
         });
       </script>
 
-      <!-- 1.2 ABOUT US TEXT SECTION -->
-      <section class="about-hero-text" style="background-color: #F8F6F2; padding: 6rem 2rem; text-align: center; border-bottom: 1px solid #111;">
-        <h2 style="font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: #343A30; max-width: 950px; margin: 0 auto; line-height: 1.35; letter-spacing: -0.01em;">Since '96, we've crafted apparel that's built to last, kind to the planet, and rooted in community.</h2>
+      <!-- 1.2 ABOUT US / BRAND MANIFESTO SECTION -->
+      <section class="about-hero-text manifesto-section" id="manifestoSection">
+        <div class="manifesto-bg-aura" id="manifestoAura"></div>
+        <div class="manifesto-spotlight" id="manifestoSpotlight"></div>
+
+        <div class="manifesto-container">
+          <div class="manifesto-badge">
+            <span class="manifesto-pulse-dot"></span>
+            <span class="manifesto-badge-text">EST. 1996 &bull; OUR MANIFESTO</span>
+          </div>
+
+          <h2 class="manifesto-heading" id="manifestoHeading">
+            <span class="m-word">Since</span>
+            <span class="m-word highlight-year">'96,</span>
+            <span class="m-word">we've</span>
+            <span class="m-word">crafted</span>
+            <span class="m-word">apparel</span>
+            <span class="m-word">that's</span>
+            <span class="m-word highlight-core">built</span>
+            <span class="m-word highlight-core">to</span>
+            <span class="m-word highlight-core">last,</span>
+            <span class="m-word highlight-planet">kind</span>
+            <span class="m-word highlight-planet">to</span>
+            <span class="m-word highlight-planet">the</span>
+            <span class="m-word highlight-planet">planet,</span>
+            <span class="m-word">and</span>
+            <span class="m-word highlight-community">rooted</span>
+            <span class="m-word highlight-community">in</span>
+            <span class="m-word highlight-community">community.</span>
+          </h2>
+
+          <div class="manifesto-pillars">
+            <div class="pillar-item">
+              <span class="pillar-num">01</span>
+              <span class="pillar-title">100% Organic Combed Cotton</span>
+            </div>
+            <div class="pillar-divider"></div>
+            <div class="pillar-item">
+              <span class="pillar-num">02</span>
+              <span class="pillar-title">Timeless Bespoke Fit</span>
+            </div>
+            <div class="pillar-divider"></div>
+            <div class="pillar-item">
+              <span class="pillar-num">03</span>
+              <span class="pillar-title">Sustainable Ethical Craft</span>
+            </div>
+          </div>
+        </div>
       </section>
+
+      <script>
+        // Kinetic Scroll & Spotlight Animation for Manifesto Section
+        (function() {
+          const section = document.getElementById('manifestoSection');
+          const heading = document.getElementById('manifestoHeading');
+          const aura = document.getElementById('manifestoAura');
+          if (!section || !heading) return;
+
+          const words = heading.querySelectorAll('.m-word');
+
+          // 1. Intersection Observer for trigger
+          let hasTriggered = false;
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                section.classList.add('is-visible');
+                // Staggered reveal if not already scrubbed
+                if (!hasTriggered) {
+                  words.forEach((word, index) => {
+                    setTimeout(() => {
+                      word.classList.add('is-lit');
+                    }, index * 65);
+                  });
+                  hasTriggered = true;
+                }
+              }
+            });
+          }, { threshold: 0.25 });
+
+          observer.observe(section);
+
+          // 2. Interactive Scroll-driven Illumination Scrubbing
+          function onScroll() {
+            if (!section) return;
+            const rect = section.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // Calculate progress from when top enters to when center reaches top
+            const startY = windowHeight * 0.85;
+            const endY = windowHeight * 0.2;
+            const progress = Math.min(Math.max((startY - rect.top) / (startY - endY), 0), 1);
+
+            if (progress > 0) {
+              const activeCount = Math.floor(progress * (words.length + 2));
+              words.forEach((word, idx) => {
+                if (idx <= activeCount) {
+                  word.classList.add('is-lit');
+                } else if (progress < 0.15) {
+                  word.classList.remove('is-lit');
+                }
+              });
+            }
+          }
+
+          window.addEventListener('scroll', onScroll, { passive: true });
+
+          // 3. Interactive Mouse Movement & Spotlight
+          section.addEventListener('mousemove', (e) => {
+            const rect = section.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            section.style.setProperty('--mouse-x', `${x}px`);
+            section.style.setProperty('--mouse-y', `${y}px`);
+
+            if (aura) {
+              const auraX = (x / rect.width - 0.5) * 50;
+              const auraY = (y / rect.height - 0.5) * 50;
+              aura.style.transform = `translate(calc(-50% + ${auraX}px), calc(-50% + ${auraY}px))`;
+            }
+          }, { passive: true });
+
+          section.addEventListener('mouseleave', () => {
+            if (aura) {
+              aura.style.transform = 'translate(-50%, -50%)';
+            }
+          });
+        })();
+      </script>
 
       <!-- 1.5 NEW ARRIVALS LARGE CARDS SECTION -->
       <section class="large-product-showcase" style="width: 100%; border-top: 1px solid #111; border-bottom: none;">
