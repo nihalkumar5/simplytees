@@ -59,7 +59,7 @@ body { background:var(--paper); color:var(--ink); }.dispatch-bar { background:va
 .shop-categories { background: var(--paper); }
 .category-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
 .cat-card { display: flex; flex-direction: column; background: #f4f4f4; border-radius: 12px; overflow: hidden; text-decoration: none; color: var(--ink); transition: transform 0.2s ease, box-shadow 0.2s ease; }
-.cat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+
 .cat-card-img { position: relative; height: 320px; display: flex; align-items: center; justify-content: center; background: #eaeaea; }
 .cat-card-img i { transform: scale(1.5); }
 .cat-card-text { padding: 1.5rem; background: #fff; border-top: 1px solid rgba(0,0,0,0.05); }
@@ -2577,7 +2577,7 @@ body {
   transition: transform 0.4s var(--spring), box-shadow 0.4s var(--spring) !important;
 }
 
-.cat-card:hover, .product-card:hover, .testimonial-card:hover, .lookbook-card:hover {
+.product-card:hover, .testimonial-card:hover, .lookbook-card:hover {
   transform: translateY(-6px) !important;
   box-shadow: 0 16px 36px rgba(18, 19, 17, 0.08) !important;
 }
@@ -5226,7 +5226,7 @@ nav.nav.mobile-only {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease !important;
   will-change: transform;
 }
-.product-card:hover, .cat-card:hover {
+.product-card:hover {
   transform: translateY(-8px) scale(1.01) !important;
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12) !important;
 }
