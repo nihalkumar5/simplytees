@@ -1123,3 +1123,31 @@ window.filterNewArrivals = function(category, btnElement) {
   });
 };
 
+
+// Hide mobile bottom nav on scroll down, show on scroll up
+(function initMobileNavScroll() {
+  const bottomNav = document.querySelector('.mobile-bottom-nav');
+  if (!bottomNav) return;
+
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    
+    // If scrolled down more than 50px
+    if (currentScrollY > 50) {
+      if (currentScrollY > lastScrollY) {
+        // Scrolling down -> hide
+        bottomNav.style.transform = 'translateY(100%)';
+      } else {
+        // Scrolling up -> show
+        bottomNav.style.transform = 'translateY(0)';
+      }
+    } else {
+      // Top of page -> show
+      bottomNav.style.transform = 'translateY(0)';
+    }
+
+    lastScrollY = currentScrollY;
+  }, { passive: true });
+})();
