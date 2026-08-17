@@ -8,6 +8,94 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=11">
+    <style>
+      .site-header {
+        position: fixed !important;
+        top: 1.65rem !important;
+        width: 100% !important;
+        z-index: 9999 !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border-bottom: none !important;
+        transition: top 0.3s ease, padding 0.3s ease;
+      }
+      .site-header.is-scrolled {
+        top: 0 !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+      }
+      .site-header .header-inner {
+        background: transparent !important;
+      }
+      .hero.full-width-hero::after {
+        display: none !important;
+      }
+      /* Super Modern Slider */
+      .custom-modern-slider {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        background: #000;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .slider-slide {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        opacity: 0;
+        z-index: 1;
+        clip-path: circle(0% at 50% 50%);
+        transform: scale(1.1);
+        transition: clip-path 1.2s cubic-bezier(0.85, 0, 0.15, 1), transform 1.2s cubic-bezier(0.85, 0, 0.15, 1);
+      }
+      .slider-slide.active-slide {
+        opacity: 1;
+        z-index: 2;
+        clip-path: circle(150% at 50% 50%);
+        transform: scale(1);
+      }
+      .slider-slide.prev-slide {
+        opacity: 1;
+        z-index: 1;
+        clip-path: circle(150% at 50% 50%);
+        transform: scale(0.9);
+        transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1);
+      }
+      .slider-slide picture, .slider-slide img {
+        width: 100%; height: 100%; object-fit: cover; display: block;
+        opacity: 1 !important; filter: none !important;
+      }
+      .slider-controls {
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 10;
+        display: flex;
+        gap: 1rem;
+      }
+      .slider-btn {
+        background: rgba(255,255,255,0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.5);
+        color: #fff;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        transition: background 0.3s, transform 0.3s;
+      }
+      .slider-btn:hover {
+        background: rgba(255,255,255,0.4);
+        transform: scale(1.1);
+      }
+    </style>
   </head>
   <body class="home-page">
 
@@ -377,12 +465,78 @@
 
         <main id="main">
       <!-- 1. HERO SECTION -->
-      <section id="top" class="hero full-width-hero" style="width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-        <picture style="width: 100%; display: block;">
-          <source media="(max-width: 768px)" srcset="assets/images/hero-tshirt.png">
-          <img src="assets/images/tshirt_hero.png" alt="Hero Banner" style="width: 100%; height: auto; object-fit: cover;">
-        </picture>
+      <section id="top" class="hero full-width-hero custom-modern-slider">
+        <div class="slider-slide active-slide">
+          <picture>
+            <source media="(max-width: 768px)" srcset="assets/images/hero-tshirt.png">
+            <img src="assets/images/tshirt_hero.png" alt="Hero Banner">
+          </picture>
+        </div>
+        <div class="slider-slide">
+          <picture>
+            <source media="(max-width: 768px)" srcset="assets/images/hero-tshirt-1.png">
+            <img src="assets/images/hero-tshirt-1.png" alt="Hero Banner 2">
+          </picture>
+        </div>
+
+        <div class="slider-controls">
+          <button class="slider-btn prev-btn" aria-label="Previous slide">&#8592;</button>
+          <button class="slider-btn next-btn" aria-label="Next slide">&#8594;</button>
+        </div>
       </section>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const slides = document.querySelectorAll('.slider-slide');
+          if(slides.length === 0) return;
+          let current = 0;
+          let isAnimating = false;
+
+          function goToSlide(index) {
+            if (isAnimating || index === current) return;
+            isAnimating = true;
+
+            const next = index;
+            const currentSlide = slides[current];
+            const nextSlide = slides[next];
+
+            slides.forEach(s => {
+              s.classList.remove('prev-slide');
+              s.style.zIndex = 0;
+            });
+            
+            currentSlide.style.zIndex = 1;
+            currentSlide.classList.add('prev-slide');
+            
+            nextSlide.style.zIndex = 2;
+            nextSlide.classList.add('active-slide');
+
+            setTimeout(() => {
+              currentSlide.classList.remove('active-slide');
+              current = next;
+              isAnimating = false;
+            }, 1200); 
+          }
+
+          const nextBtn = document.querySelector('.next-btn');
+          const prevBtn = document.querySelector('.prev-btn');
+          
+          if(nextBtn) {
+            nextBtn.addEventListener('click', () => {
+              goToSlide((current + 1) % slides.length);
+            });
+          }
+          if(prevBtn) {
+            prevBtn.addEventListener('click', () => {
+              goToSlide((current - 1 + slides.length) % slides.length);
+            });
+          }
+
+          setInterval(() => {
+             if(nextBtn) nextBtn.click();
+          }, 6000);
+        });
+      </script>
 
       <!-- 1.2 ABOUT US TEXT SECTION -->
       <section class="about-hero-text" style="background-color: #F8F6F2; padding: 6rem 2rem; text-align: center; border-bottom: 1px solid #111;">
