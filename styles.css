@@ -5528,3 +5528,15 @@ nav.nav.mobile-only {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* Mobile responsive adjustments for New Arrivals showcase cards */
+@media (max-width: 768px) {
+  .showcase-card {
+    min-width: 220px !important;
+    flex: 0 0 75% !important;
+  }
+  .showcase-card img {
+    height: 45vh !important;
+  }
+}
