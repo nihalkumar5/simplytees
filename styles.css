@@ -5433,3 +5433,98 @@ nav.nav.mobile-only {
     width: 100% !important;
   }
 }
+
+
+/* =========================================================
+   HIGH PERFORMANCE & BUTTERY-SMOOTH MOTION SYSTEM
+   ========================================================= */
+
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: linear(0, 0.016 0.5%, 0.06 1%, 0.226 2%, 1.116 5.4%, 1.375 6.6%, 1.527 7.7%, 1.565 8.2%, 1.585 8.8%, 1.581 9.3%, 1.559 9.8%, 1.458 10.9%, 0.937 14.3%, 0.784 15.5%, 0.693 16.6%, 0.67 17.1%, 0.657 17.7%, 0.671 18.7%, 0.729 19.8%, 1.042 23.3%, 1.13 24.5%, 1.182 25.6%, 1.201 26.7%, 1.192 27.7%, 1.156 28.8%, 0.977 32.2%, 0.925 33.4%, 0.894 34.5%, 0.882 35.6%, 0.887 36.6%, 0.907 37.7%, 1.045 42.4%, 1.069 44.5%, 1.059 46.3%, 0.979 50.9%, 0.96 53.4%, 0.966 55.3%, 1.013 59.9%, 1.024 62.3%, 0.986 71.2%, 1.008 79.9%, 0.995 88.9%, 1);
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Defer offscreen rendering of heavy sections to achieve instant FCP and buttery 60fps scrolling */
+.manifesto-section,
+.category-scroll-showcase,
+.lookbook-hero-slider,
+.large-product-showcase,
+.our-story-split,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
+/* GPU Hardware Acceleration & Sub-pixel Smoothing */
+.product-card,
+.cat-card,
+.showcase-card,
+.slider-slide,
+.lookbook-slide,
+.dispatch-bar-marquee,
+.hero-shop-pill,
+.lb-explore-btn,
+.add-button {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Fluid Smooth Card & Interactive Hover Animations */
+.product-card {
+  transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo) !important;
+  will-change: transform;
+}
+.product-card:hover {
+  transform: translate3d(0, -6px, 0) scale(1.015) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.09) !important;
+}
+
+.cat-card {
+  transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo) !important;
+  will-change: transform;
+}
+.cat-card:hover {
+  transform: translate3d(0, -6px, 0) scale(1.01) !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08) !important;
+}
+
+.showcase-card {
+  transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo) !important;
+  will-change: transform;
+}
+.showcase-card:hover {
+  transform: translate3d(0, -5px, 0) !important;
+}
+
+.hero-shop-pill,
+.lb-explore-btn,
+.add-button {
+  transition: transform 0.35s var(--ease-out-expo), background-color 0.25s ease, color 0.25s ease, box-shadow 0.35s var(--ease-out-expo) !important;
+  will-change: transform;
+}
+.hero-shop-pill:hover,
+.lb-explore-btn:hover,
+.add-button:hover {
+  transform: translate3d(0, -2px, 0) scale(1.04) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Smooth Horizontal Scroll Snap Performance */
+.cat-scroll-track,
+.showcase-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

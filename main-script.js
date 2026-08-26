@@ -1087,20 +1087,25 @@ window.switchNewMobileTab = function(tabKey) {
 document.addEventListener('DOMContentLoaded', () => {
 /* Removed mega menu hover image preview switcher based on user feedback */
 
-  // 3D Tilt calculation on product cards
+  // 3D Tilt calculation on product cards (rAF throttled for 60/120fps smoothness)
   const cards = document.querySelectorAll('.product-card, .cat-card');
   cards.forEach(card => {
+    let tiltRaf = null;
     card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left - (rect.width / 2);
-      const y = e.clientY - rect.top - (rect.height / 2);
-      const rotX = (-y / rect.height) * 12;
-      const rotY = (x / rect.width) * 12;
-      card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-8px) scale(1.02)`;
-    });
+      if (tiltRaf) cancelAnimationFrame(tiltRaf);
+      tiltRaf = requestAnimationFrame(() => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - (rect.width / 2);
+        const y = e.clientY - rect.top - (rect.height / 2);
+        const rotX = (-y / rect.height) * 8;
+        const rotY = (x / rect.width) * 8;
+        card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translate3d(0, -6px, 0)`;
+      });
+    }, { passive: true });
 
     card.addEventListener('mouseleave', () => {
-      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)`;
+      if (tiltRaf) cancelAnimationFrame(tiltRaf);
+      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translate3d(0, 0, 0)`;
     });
   });
 });
@@ -1124,30 +1129,31 @@ window.filterNewArrivals = function(category, btnElement) {
 };
 
 
-// Hide mobile bottom nav on scroll down, show on scroll up
+// Hide mobile bottom nav on scroll down, show on scroll up (rAF throttled)
 (function initMobileNavScroll() {
   const bottomNav = document.querySelector('.mobile-bottom-nav');
   if (!bottomNav) return;
 
   let lastScrollY = window.scrollY;
+  let navTicking = false;
 
   window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-    
-    // If scrolled down more than 50px
-    if (currentScrollY > 50) {
-      if (currentScrollY > lastScrollY) {
-        // Scrolling down -> hide
-        bottomNav.style.transform = 'translateY(100%)';
-      } else {
-        // Scrolling up -> show
-        bottomNav.style.transform = 'translateY(0)';
-      }
-    } else {
-      // Top of page -> show
-      bottomNav.style.transform = 'translateY(0)';
+    if (!navTicking) {
+      window.requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > 50) {
+          if (currentScrollY > lastScrollY) {
+            bottomNav.style.transform = 'translate3d(0, 100%, 0)';
+          } else {
+            bottomNav.style.transform = 'translate3d(0, 0, 0)';
+          }
+        } else {
+          bottomNav.style.transform = 'translate3d(0, 0, 0)';
+        }
+        lastScrollY = currentScrollY;
+        navTicking = false;
+      });
+      navTicking = true;
     }
-
-    lastScrollY = currentScrollY;
   }, { passive: true });
 })();

@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="assets/images/asterra1.webp" fetchpriority="high">
     <link rel="stylesheet" href="styles.css?v=12">
     <style>
       /* Clean Modern Header & Hero Overrides */
@@ -1018,13 +1019,13 @@
         <!-- Slide 1 -->
         <div class="slider-slide active-slide" data-index="0">
           <picture>
-            <source media="(max-width: 768px)" srcset="assets/images/asterra1.webp">
-            <img src="assets/images/asterra1.webp" alt="Hero Banner 10">
+            <source media="(max-width: 768px)" srcset="assets/images/jk1.webp">
+            <img src="assets/images/jk1.webp" alt="Asterra Winter Vibes" loading="eager" fetchpriority="high" decoding="async">
           </picture>
           <div class="hero-overlay-scrim"></div>
           <div class="hero-content-wrapper">
-            <div class="hero-eyebrow">MADE TO MOVE WITH YOU</div>
-            <h1 class="hero-headline">FREESTYLE<br><span>COLLECTION</span></h1>
+            <div class="hero-eyebrow">NEW ARRIVALS</div>
+            <h1 class="hero-headline">WINTER<br><span>VIBES</span></h1>
             <div class="hero-action-row">
               <a href="shop.html" class="hero-shop-pill">SHOP NOW</a>
             </div>
@@ -1034,13 +1035,13 @@
         <!-- Slide 2 -->
         <div class="slider-slide" data-index="1">
           <picture>
-            <source media="(max-width: 768px)" srcset="assets/images/hero-zip-7.png">
-            <img src="assets/images/hero-zip-7.png" alt="Hero Banner Zip 7">
+            <source media="(max-width: 768px)" srcset="assets/images/jk2.webp">
+            <img src="assets/images/jk2.webp" alt="Streetwear Collection" loading="lazy" decoding="async">
           </picture>
           <div class="hero-overlay-scrim"></div>
           <div class="hero-content-wrapper">
             <div class="hero-eyebrow">DROP 02 // LIMITED RUN</div>
-            <h1 class="hero-headline">OVERSIZED<br><span>ARCHIVE</span></h1>
+            <h1 class="hero-headline">STREETWEAR<br><span>ESSENTIALS</span></h1>
             <div class="hero-action-row">
               <a href="shop.html" class="hero-shop-pill">SHOP NOW</a>
             </div>
@@ -1050,13 +1051,13 @@
         <!-- Slide 3 -->
         <div class="slider-slide" data-index="2">
           <picture>
-            <source media="(max-width: 768px)" srcset="assets/images/hero-tshirt-12.png">
-            <img src="assets/images/hero-tshirt-12.png" alt="Hero Banner Tshirt 12">
+            <source media="(max-width: 768px)" srcset="assets/images/jk3.webp">
+            <img src="assets/images/jk3.webp" alt="Everyday Comfort" loading="lazy" decoding="async">
           </picture>
           <div class="hero-overlay-scrim"></div>
           <div class="hero-content-wrapper">
-            <div class="hero-eyebrow">PREMIUM JERSEYS</div>
-            <h1 class="hero-headline">GAME DAY<br><span>READY</span></h1>
+            <div class="hero-eyebrow">PREMIUM FABRICS</div>
+            <h1 class="hero-headline">EVERYDAY<br><span>COMFORT</span></h1>
             <div class="hero-action-row">
               <a href="shop.html" class="hero-shop-pill">SHOP NOW</a>
             </div>
@@ -1066,13 +1067,29 @@
         <!-- Slide 4 -->
         <div class="slider-slide" data-index="3">
           <picture>
-            <source media="(max-width: 768px)" srcset="assets/images/good-friends-beach-with-guitar.jpg">
-            <img src="assets/images/good-friends-beach-with-guitar.jpg" alt="Good Friends Beach With Guitar">
+            <source media="(max-width: 768px)" srcset="assets/images/jk4.webp">
+            <img src="assets/images/jk4.webp" alt="Urban Statement" loading="lazy" decoding="async">
           </picture>
           <div class="hero-overlay-scrim"></div>
           <div class="hero-content-wrapper">
-            <div class="hero-eyebrow">SIGNATURE ESSENTIALS</div>
+            <div class="hero-eyebrow">SIGNATURE LOOKS</div>
             <h1 class="hero-headline">URBAN<br><span>STATEMENT</span></h1>
+            <div class="hero-action-row">
+              <a href="shop.html" class="hero-shop-pill">SHOP NOW</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slider-slide" data-index="4">
+          <picture>
+            <source media="(max-width: 768px)" srcset="assets/images/jk5.webp">
+            <img src="assets/images/jk5.webp" alt="Elevated Style" loading="lazy" decoding="async">
+          </picture>
+          <div class="hero-overlay-scrim"></div>
+          <div class="hero-content-wrapper">
+            <div class="hero-eyebrow">ELEVATED BASICS</div>
+            <h1 class="hero-headline">ELEVATED<br><span>STYLE</span></h1>
             <div class="hero-action-row">
               <a href="shop.html" class="hero-shop-pill">SHOP NOW</a>
             </div>
@@ -1103,6 +1120,13 @@
             <span class="dot-inner"></span>
           </button>
           <button class="hero-dot" data-slide="3" aria-label="Go to slide 4">
+            <svg class="progress-ring" viewBox="0 0 36 36">
+              <circle class="ring-bg" cx="18" cy="18" r="14"/>
+              <circle class="ring-bar" cx="18" cy="18" r="14"/>
+            </svg>
+            <span class="dot-inner"></span>
+          </button>
+          <button class="hero-dot" data-slide="4" aria-label="Go to slide 5">
             <svg class="progress-ring" viewBox="0 0 36 36">
               <circle class="ring-bg" cx="18" cy="18" r="14"/>
               <circle class="ring-bar" cx="18" cy="18" r="14"/>
@@ -1264,7 +1288,7 @@
       </section>
 
       <script>
-        // Kinetic Scroll & Spotlight Animation for Manifesto Section
+        // Kinetic Scroll & Spotlight Animation for Manifesto Section (rAF Throttled for 60/120fps)
         (function() {
           const section = document.getElementById('manifestoSection');
           const heading = document.getElementById('manifestoHeading');
@@ -1274,70 +1298,79 @@
           const words = heading.querySelectorAll('.m-word');
 
           // 1. Intersection Observer for trigger
+          let isIntersecting = false;
           let hasTriggered = false;
           const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
+              isIntersecting = entry.isIntersecting;
               if (entry.isIntersecting) {
                 section.classList.add('is-visible');
-                // Staggered reveal if not already scrubbed
                 if (!hasTriggered) {
                   words.forEach((word, index) => {
                     setTimeout(() => {
                       word.classList.add('is-lit');
-                    }, index * 65);
+                    }, index * 45);
                   });
                   hasTriggered = true;
                 }
               }
             });
-          }, { threshold: 0.25 });
+          }, { threshold: 0.15 });
 
           observer.observe(section);
 
-          // 2. Interactive Scroll-driven Illumination Scrubbing
+          // 2. Interactive Scroll-driven Illumination Scrubbing (rAF Throttled)
+          let scrollTicking = false;
           function onScroll() {
-            if (!section) return;
-            const rect = section.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
+            if (!isIntersecting || scrollTicking) return;
+            scrollTicking = true;
+            requestAnimationFrame(() => {
+              const rect = section.getBoundingClientRect();
+              const windowHeight = window.innerHeight;
+              const startY = windowHeight * 0.85;
+              const endY = windowHeight * 0.2;
+              const progress = Math.min(Math.max((startY - rect.top) / (startY - endY), 0), 1);
 
-            // Calculate progress from when top enters to when center reaches top
-            const startY = windowHeight * 0.85;
-            const endY = windowHeight * 0.2;
-            const progress = Math.min(Math.max((startY - rect.top) / (startY - endY), 0), 1);
-
-            if (progress > 0) {
-              const activeCount = Math.floor(progress * (words.length + 2));
-              words.forEach((word, idx) => {
-                if (idx <= activeCount) {
-                  word.classList.add('is-lit');
-                } else if (progress < 0.15) {
-                  word.classList.remove('is-lit');
-                }
-              });
-            }
+              if (progress > 0) {
+                const activeCount = Math.floor(progress * (words.length + 2));
+                words.forEach((word, idx) => {
+                  if (idx <= activeCount) {
+                    word.classList.add('is-lit');
+                  } else if (progress < 0.15) {
+                    word.classList.remove('is-lit');
+                  }
+                });
+              }
+              scrollTicking = false;
+            });
           }
 
           window.addEventListener('scroll', onScroll, { passive: true });
 
-          // 3. Interactive Mouse Movement & Spotlight
+          // 3. Interactive Mouse Movement & Spotlight (rAF Throttled)
+          let mouseRaf = null;
           section.addEventListener('mousemove', (e) => {
-            const rect = section.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            if (mouseRaf) cancelAnimationFrame(mouseRaf);
+            mouseRaf = requestAnimationFrame(() => {
+              const rect = section.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
 
-            section.style.setProperty('--mouse-x', `${x}px`);
-            section.style.setProperty('--mouse-y', `${y}px`);
+              section.style.setProperty('--mouse-x', `${x}px`);
+              section.style.setProperty('--mouse-y', `${y}px`);
 
-            if (aura) {
-              const auraX = (x / rect.width - 0.5) * 50;
-              const auraY = (y / rect.height - 0.5) * 50;
-              aura.style.transform = `translate(calc(-50% + ${auraX}px), calc(-50% + ${auraY}px))`;
-            }
+              if (aura) {
+                const auraX = (x / rect.width - 0.5) * 40;
+                const auraY = (y / rect.height - 0.5) * 40;
+                aura.style.transform = `translate3d(calc(-50% + ${auraX}px), calc(-50% + ${auraY}px), 0)`;
+              }
+            });
           }, { passive: true });
 
           section.addEventListener('mouseleave', () => {
+            if (mouseRaf) cancelAnimationFrame(mouseRaf);
             if (aura) {
-              aura.style.transform = 'translate(-50%, -50%)';
+              aura.style.transform = 'translate3d(-50%, -50%, 0)';
             }
           });
         })();
@@ -1350,7 +1383,7 @@
           <!-- Card 1: Shop Men -->
           <a href="men.html" class="cat-card">
             <div class="cat-image-wrap">
-              <img src="assets/images/men12.png" alt="Shop Mens Collection" loading="lazy">
+              <img src="assets/images/men12.webp" alt="Shop Mens Collection" loading="lazy">
               <div class="cat-scrim"></div>
             </div>
             <div class="cat-content">
@@ -1363,7 +1396,7 @@
           <!-- Card 2: Shop Women -->
           <a href="women.html" class="cat-card">
             <div class="cat-image-wrap">
-              <img src="assets/images/women12.png" alt="Shop Womens Collection" loading="lazy">
+              <img src="assets/images/women12.webp" alt="Shop Womens Collection" loading="lazy">
               <div class="cat-scrim"></div>
             </div>
             <div class="cat-content">
@@ -1376,7 +1409,7 @@
           <!-- Card 3: Shop Accessories -->
           <a href="accessories.html" class="cat-card">
             <div class="cat-image-wrap">
-              <img src="assets/images/cat-accessories.png" alt="Shop Accessories Collection" loading="lazy">
+              <img src="assets/images/cat-accessories.webp" alt="Shop Accessories Collection" loading="lazy">
               <div class="cat-scrim"></div>
             </div>
             <div class="cat-content">
@@ -1396,7 +1429,7 @@
           <!-- Slide 1: Women Lookbook Model -->
           <div class="lookbook-slide active" data-lb-index="0">
             <div class="lb-image-wrap">
-              <img src="assets/images/good-friends-beach-with-guitar.jpg" alt="Discover What's New - Women Lookbook" loading="lazy">
+              <img src="assets/images/good-friends-beach-with-guitar.webp" alt="Discover What's New - Women Lookbook" loading="lazy">
               <div class="lb-scrim"></div>
             </div>
             <div class="lb-content">
@@ -1408,7 +1441,7 @@
           <!-- Slide 2: Men / Boys Lookbook Model -->
           <div class="lookbook-slide" data-lb-index="1">
             <div class="lb-image-wrap">
-              <img src="assets/images/hero-zip-7.png" alt="Discover What's New - Boys Lookbook" loading="lazy">
+              <img src="assets/images/hero-zip-7.webp" alt="Discover What's New - Boys Lookbook" loading="lazy">
               <div class="lb-scrim"></div>
             </div>
             <div class="lb-content">
@@ -1420,7 +1453,7 @@
           <!-- Slide 3: Streetwear Boys Model -->
           <div class="lookbook-slide" data-lb-index="2">
             <div class="lb-image-wrap">
-              <img src="assets/images/hero-tshirt-10.png" alt="Discover What's New - Freestyle Lookbook" loading="lazy">
+              <img src="assets/images/hero-tshirt-10.webp" alt="Discover What's New - Freestyle Lookbook" loading="lazy">
               <div class="lb-scrim"></div>
             </div>
             <div class="lb-content">
@@ -1531,7 +1564,7 @@
               <button style="position: absolute; top: 1rem; right: 1rem; z-index: 2; background: #fff; border: 1px solid #111; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"></path></svg>
               </button>
-              <img src="assets/images/tshirt_black.png" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product">
+              <img src="assets/images/tshirt_black.webp" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product" loading="lazy" decoding="async">
             </div>
             <div class="card-info" style="padding: 1rem; display: flex; flex-direction: column; gap: 1rem; background: #fff; flex-grow: 1;">
               <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0; text-transform: uppercase; text-align: left;">MARINE QUARTER CANVAS JACKET - NAVY</h3>
@@ -1554,7 +1587,7 @@
               <button style="position: absolute; top: 1rem; right: 1rem; z-index: 2; background: #fff; border: 1px solid #111; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"></path></svg>
               </button>
-              <img src="assets/images/tshirt_white.png" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product">
+              <img src="assets/images/tshirt_white.webp" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product" loading="lazy" decoding="async">
             </div>
             <div class="card-info" style="padding: 1rem; display: flex; flex-direction: column; gap: 1rem; background: #fff; flex-grow: 1;">
               <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0; text-transform: uppercase; text-align: left;">SAILING CLUB EMBROIDERED BOXY JERSEY - OFF WHITE</h3>
@@ -1577,7 +1610,7 @@
               <button style="position: absolute; top: 1rem; right: 1rem; z-index: 2; background: #fff; border: 1px solid #111; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"></path></svg>
               </button>
-              <img src="assets/images/tshirt_beige.png" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product">
+              <img src="assets/images/tshirt_beige.webp" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product" loading="lazy" decoding="async">
             </div>
             <div class="card-info" style="padding: 1rem; display: flex; flex-direction: column; gap: 1rem; background: #fff; flex-grow: 1;">
               <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0; text-transform: uppercase; text-align: left;">JOSHUA DENIM JEAN - WASHED ECRU</h3>
@@ -1603,7 +1636,7 @@
               <button style="position: absolute; top: 1rem; right: 1rem; z-index: 2; background: #fff; border: 1px solid #111; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"></path></svg>
               </button>
-              <img src="assets/images/tshirt_olive.png" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product">
+              <img src="assets/images/tshirt_olive.webp" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product" loading="lazy" decoding="async">
             </div>
             <div class="card-info" style="padding: 1rem; display: flex; flex-direction: column; gap: 1rem; background: #fff; flex-grow: 1;">
               <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0; text-transform: uppercase; text-align: left;">NOMAD PANT - VINTAGE WASH</h3>
@@ -1663,7 +1696,7 @@
       <!-- 1.7 OUR STORY SPLIT SECTION -->
       <section class="our-story-split">
         <div class="story-image">
-          <img src="assets/images/asterra-hero.png" alt="Our Story">
+          <img src="assets/images/asterra-hero.webp" alt="Our Story" loading="lazy" decoding="async">
         </div>
         <div class="story-content">
           <h2>P&CO SAILING CLUB</h2>
@@ -1751,7 +1784,7 @@
               <button style="position: absolute; top: 1rem; right: 1rem; z-index: 2; background: #fff; border: 1px solid #111; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"></path></svg>
               </button>
-              <img src="assets/images/tshirt_black.png" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product">
+              <img src="assets/images/tshirt_black.webp" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product" loading="lazy" decoding="async">
             </div>
             <div class="card-info" style="padding: 1rem; display: flex; flex-direction: column; gap: 1rem; background: #fff; flex-grow: 1;">
               <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0; text-transform: uppercase; text-align: left;">CLASSIC OVERSIZED TEE</h3>
@@ -1772,7 +1805,7 @@
               <button style="position: absolute; top: 1rem; right: 1rem; z-index: 2; background: #fff; border: 1px solid #111; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"></path></svg>
               </button>
-              <img src="assets/images/tshirt_olive.png" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product">
+              <img src="assets/images/tshirt_olive.webp" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product" loading="lazy" decoding="async">
             </div>
             <div class="card-info" style="padding: 1rem; display: flex; flex-direction: column; gap: 1rem; background: #fff; flex-grow: 1;">
               <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0; text-transform: uppercase; text-align: left;">HEAVYWEIGHT PULLOVER HOODIE</h3>
@@ -1793,7 +1826,7 @@
               <button style="position: absolute; top: 1rem; right: 1rem; z-index: 2; background: #fff; border: 1px solid #111; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"></path></svg>
               </button>
-              <img src="assets/images/tshirt_beige.png" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product">
+              <img src="assets/images/tshirt_beige.webp" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product" loading="lazy" decoding="async">
             </div>
             <div class="card-info" style="padding: 1rem; display: flex; flex-direction: column; gap: 1rem; background: #fff; flex-grow: 1;">
               <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0; text-transform: uppercase; text-align: left;">CANVAS UTILITY TOTE</h3>
@@ -1814,7 +1847,7 @@
               <button style="position: absolute; top: 1rem; right: 1rem; z-index: 2; background: #fff; border: 1px solid #111; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"></path></svg>
               </button>
-              <img src="assets/images/tshirt_white.png" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product">
+              <img src="assets/images/tshirt_white.webp" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product" loading="lazy" decoding="async">
             </div>
             <div class="card-info" style="padding: 1rem; display: flex; flex-direction: column; gap: 1rem; background: #fff; flex-grow: 1;">
               <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0; text-transform: uppercase; text-align: left;">SOFT ORGANIC CREW TEE</h3>
@@ -1835,7 +1868,7 @@
               <button style="position: absolute; top: 1rem; right: 1rem; z-index: 2; background: #fff; border: 1px solid #111; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"></path></svg>
               </button>
-              <img src="assets/images/tshirt_black.png" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product">
+              <img src="assets/images/tshirt_black.webp" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product" loading="lazy" decoding="async">
             </div>
             <div class="card-info" style="padding: 1rem; display: flex; flex-direction: column; gap: 1rem; background: #fff; flex-grow: 1;">
               <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0; text-transform: uppercase; text-align: left;">FEMALE CROP TOP</h3>
@@ -1856,7 +1889,7 @@
               <button style="position: absolute; top: 1rem; right: 1rem; z-index: 2; background: #fff; border: 1px solid #111; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"></path></svg>
               </button>
-              <img src="assets/images/tshirt_white.png" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product">
+              <img src="assets/images/tshirt_white.webp" style="width: 100%; height: 65vh; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="Product" loading="lazy" decoding="async">
             </div>
             <div class="card-info" style="padding: 1rem; display: flex; flex-direction: column; gap: 1rem; background: #fff; flex-grow: 1;">
               <h3 style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.05em; margin: 0; text-transform: uppercase; text-align: left;">FEMALE CLASSIC CREW</h3>
@@ -1882,21 +1915,21 @@
           </div>
           <div class="lookbook-grid">
             <div class="lookbook-card">
-              <div class="lookbook-img" style="background-image: url('assets/images/tshirt_black.png');"></div>
+              <div class="lookbook-img" style="background-image: url('assets/images/tshirt_black.webp');"></div>
               <div class="lookbook-content">
                 <h3>280 GSM Heavy Cotton</h3>
                 <p>Spun from long-staple organic cotton. Structured drop-shoulders with ribbed collars engineered to maintain shape over time.</p>
               </div>
             </div>
             <div class="lookbook-card">
-              <div class="lookbook-img" style="background-image: url('assets/images/tshirt_olive.png');"></div>
+              <div class="lookbook-img" style="background-image: url('assets/images/tshirt_olive.webp');"></div>
               <div class="lookbook-content">
                 <h3>Vegetable Tanned Leather</h3>
                 <p>Aged with natural tree bark tannins. Unsealed surfaces develop a distinct patina unique to how you carry your objects.</p>
               </div>
             </div>
             <div class="lookbook-card">
-              <div class="lookbook-img" style="background-image: url('assets/images/tshirt_beige.png');"></div>
+              <div class="lookbook-img" style="background-image: url('assets/images/tshirt_beige.webp');"></div>
               <div class="lookbook-content">
                 <h3>Recast Silver Hardware</h3>
                 <p>Solid 925 sterling silver cast in small batches. Matte brushed finishes with clean geometric silhouettes.</p>
@@ -2073,7 +2106,7 @@
 
           <!-- Central Model Image -->
           <div class="footer-model-wrapper">
-            <img src="assets/images/tshirt_hero.png" alt="ASTERra Editorial Fashion" class="footer-model-img">
+            <img src="assets/images/tshirt_hero.webp" alt="ASTERra Editorial Fashion" class="footer-model-img" loading="lazy" decoding="async">
           </div>
 
           <!-- Torn Painted Discount Badge on Right -->
