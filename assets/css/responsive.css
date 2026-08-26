@@ -1,0 +1,136 @@
+/* ==========================================================================
+   CONSOLIDATED RESPONSIVE & MOBILE MODULE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-content-minimal {
+    left: 2rem;
+    bottom: 2.5rem;
+  }
+  .hero-pagination-dots {
+    right: 2rem;
+    bottom: 2.5rem;
+  }
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .feature-col:nth-child(2) {
+    border-right: none;
+  }
+  .feature-col:nth-child(1),
+  .feature-col:nth-child(2) {
+    border-bottom: 1px solid #111;
+  }
+  .our-story-split {
+    grid-template-columns: 1fr;
+  }
+  .story-split-img {
+    border-right: none;
+    border-bottom: 1px solid #111;
+    min-height: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Header & Navigation */
+  .new-site-header {
+    padding: 0.6rem 1rem !important;
+  }
+  
+  /* Hero Slider Mobile */
+  .custom-modern-slider {
+    height: 72vh !important;
+    min-height: 440px !important;
+  }
+  
+  .hero-content-minimal {
+    left: 1.25rem !important;
+    right: 1.25rem !important;
+    bottom: 2rem !important;
+    max-width: 100% !important;
+  }
+  
+  .hero-title-giant {
+    font-size: 3.2rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+  
+  .hero-sub-text {
+    font-size: 0.85rem !important;
+    margin-bottom: 1.2rem !important;
+    max-width: 100% !important;
+  }
+  
+  .hero-pagination-dots {
+    right: 1.25rem !important;
+    bottom: 2rem !important;
+    gap: 0.5rem !important;
+  }
+  
+  .hero-dot {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .hero-dot svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  
+  /* Manifesto Mobile */
+  .about-hero-text.manifesto-section {
+    padding: 4rem 1.25rem 3rem !important;
+  }
+  
+  .manifesto-title {
+    font-size: 1.9rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  .manifesto-pillars-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  /* Product Cards & Horizontal Showcase on Mobile */
+  .section-header-flex {
+    padding: 1.2rem 1.25rem !important;
+  }
+  
+  .showcase-card {
+    min-width: 220px !important;
+    flex: 0 0 75% !important;
+  }
+  
+  .card-image-wrap img {
+    height: 45vh !important;
+    min-height: 280px !important;
+  }
+  
+  .card-info {
+    padding: 1rem !important;
+  }
+  
+  /* Lookbook Hero Slider Mobile */
+  .lookbook-hero-slider {
+    height: 380px !important;
+  }
+  
+  .lookbook-content-wrap {
+    left: 1.25rem !important;
+    bottom: 1.5rem !important;
+  }
+  
+  .lb-indicators {
+    right: 1.25rem !important;
+    bottom: 1.5rem !important;
+  }
+
+  /* Story Split & Core Values Mobile */
+  .story-split-content {
+    padding: 2.5rem 1.25rem !important;
+  }
+  
+  .core-values-section {
+    padding: 4rem 1.25rem !important;
+  }
+}

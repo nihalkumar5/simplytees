@@ -1,0 +1,133 @@
+/* ==========================================================================
+   MANIFESTO & BRAND STORY MODULE
+   ========================================================================== */
+.about-hero-text.manifesto-section {
+  position: relative;
+  background: #080808;
+  color: #fff;
+  padding: 8rem 2rem 6rem;
+  overflow: hidden;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.manifesto-bg-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+  transform: translate3d(-50%, -50%, 0);
+  pointer-events: none;
+  z-index: 1;
+  transition: transform 0.2s ease-out;
+}
+
+.manifesto-spotlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle 350px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.06), transparent 80%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.manifesto-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.manifesto-badge-row {
+  margin-bottom: 2rem;
+}
+
+.manifesto-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font: 500 0.72rem var(--mono);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.manifesto-title {
+  font-family: var(--title-font, 'Syne', sans-serif);
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0 0 3.5rem 0;
+}
+
+.m-word {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.2);
+  transition: color 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease;
+  cursor: default;
+}
+
+.m-word.is-lit {
+  color: #fff;
+}
+
+.m-word:hover {
+  color: #fff !important;
+  transform: translateY(-3px) scale(1.04);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.m-accent {
+  font-style: italic;
+  font-family: 'DM Mono', monospace;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.m-accent.is-lit {
+  color: #d0c0a5;
+}
+
+.manifesto-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pillar-item {
+  text-align: left;
+}
+
+.pillar-num {
+  font: 500 0.75rem var(--mono);
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.5rem;
+}
+
+.pillar-title {
+  font: 700 1.05rem var(--body-font);
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.01em;
+}
+
+.pillar-desc {
+  font: 400 0.85rem var(--body-font);
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.5;
+  margin: 0;
+}

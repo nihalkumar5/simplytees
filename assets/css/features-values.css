@@ -1,0 +1,179 @@
+/* ==========================================================================
+   FEATURES BAR & CORE VALUES MODULE
+   ========================================================================== */
+.features-bar {
+  width: 100%;
+  border-bottom: 1px solid #111;
+  background: #fff;
+}
+
+.features-top-bar {
+  background: #191816;
+  color: #d0c0a5;
+  text-align: center;
+  padding: 0.5rem;
+  font: 700 0.65rem var(--mono);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid #111;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+}
+
+.feature-col {
+  padding: 2.5rem 1.5rem;
+  border-right: 1px solid #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.feature-col:last-child {
+  border-right: none;
+}
+
+.feature-col h3 {
+  font: 800 0.85rem var(--body-font);
+  letter-spacing: 0.05em;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.feature-col p {
+  font: 500 0.72rem var(--body-font);
+  color: #444;
+  margin: 0 0 1.5rem;
+  line-height: 1.4;
+}
+
+.feature-info-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 0.6rem var(--mono);
+  color: #333;
+}
+
+/* Our Story Split Section */
+.our-story-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  border-bottom: 1px solid #111;
+  background: #f7f6f2;
+}
+
+.story-split-img {
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  object-fit: cover;
+  border-right: 1px solid #111;
+  display: block;
+}
+
+.story-split-content {
+  padding: 4rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.story-split-content h2 {
+  font: 800 clamp(2rem, 3vw, 2.8rem) var(--body-font);
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+  line-height: 1.1;
+}
+
+.story-split-content p {
+  font: 400 0.95rem var(--body-font);
+  color: #333;
+  line-height: 1.6;
+  margin: 0 0 2rem;
+}
+
+.story-split-content a {
+  font: 700 0.85rem var(--mono);
+  letter-spacing: 0.05em;
+  color: #111;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+/* Core Values Dark Section */
+.core-values-section {
+  background: #0a0a0a;
+  color: #fff;
+  padding: 7rem 2rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #222;
+}
+
+.core-values-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.value-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease, border-color 0.35s ease;
+  cursor: pointer;
+}
+
+.value-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+.value-item svg {
+  transition: transform 0.35s ease;
+}
+
+.value-item:hover svg {
+  transform: scale(1.1) translateY(-3px);
+}
+
+.value-item h4 {
+  font: 600 1.2rem var(--title-font, 'Syne', sans-serif);
+  color: #fff;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.value-item p {
+  font: 400 0.88rem var(--body-font);
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  line-height: 1.5;
+}

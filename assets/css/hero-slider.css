@@ -1,0 +1,234 @@
+/* ==========================================================================
+   HERO SLIDER & CAROUSEL MODULE
+   ========================================================================== */
+.custom-modern-slider {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 1.65rem);
+  min-height: 560px;
+  max-height: 960px;
+  background: #000;
+  overflow: hidden;
+  margin-top: 1.65rem;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slider-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
+  z-index: 1;
+}
+
+.slider-slide.active-slide {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+.slider-slide.prev-slide {
+  opacity: 0;
+  visibility: visible;
+  z-index: 1;
+}
+
+.slider-slide-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slider-slide-bg picture,
+.slider-slide-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.slider-slide.active-slide .slider-slide-bg img {
+  animation: slowZoomOut 7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes slowZoomOut {
+  0% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* Scrim overlay */
+.hero-scrim-cinematic {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.05) 30%,
+    rgba(0, 0, 0, 0.15) 60%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Hero Content */
+.hero-content-minimal {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 3rem;
+  z-index: 4;
+  max-width: 650px;
+  color: #fff;
+  pointer-events: auto;
+}
+
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 100px;
+  font: 600 0.7rem var(--mono);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.hero-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 8px #fff;
+}
+
+.hero-title-giant {
+  font-family: var(--title-font, 'Bebas Neue', sans-serif);
+  font-size: clamp(3rem, 7.5vw, 6.5rem);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+.hero-sub-text {
+  font: 400 1rem var(--body-font, 'Manrope', sans-serif);
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.75rem;
+  max-width: 440px;
+  line-height: 1.5;
+}
+
+.hero-action-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2.2rem;
+  background: #fff;
+  color: #000;
+  font: 700 0.8rem var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 100px;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.hero-btn-primary:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+/* Dots & Timer Progress */
+.hero-pagination-dots {
+  position: absolute;
+  bottom: 3.5rem;
+  right: 3rem;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-dot {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hero-dot svg {
+  transform: rotate(-90deg);
+  width: 36px;
+  height: 36px;
+}
+
+.hero-dot circle.bg-circle {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.25);
+  stroke-width: 2;
+}
+
+.hero-dot circle.progress-circle {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.5;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.3s;
+}
+
+.hero-dot.active.animating circle.progress-circle {
+  animation: strokeTimer 6s linear forwards;
+}
+
+@keyframes strokeTimer {
+  0% { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.hero-dot-inner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.hero-dot.active .hero-dot-inner {
+  background: #fff;
+  transform: scale(1.25);
+}
