@@ -72,7 +72,7 @@ main#main {
   border-bottom: 1px solid transparent;
 }
 
-.new-site-header.scrolled {
+.new-site-header.is-scrolled {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -80,10 +80,10 @@ main#main {
   padding: 0.6rem 2.5rem;
 }
 
-.new-site-header.scrolled .brand-logo-text,
-.new-site-header.scrolled .header-link,
-.new-site-header.scrolled .header-icon-btn,
-.new-site-header.scrolled .cart-count-badge {
+.new-site-header.is-scrolled .brand-logo-text,
+.new-site-header.is-scrolled .header-link,
+.new-site-header.is-scrolled .header-icon-btn,
+.new-site-header.is-scrolled .cart-count-badge {
   color: #000 !important;
 }
 

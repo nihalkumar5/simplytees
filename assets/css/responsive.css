@@ -97,13 +97,13 @@
   }
   
   .showcase-card {
-    min-width: 220px !important;
-    flex: 0 0 75% !important;
+    min-width: 180px !important;
+    flex: 0 0 60% !important;
   }
   
   .card-image-wrap img {
-    height: 45vh !important;
-    min-height: 280px !important;
+    height: 35vh !important;
+    min-height: 220px !important;
   }
   
   .card-info {
@@ -132,5 +132,22 @@
   
   .core-values-section {
     padding: 4rem 1.25rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-header-flex {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+  }
+  .section-header-flex div {
+    text-align: left !important;
+  }
+  .view-all-link {
+    align-self: flex-start !important;
+  }
+  .showcase-tabs {
+    align-self: flex-start !important;
   }
 }

@@ -1113,8 +1113,13 @@ document.addEventListener('DOMContentLoaded', () => {
 window.filterNewArrivals = function(category, btnElement) {
   const tabsContainer = btnElement.parentElement;
   const buttons = tabsContainer.querySelectorAll('button');
-  buttons.forEach(btn => btn.style.background = '#fff');
-  btnElement.style.background = '#ddd';
+  
+  buttons.forEach(btn => {
+    btn.classList.remove('active');
+    btn.style.background = '';
+    btn.style.color = '';
+  });
+  btnElement.classList.add('active');
 
   const showcaseScroll = tabsContainer.closest('.large-product-showcase').querySelector('.showcase-scroll');
   const cards = showcaseScroll.querySelectorAll('.showcase-card');
